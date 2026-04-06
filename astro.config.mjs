@@ -36,6 +36,26 @@ export default defineConfig({
 					slug: 'common-tasks'
 				},
 				{
+					label: 'Tutorials',
+					slug: 'tutorials'
+				},
+				{
+					label: 'Ground Control Points',
+					slug: 'ground-control-points'
+				},
+				{
+					label: 'Multispectral and Thermal',
+					slug: 'multispectral'
+				},
+				{
+					label: 'Large Datasets',
+					slug: 'large-datasets'
+				},
+				{
+					label: 'Flying Tips',
+					slug: 'flying-tips'
+				},
+				{
 					label: 'Frequently Asked Questions',
 					slug: 'faq'
 				},

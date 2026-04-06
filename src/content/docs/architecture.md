@@ -5,9 +5,9 @@ template: doc
 
 [WebODM](https://github.com/WebODM/WebODM) is composed of several components.
 
-- [ODM](https://github.com/OpenDroneMap/ODM) is a command line toolkit that processes aerial images. Users comfortable with the command line are probably OK using this component alone.
-- [NodeODM](https://github.com/OpenDroneMap/NodeODM) is a lightweight interface and API (Application Program Interface) built directly on top of [ODM](https://github.com/OpenDroneMap/ODM). Users not comfortable with the command line can use this interface to process aerial images and developers can use the API to build applications. Features such as user authentication, map displays, etc. are not provided.
-- [WebODM](https://github.com/WebODM/WebODM) adds more features such as user authentication, map displays, 3D displays, a higher level API and the ability to orchestrate multiple processing nodes (run jobs in parallel). Processing nodes are simply servers running [NodeODM](https://github.com/OpenDroneMap/NodeODM).
+- [ODM](https://github.com/WebODM/ODM) is a command line toolkit that processes aerial images. Users comfortable with the command line are probably OK using this component alone.
+- [NodeODM](https://github.com/WebODM/NodeODM) is a lightweight interface and API (Application Program Interface) built directly on top of [ODM](https://github.com/WebODM/ODM). Users not comfortable with the command line can use this interface to process aerial images and developers can use the API to build applications. Features such as user authentication, map displays, etc. are not provided.
+- [WebODM](https://github.com/WebODM/WebODM) adds more features such as user authentication, map displays, 3D displays, a higher level API and the ability to orchestrate multiple processing nodes (run jobs in parallel). Processing nodes are simply servers running [NodeODM](https://github.com/WebODM/NodeODM).
 
 ![webodm](https://cloud.githubusercontent.com/assets/1951843/25567386/5aeec7aa-2dba-11e7-9169-aca97b70db79.png)
 

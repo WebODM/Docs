@@ -5,7 +5,7 @@ template: doc
 
 There are many ways to contribute back to the project:
 
- - You can purchase [processing power](https://webodm.net) or a [book](https://odmbook.com/).
+ - You can purchase [a WebODM Lightning plan or credits](https://webodm.net) which helps fund development efforts.
  - Help us test new and existing features and [report](https://www.github.com/WebODM/WebODM/issues) bugs and feedback.
  - Share your aerial datasets.
  - Join a [community](https://webodm.org/community)

@@ -100,11 +100,11 @@ To install WebODM on a Qnap NAS:
 
 ### Manage Processing Nodes
 
-WebODM can be linked to one or more processing nodes that speak the [NodeODM API](https://github.com/OpenDroneMap/NodeODM/blob/master/docs/index.adoc), such as [NodeODM](https://github.com/OpenDroneMap/NodeODM), [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/), [ClusterODM](https://github.com/OpenDroneMap/ClusterODM) and [Lightning](https://webodm.net). The default configuration includes a "node-odm-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
+WebODM can be linked to one or more processing nodes that speak the [NodeODM API](https://github.com/WebODM/NodeODM/blob/master/docs/index.adoc), such as [NodeODM](https://github.com/WebODM/NodeODM), [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/), [ClusterODM](https://github.com/WebODM/ClusterODM) and [Lightning](https://webodm.net). The default configuration includes a "node-odm-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
 
 Adding more processing nodes will allow you to run multiple jobs in parallel.
 
-You can also setup a [ClusterODM](https://github.com/OpenDroneMap/ClusterODM) node to run a single task across multiple machines with [distributed split-merge](https://docs.opendronemap.org/large/?highlight=distributed#getting-started-with-distributed-split-merge) and process dozen of thousands of images more quickly, with less memory.
+You can also setup a [ClusterODM](https://github.com/WebODM/ClusterODM) node to run a single task across multiple machines with [distributed split-merge](https://docs.opendronemap.org/large/?highlight=distributed#getting-started-with-distributed-split-merge) and process dozen of thousands of images more quickly, with less memory.
 
 If you don't need the default "node-odm-1" node, simply pass `--default-nodes 0` flag when starting WebODM:
 

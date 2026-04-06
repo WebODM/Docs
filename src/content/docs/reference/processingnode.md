@@ -30,7 +30,7 @@ template: doc
 ```
 
 Processing nodes are associated with zero or more tasks and
-take care of processing input images. Processing nodes are computers or virtual machines running [NodeODM](https://github.com/OpenDroneMap/NodeODM) or any other API compatible with it.
+take care of processing input images. Processing nodes are computers or virtual machines running [NodeODM](https://github.com/WebODM/NodeODM) or any other API compatible with it.
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -56,7 +56,7 @@ help | Description of the option
 name | Name that identifies the option. This is the value you pass in the `name` key/value pair when creating a set of options for a new [Task](/reference/task/)
 type | Possible values are `int`, `float`, `string`, `bool`
 value | Default value if the option is not specified
-domain | Restriction of the range of values that this option allows. Examples are `float`, `negative integer`, `percent`, `float: 0 <= x <= 10`, etc. for all possible values, check [NodeODM's odmOptions.js code](https://github.com/OpenDroneMap/NodeODM/blob/master/libs/odmOptions.js#L135)
+domain | Restriction of the range of values that this option allows. Examples are `float`, `negative integer`, `percent`, `float: 0 <= x <= 10`, etc. for all possible values, check [NodeODM's odmOptions.js code](https://github.com/WebODM/NodeODM/blob/master/libs/odmOptions.js#L135)
 
 
 ### Add a processing node

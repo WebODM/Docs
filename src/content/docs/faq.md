@@ -22,3 +22,35 @@ For various reasons such as ease of backup/restore, if you want to store your fi
 ```
 
 Note that existing task results will not be available after the change. Refer to the [Migrate Data Volumes](https://docs.docker.com/engine/tutorials/dockervolumes/#backup-restore-or-migrate-data-volumes) section of the Docker documentation for information on migrating existing task results.
+
+## Can I process two or more orthophoto GeoTIFFs to stitch them together?
+
+No. WebODM is a photogrammetric software and orthophotos do not have the necessary camera information since the images have already been orthorectified. You can use this [QGIS plugin](https://github.com/uav4geo/QRasterMerge) to do that.
+
+## If I use the native version of the software, how can I allocate more resources for processing?
+
+No need; the native (non-docker) version of the software already uses all available resources.
+
+## I want to build a commercial application that includes WebODM. Do I need a commercial license?
+
+WebODM is free and open source software, released under the [AGPLv3](https://github.com/WebODM/WebODM/blob/master/LICENSE.md). You are free to build and sell applications with it, just make sure to comply with the requirements of the license, in particular the disclose source requirement and to follow our [trademark guidelines](https://github.com/WebODM/WebODM/blob/master/TRADEMARK.md).
+
+## Are there other licensing options aside from the AGPLv3?
+
+Nope, sorry!
+
+## Your computer is running out of memory, what can you do?
+
+1. First you can buy more RAM, this is the ultimate and final solution.
+2. Alternatively you can resize the images when uploading and/or tweak your quality settings.
+3. Configure a swapfile. In both Windows and Linux you will need preferably a fast SSD or an NVME drive, and the computing process will be still a LOT slower.
+
+   - If you are using Windows with [Docker+WSL2](https://docs.docker.com/desktop/windows/wsl/) you can add two rows in your .wslconfig file so that Docker will use a swapfile. See also the full Microsoft documentation on [Advanced settings configuration in WSL](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
+
+     ```
+     swap=128GB
+     swapfile=C:\temp\wsl-swap.vhdx
+     ```
+
+   - In Linux you can add a swap file or a partition dedicated to swap. For more information, please consult your search engine of choice as there are a lot of different distributions and methods to add swap.
+
