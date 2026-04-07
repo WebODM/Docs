@@ -3,7 +3,7 @@ title: Handling Errors
 template: doc
 ---
 
-All API calls use the status codes as described in the [Django REST Framework's Status Code Guide](http://www.django-rest-framework.org/api-guide/status-codes/), but generally you only need to check for success status codes (`200` or `204`), handle the special case of [Token Expiration](#token-expiration) (`403`) and report an error otherwise.
+All API calls use the status codes as described in the [Django REST Framework's Status Code Guide](http://www.django-rest-framework.org/api-guide/status-codes/), but generally you only need to check for success status codes (`200` or `204`), handle the special case of [Token Expiration](/reference/authentication/#token-expiration) (`403`) and report an error otherwise.
 
 ### Error Status Codes
 

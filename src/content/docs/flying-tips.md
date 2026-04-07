@@ -34,4 +34,4 @@ The guidelines are intended for drone mapping projects on islands, but have gene
 
 See also WebODM Lightning's guide on [Making Successful Maps](https://docs.webodm.net/references/create-successful-maps).
 
-Finally, lens distortion is a challenge in projects requiring accurate 3D data. See our section on [Calibrating the Camera](/tutorials/#calibrating-the-camera).
+Finally, lens distortion is a challenge in projects requiring accurate 3D data. See our section on [Calibrating the Camera](/tutorials/calibrating-the-camera/).

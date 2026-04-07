@@ -8,7 +8,7 @@ Making a code contribution might seem intimidating, but it's not too difficult:
 1. Make a fork of the [WebODM repository](https://github.com/WebODM/WebODM/)
 2. Clone your repository in a directory
 3. Create a new branch: `git checkout -b branchname`.
-4. [Setup a development environment](#setup-a-development-environment) with [docker](#docker-setup).
+4. [Setup a development environment](#setup-a-development-environment) with docker.
 5. Commit the changes: `git commit -a -m "describe your changes"`
 6. Push the changes to your repository: `git push origin branchname`
 7. Create a [pull request](https://github.com/WebODM/WebODM/compare) 
@@ -45,7 +45,7 @@ You can also modify the `docker-compose.yml` file to point to a different image.
 
 The backend is based mainly on [Django](https://www.djangoproject.com/) and [Django REST Framework](http://www.django-rest-framework.org/).
 
-We don't use much of Django's templating system, except for the `Administration` and `Processing Nodes` sections. Instead we use Django to expose an [API](#reference), which we then tie to a [React.js](https://facebook.github.io/react/) app.
+We don't use much of Django's templating system, except for the `Administration` and `Processing Nodes` sections. Instead we use Django to expose an [API](/reference/task/), which we then tie to a [React.js](https://facebook.github.io/react/) app.
 
 Directories of interest are listed as follow:
 
