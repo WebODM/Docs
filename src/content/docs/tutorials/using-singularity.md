@@ -8,16 +8,10 @@ title: Using Singularity
 
 Singularity can use Docker image to build SIF image.
 
-For latest WebODM Docker image (Recommended):
+For latest ODM Docker image (Recommended):
 
 ```bash
 singularity build --disable-cache -f odm_latest.sif docker://webodm/odm:latest
-```
-
-For latest WebODM GPU Docker image:
-
-```bash
-singularity build --disable-cache -f odm_gpu.sif docker://webodm/odm:gpu
 ```
 
 ### Using Singularity SIF Image
