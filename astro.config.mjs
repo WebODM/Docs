@@ -28,10 +28,6 @@ export default defineConfig({
 					slug: 'installation'
 				},
 				{
-					label: 'Tutorials',
-					slug: 'tutorials'
-				},
-				{
 					label: 'Ground Control Points',
 					slug: 'ground-control-points'
 				},
@@ -40,8 +36,49 @@ export default defineConfig({
 					slug: 'multispectral'
 				},
 				{
-					label: 'Large Datasets',
-					slug: 'large-datasets'
+					label: 'Tutorials',
+					items: [
+						{
+							label: 'Creating Quality Orthophotos',
+							slug: 'tutorials/creating-high-quality-orthophotos'
+						},
+						{
+							label: 'Digital Elevation Models',
+							slug: 'tutorials/creating-digital-elevation-models'
+						},
+						{
+							label: '3D Viewer',
+							slug: 'tutorials/potree-3d-viewer'
+						},
+						{
+							label: 'Measuring Stockpiles',
+							slug: 'tutorials/measuring-stockpile-volume'
+						},
+						{
+							label: 'Large Datasets',
+							slug: 'tutorials/large-datasets'
+						},
+						{
+							label: 'Using Docker',
+							slug: 'tutorials/using-docker'
+						},
+						{
+							label: 'Using Podman',
+							slug: 'tutorials/using-podman'
+						},
+						{
+							label: 'Calibrating the Camera',
+							slug: 'tutorials/calibrating-the-camera'
+						},
+						{
+							label: 'Using Image Masks',
+							slug: 'tutorials/using-image-masks'
+						},
+						{
+							label: 'Using Singularity',
+							slug: 'tutorials/using-singularity'
+						}
+					]
 				},
 				{
 					label: 'Flying Tips',
