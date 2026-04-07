@@ -172,3 +172,89 @@ You can add a new NodeODM node in WebODM by specifying an IPv6 address. Don't fo
 | Cannot start WebODM via `./webodm.sh start`, error messages are different at each retry                                         | You could be running out of memory. Make sure you have enough RAM available. 2GB should be the recommended minimum, unless you know what you are doing                                                                                                                                                                                                    |
 | On Windows, the storage space shown on the WebODM diagnostic page is not the same as what is actually set in Docker's settings. | From Hyper-V Manager, right-click "DockerDesktopVM", go to Edit Disk, then choose to expand the disk and match the maximum size to the settings specified in the docker settings. Upon making the changes, restart docker.                                                                                                                                |
 | On Linux or WSL, Warning: `GPU use was requested, but no GPU has been found`                                                    | Run `nvidia-smi` (natively) or `docker run --rm --gpus all nvidia/cuda:11.2.2-devel-ubuntu20.04 nvidia-smi` (docker) to check with [NVIDIA driver](https://www.nvidia.com/drivers/unix/) and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).                                     |
+
+## Common Administration Tasks
+
+It's fairly straightforward to manage an installation of WebODM. Here's a list of common operations you might need to do:
+
+### Reset Admin Password
+
+If you forgot the password you picked the first time you logged into WebODM, to reset it just type:
+
+```bash
+./webodm.sh start && ./webodm.sh resetadminpassword newpass
+```
+
+The password will be reset to `newpass`. The command will also tell you what username you chose.
+
+### Backup and Restore
+
+If you want to move WebODM to another system, you just need to transfer the docker volumes (unless you are storing your files on the file system).
+
+On the old system:
+
+```bash
+mkdir -v backup
+docker run --rm --volume webodm_dbdata:/temp --volume `pwd`/backup:/backup ubuntu tar cvf /backup/dbdata.tar /temp
+docker run --rm --volume webodm_appmedia:/temp --volume `pwd`/backup:/backup ubuntu tar cvf /backup/appmedia.tar /temp
+```
+
+Your backup files will be stored in the newly created `backup` directory. Transfer the `backup` directory to the new system, then on the new system:
+
+```bash
+ls backup # --> appmedia.tar  dbdata.tar
+./webodm.sh down # Make sure WebODM is down
+docker run --rm --volume webodm_dbdata:/temp --volume `pwd`/backup:/backup ubuntu bash -c "rm -fr /temp/* && tar xvf /backup/dbdata.tar"
+docker run --rm --volume webodm_appmedia:/temp --volume `pwd`/backup:/backup ubuntu bash -c "rm -fr /temp/* && tar xvf /backup/appmedia.tar"
+./webodm.sh start
+```
+
+### Update
+
+If you use docker, updating is as simple as running:
+
+```bash
+./webodm.sh update
+```
+
+### Customizing and Extending
+
+Small customizations such as changing the application colors, name, logo, or adding custom CSS/HTML/Javascript can be performed directly from the Customize -- Brand/Theme panels within WebODM. No need to fork or change the code.
+
+More advanced customizations can be achieved by [writing plugins](/plugin-development-guide/). This is the preferred way to add new functionality to WebODM since it requires less effort than maintaining a separate fork. The plugin system features server-side signals that can be used to be notified of various events, a ES6/React build system, a dynamic client-side API for adding elements to the UI, a built-in data store, an async task runner, hooks to add menu items and functions to rapidly inject CSS, Javascript and Django views.
+
+To learn more, start from the [plugin development guide](https://docs.webodm.org/plugin-development-guide/). It's also helpful to study the source code of [existing plugins](https://github.com/WebODM/WebODM/tree/master/coreplugins).
+
+If a particular hook / signal for your plugin does not yet exist, [request it](https://github.com/WebODM/WebODM/issues). We are adding hooks and signals as we go.
+
+
+## Hardware Requirements
+
+To run a standalone installation of WebODM (the user interface), including the processing component ([NodeODM](https://github.com/WebODM/NodeODM)), we recommend at a minimum:
+
+* 100 GB free disk space
+* 16 GB RAM
+
+Don't expect to process more than a few hundred images with these specifications. To process larger datasets, add more RAM linearly to the number of images you want to process:
+
+| Number of Images | RAM or RAM + Swap (GB) |
+| ---------------- | ---------------------- |
+| 40               | 4                      |
+| 250              | 16                     |
+| 500              | 32                     |
+| 1500             | 64                     |
+| 2500             | 128                    |
+| 3500             | 192                    |
+| 5000             | 256                    |
+
+:::note
+
+These are conservative estimates. A lot of factors influence memory usage, such as image dimensions, flight altitude and processing settings. So you might be able to process more images with less memory than reported above.
+
+:::
+
+A CPU with more cores will speed up processing, but can increase memory usage. GPU acceleration is also supported on Linux and WSL. To make use of your CUDA-compatible graphics card, make sure to pass `--gpu` when starting WebODM. You need the nvidia-docker installed in this case, see https://github.com/NVIDIA/nvidia-docker and https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker for information on docker/NVIDIA setup.
+
+WebODM runs best on Linux, but works well on Windows and Mac too.
+
+WebODM by itself is just a user interface and does not require many resources. WebODM can be loaded on a machine with just 1 or 2 GB of RAM and work fine without [NodeODM](https://github.com/WebODM/NodeODM). You can use a processing service such as [webodm.net](https://webodm.net) or run NodeODM on a separate, more powerful machine.

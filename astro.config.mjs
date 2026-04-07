@@ -28,14 +28,6 @@ export default defineConfig({
 					slug: 'installation'
 				},
 				{
-					label: 'Hardware Requirements',
-					slug: 'hardware-requirements'
-				},
-				{
-					label: 'Common Tasks',
-					slug: 'common-tasks'
-				},
-				{
 					label: 'Tutorials',
 					slug: 'tutorials'
 				},
