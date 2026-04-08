@@ -85,6 +85,10 @@ export default defineConfig({
 					slug: 'flying-tips'
 				},
 				{
+					label: 'Options & Flags',
+					slug: 'options-flags'
+				},
+				{
 					label: 'Frequently Asked Questions',
 					slug: 'faq'
 				},

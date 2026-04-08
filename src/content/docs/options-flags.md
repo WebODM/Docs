@@ -1,0 +1,656 @@
+---
+title: Arguments
+template: doc
+---
+
+This is the complete list of arguments available in [ODM](https://github.com/WebODM/ODM). Note that some of these will not be visible from [WebODM](https://github.com/WebODM/WebODM).
+
+## 3d-tiles
+
+Generate OGC 3D Tiles outputs.
+
+**Default:** `False`
+
+## align
+
+Path to a GeoTIFF DEM or a LAS/LAZ point cloud that the reconstruction outputs should be automatically aligned to. Experimental.
+
+**Options:** `<path string>`
+
+**Default:** `None`
+
+## auto-boundary
+
+Automatically set a boundary using camera shot locations to limit the area of the reconstruction. This can help remove far away background artifacts (sky, background landscapes, etc.). See also --boundary.
+
+**Default:** `False`
+
+## auto-boundary-distance
+
+Specify the distance between camera shot locations and the outer edge of the boundary when computing the boundary with --auto-boundary. Set to 0 to automatically choose a value.
+
+**Options:** `<positive float>`
+
+**Default:** `0`
+
+## bg-removal
+
+Automatically compute image masks using AI to remove the background. Experimental.
+
+**Default:** `False`
+
+## boundary
+
+GeoJSON polygon limiting the area of the reconstruction. Can be specified either as path to a GeoJSON file or as a JSON string representing the contents of a GeoJSON file.
+
+**Options:** `<json>`
+
+## build-overviews
+
+Build orthophoto overviews for faster display in programs such as QGIS.
+
+**Default:** `False`
+
+## camera-lens
+
+Set a camera projection type. Manually setting a value can help improve geometric undistortion. By default the application tries to determine a lens type from the images metadata.
+
+**Options:** `auto |  perspective |  brown |  fisheye |  fisheye_opencv |  spherical |  equirectangular |  dual`
+
+**Default:** `auto`
+
+## cameras
+
+Use the camera parameters computed from another dataset instead of calculating them. Can be specified either as path to a cameras.json file or as a JSON string representing the contents of a cameras.json file.
+
+**Options:** `<json>`
+
+## cog
+
+Create Cloud-Optimized GeoTIFFs instead of normal GeoTIFFs.
+
+**Default:** `False`
+
+## copy-to
+
+Copy output results to this folder after processing.
+
+**Options:** `<path>`
+
+## crop
+
+Automatically crop image outputs by creating a smooth buffer around the dataset boundaries, shrunk by N meters. Use 0 to disable cropping.
+
+**Options:** `<positive float>`
+
+**Default:** `3`
+
+## dem-decimation
+
+Decimate the points before generating the DEM. 1 is no decimation (full quality). 100 decimates ~99%% of the points. Useful for speeding up generation of DEM results in very large datasets.
+
+**Options:** `<positive integer>`
+
+**Default:** `1`
+
+## dem-euclidean-map
+
+Computes an euclidean raster map for each DEM. The map reports the distance from each cell to the nearest NODATA value (before any hole filling takes place). This can be useful to isolate the areas that have been filled.
+
+**Default:** `False`
+
+## dem-gapfill-steps
+
+Number of steps used to fill areas with gaps. Set to 0 to disable gap filling. Starting with a radius equal to the output resolution, N different DEMs are generated with progressively bigger radius using the inverse distance weighted (IDW) algorithm and merged together. Remaining gaps are then merged using nearest neighbor interpolation.
+
+**Options:** `<positive integer>`
+
+**Default:** `3`
+
+## dem-resolution
+
+DSM/DTM resolution in cm / pixel. Note that this value is capped by a ground sampling distance (GSD) estimate.
+
+**Options:** `<float>`
+
+**Default:** `5`
+
+## dsm
+
+Use this tag to build a DSM (Digital Surface Model, ground + objects) using a progressive morphological filter. Check the --dem* parameters for finer tuning.
+
+**Default:** `False`
+
+## dtm
+
+Use this tag to build a DTM (Digital Terrain Model, ground only) using a simple morphological filter. Check the --dem* and --smrf* parameters for finer tuning.
+
+**Default:** `False`
+
+## end-with
+
+End processing at this stage.
+
+**Options:** `dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report |  odm_postprocess`
+
+**Default:** `odm_postprocess`
+
+## fast-orthophoto
+
+Skips dense reconstruction and 3D model generation. It generates an orthophoto directly from the sparse reconstruction. If you just need an orthophoto and do not need a full 3D model, turn on this option.
+
+**Default:** `False`
+
+## feature-quality
+
+Set feature extraction quality. Higher quality generates better features, but requires more memory and takes longer.
+
+**Options:** `ultra |  high |  medium |  low |  lowest`
+
+**Default:** `high`
+
+## feature-type
+
+Choose the algorithm for extracting keypoints and computing descriptors.
+
+**Options:** `akaze |  dspsift |  hahog |  orb |  sift`
+
+**Default:** `dspsift`
+
+## force-gps
+
+Use images' GPS exif data for reconstruction, even if there are GCPs present.This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing.
+
+**Default:** `False`
+
+## gcp
+
+Path to the file containing the ground control points used for georeferencing. The file needs to use the following format: 
+
+EPSG:`<code>` or `<+proj definition>`
+
+geo_x geo_y geo_z im_x im_y image_name [gcp_name] [extra1] [extra2]
+
+**Options:** `<path string>`
+
+**Default:** `None`
+
+## geo
+
+Path to the image geolocation file containing the camera center coordinates used for georeferencing. If you don't have values for yaw/pitch/roll you can set them to 0. The file needs to use the following format: 
+
+EPSG:`<code>` or `<+proj definition>`
+
+image_name geo_x geo_y geo_z [yaw (degrees)] [pitch (degrees)] [roll (degrees)] [horz accuracy (meters)] [vert accuracy (meters)]
+
+**Options:** `<path string>`
+
+**Default:** `None`
+
+## gltf
+
+Generate single file Binary glTF (GLB) textured models.
+
+**Default:** `False`
+
+## gps-accuracy
+
+Set a value in meters for the GPS Dilution of Precision (DOP) information for all images. If your images are tagged with high precision GPS information (RTK), this value will be automatically set accordingly. You can use this option to manually set it in case the reconstruction fails. Lowering this option can sometimes help control bowling-effects over large areas.
+
+**Options:** `<positive float>`
+
+**Default:** `3`
+
+## gps-z-offset
+
+Set a GPS offset in meters for the vertical axis (Z) by adding it to the altitude value of the GPS EXIF data. This does not change the value of any GCPs. This can be useful for example when adjusting from ellipsoidal to orthometric height.
+
+**Options:** `<float>`
+
+**Default:** `0`
+
+## help
+
+show this help message and exit
+
+## ignore-gsd
+
+Ignore Ground Sampling Distance (GSD).A memory and processor hungry change relative to the default behavior if set to true. Ordinarily, GSD estimates are used to cap the maximum resolution of image outputs and resizes images when necessary, resulting in faster processing and lower memory usage. Since GSD is an estimate, sometimes ignoring it can result in slightly better image output quality. Never set --ignore-gsd to true unless you are positive you need it, and even then: do not use it.
+
+**Default:** `False`
+
+## matcher-neighbors
+
+Perform image matching with the nearest images based on GPS exif data. Set to 0 to match by triangulation.
+
+**Options:** `<positive integer>`
+
+**Default:** `0`
+
+## matcher-order
+
+Perform image matching with the nearest N images based on image filename order. Can speed up processing of sequential images, such as those extracted from video. It is applied only on non-georeferenced datasets. Set to 0 to disable.
+
+**Options:** `<positive integer>`
+
+**Default:** `0`
+
+## matcher-type
+
+Matcher algorithm, Fast Library for Approximate Nearest Neighbors or Bag of Words. FLANN is slower, but more stable. BOW is faster, but can sometimes miss valid matches. BRUTEFORCE is very slow but robust.
+
+**Options:** `bow |  bruteforce |  flann`
+
+**Default:** `flann`
+
+## max-concurrency
+
+The maximum number of processes to use in various processes. Peak memory requirement is ~1GB per thread and 2 megapixel image resolution.
+
+**Options:** `<positive integer>`
+
+**Default:** `4`
+
+## merge
+
+Choose what to merge in the merge step in a split dataset. By default all available outputs are merged. Options: ['all', 'pointcloud', 'orthophoto', 'dem'].
+
+**Options:** `all |  pointcloud |  orthophoto |  dem`
+
+**Default:** `all`
+
+## merge-skip-blending
+
+During the orthophoto merging, skip expensive blending operation: `False`
+
+**Default:** `False`
+
+## mesh-octree-depth
+
+Octree depth used in the mesh reconstruction, increase to get more vertices, recommended values are 8-12.
+
+**Options:** `<integer: 1 <= x <= 14>`
+
+**Default:** `11`
+
+## mesh-size
+
+The maximum vertex count of the output mesh.
+
+**Options:** `<positive integer>`
+
+**Default:** `200000`
+
+## min-num-features
+
+Minimum number of features to extract per image. More features can be useful for finding more matches between images, potentially allowing the reconstruction of areas with little overlap or insufficient features. More features also slow down processing.
+
+**Options:** `<integer>`
+
+**Default:** `10000`
+
+## name
+
+Name of dataset (i.e subfolder name within project folder).
+
+**Options:** `<dataset name>`
+
+**Default:** `code`
+
+## no-gpu
+
+Do not use GPU acceleration, even if it's available.
+
+**Default:** `False`
+
+## optimize-disk-space
+
+Delete heavy intermediate files to optimize disk space usage. This affects the ability to restart the pipeline from an intermediate stage, but allows datasets to be processed on machines that don't have sufficient disk space available.
+
+**Default:** `False`
+
+## orthophoto-compression
+
+Set the compression to use for orthophotos.
+
+**Options:** `JPEG |  LZW |  PACKBITS |  DEFLATE |  LZMA |  NONE`
+
+**Default:** `DEFLATE`
+
+## orthophoto-cutline
+
+Generates a polygon around the cropping area that cuts the orthophoto around the edges of features. This polygon can be useful for stitching seamless mosaics with multiple overlapping orthophotos.
+
+**Default:** `False`
+
+## orthophoto-kmz
+
+Set this parameter if you want to generate a Google Earth (KMZ) rendering of the orthophoto.
+
+**Default:** `False`
+
+## orthophoto-no-tiled
+
+Set this parameter if you want a striped GeoTIFF.
+
+**Default:** `False`
+
+## orthophoto-png
+
+Set this parameter if you want to generate a PNG rendering of the orthophoto.
+
+**Default:** `False`
+
+## orthophoto-resolution
+
+Orthophoto resolution in cm / pixel. Note that this value is capped by a ground sampling distance (GSD) estimate.
+
+**Options:** `<float > 0.0>`
+
+**Default:** `5`
+
+## pc-classify
+
+Classify the point cloud outputs. You can control the behavior of this option by tweaking the --dem-* parameters.
+
+**Default:** `False`
+
+## pc-copc
+
+Save the georeferenced point cloud in Cloud Optimized Point Cloud (COPC) format.
+
+**Default:** `False`
+
+## pc-csv
+
+Export the georeferenced point cloud in CSV format.
+
+**Default:** `False`
+
+## pc-ept
+
+Export the georeferenced point cloud in Entwine Point Tile (EPT) format.
+
+**Default:** `False`
+
+## pc-filter
+
+Filters the point cloud by removing points that deviate more than N standard deviations from the local mean. Set to 0 to disable filtering.
+
+**Options:** `<positive float>`
+
+**Default:** `5`
+
+## pc-las
+
+Export the georeferenced point cloud in LAS format.
+
+**Default:** `False`
+
+## pc-quality
+
+Set point cloud quality. Higher quality generates better, denser point clouds, but requires more memory and takes longer. Each step up in quality increases processing time roughly by a factor of 4x.
+
+**Options:** `ultra |  high |  medium |  low |  lowest`
+
+**Default:** `medium`
+
+## pc-rectify
+
+Perform ground rectification on the point cloud. This means that wrongly classified ground points will be re-classified and gaps will be filled. Useful for generating DTMs.
+
+**Default:** `False`
+
+## pc-sample
+
+Filters the point cloud by keeping only a single point around a radius N (in meters). This can be useful to limit the output resolution of the point cloud and remove duplicate points. Set to 0 to disable sampling.
+
+**Options:** `<positive float>`
+
+**Default:** `0`
+
+## pc-skip-geometric
+
+Geometric estimates improve the accuracy of the point cloud by computing geometrically consistent depthmaps but may not be usable in larger datasets. This flag disables geometric estimates.
+
+**Default:** `False`
+
+## primary-band
+
+When processing multispectral datasets, you can specify the name of the primary band that will be used for reconstruction. It's recommended to choose a band which has sharp details and is in focus.
+
+**Options:** `<string>`
+
+**Default:** `auto`
+
+## project-path
+
+Path to the project folder. Your project folder should contain subfolders for each dataset. Each dataset should have an "images" folder.
+
+**Options:** `<path>`
+
+## radiometric-calibration
+
+Set the radiometric calibration to perform on images. When processing multispectral and thermal images you should set this option to obtain reflectance/temperature values (otherwise you will get digital number values). [camera] applies black level, vignetting, row gradient gain/exposure compensation (if appropriate EXIF tags are found) and computes absolute temperature values. [camera+sun] is experimental, applies all the corrections of [camera], plus compensates for spectral radiance registered via a downwelling light sensor (DLS) taking in consideration the angle of the sun.
+
+**Options:** `none |  camera |  camera+sun`
+
+**Default:** `none`
+
+## rerun
+
+Rerun this stage only and stop.
+
+**Options:** `dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report |  odm_postprocess`
+
+## rerun-all
+
+Permanently delete all previous results and rerun the processing pipeline.
+
+**Default:** `False`
+
+## rerun-from
+
+Rerun processing from this stage.
+
+**Options:** `dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report |  odm_postprocess`
+
+## rolling-shutter
+
+Turn on rolling shutter correction. If the camera has a rolling shutter and the images were taken in motion, you can turn on this option to improve the accuracy of the results. See also --rolling-shutter-readout.
+
+**Default:** `False`
+
+## rolling-shutter-readout
+
+Override the rolling shutter readout time for your camera sensor (in milliseconds), instead of using the rolling shutter readout database. Note that not all cameras are present in the database. Set to 0 to use the database value.
+
+**Options:** `<positive integer>`
+
+**Default:** `0`
+
+## sfm-algorithm
+
+Choose the structure from motion algorithm. For aerial datasets, if camera GPS positions and angles are available, triangulation can generate better results. For planar scenes captured at fixed altitude with nadir-only images, planar can be much faster.
+
+**Options:** `incremental |  triangulation |  planar`
+
+**Default:** `incremental`
+
+## sfm-no-partial
+
+Do not attempt to merge partial reconstructions. This can happen when images do not have sufficient overlap or are isolated.
+
+**Default:** `False`
+
+## skip-3dmodel
+
+Skip generation of a full 3D model. This can save time if you only need 2D results such as orthophotos and DEMs.
+
+**Default:** `False`
+
+## skip-band-alignment
+
+When processing multispectral datasets, ODM will automatically align the images for each band. If the images have been postprocessed and are already aligned, use this option.
+
+**Default:** `False`
+
+## skip-orthophoto
+
+Skip generation of the orthophoto. This can save time if you only need 3D results or DEMs.
+
+**Default:** `False`
+
+## skip-report
+
+Skip generation of PDF report. This can save time if you don't need a report.
+
+**Default:** `False`
+
+## sky-removal
+
+Automatically compute image masks using AI to remove the sky. Experimental.
+
+**Default:** `False`
+
+## sm-cluster
+
+URL to a ClusterODM instance for distributing a split-merge workflow on multiple nodes in parallel.
+
+**Options:** `<string>`
+
+**Default:** `None`
+
+## sm-no-align
+
+Skip alignment of submodels in split-merge. Useful if GPS is good enough on very large datasets.
+
+**Default:** `False`
+
+## smrf-scalar
+
+Simple Morphological Filter elevation scalar parameter.
+
+**Options:** `<positive float>`
+
+**Default:** `1.25`
+
+## smrf-slope
+
+Simple Morphological Filter slope parameter (rise over run).
+
+**Options:** `<positive float>`
+
+**Default:** `0.15`
+
+## smrf-threshold
+
+Simple Morphological Filter elevation threshold parameter (meters).
+
+**Options:** `<positive float>`
+
+**Default:** `0.5`
+
+## smrf-window
+
+Simple Morphological Filter window radius parameter (meters).
+
+**Options:** `<positive float>`
+
+**Default:** `18.0`
+
+## split
+
+Average number of images per submodel. When splitting a large dataset into smaller submodels, images are grouped into clusters. This value regulates the number of images that each cluster should have on average.
+
+**Options:** `<positive integer>`
+
+**Default:** `999999`
+
+## split-image-groups
+
+Path to the image groups file that controls how images should be split into groups. The file needs to use the following format: 
+
+image_name group_name
+
+**Options:** `<path string>`
+
+**Default:** `None`
+
+## split-overlap
+
+Radius of the overlap between submodels in meters. After grouping images into clusters, images that are closer than this radius to a cluster are added to the cluster. This is done to ensure that neighboring submodels overlap. All imagesneed GPS information.
+
+**Options:** `<positive integer>`
+
+**Default:** `150`
+
+## texturing-keep-unseen-faces
+
+Keep faces in the mesh that are not seen in any camera.
+
+**Default:** `False`
+
+## texturing-single-material
+
+Generate OBJs that have a single material and a single texture file instead of multiple ones.
+
+**Default:** `False`
+
+## texturing-skip-global-seam-leveling
+
+Skip normalization of colors across all images. Useful when processing radiometric data.
+
+**Default:** `False`
+
+## tiles
+
+Generate static tiles for orthophotos and DEMs that are suitable for viewers like Leaflet or OpenLayers.
+
+**Default:** `False`
+
+## use-3dmesh
+
+Use a full 3D mesh to compute the orthophoto instead of a 2.5D mesh. This option is a bit faster and provides similar results in planar areas.
+
+**Default:** `False`
+
+## use-exif
+
+Use this tag if you have a GCP File but want to use the EXIF information for georeferencing instead.
+
+**Default:** `False`
+
+## use-fixed-camera-params
+
+Turn off camera parameter optimization during bundle adjustment. This can be sometimes useful for improving results that exhibit doming/bowling or when images are taken with a rolling shutter camera.
+
+**Default:** `False`
+
+## use-hybrid-bundle-adjustment
+
+Run local bundle adjustment for every image added to the reconstruction and a global adjustment every 100 images. Speeds up reconstruction for very large datasets.
+
+**Default:** `False`
+
+## version
+
+Displays version number and exits.
+
+## video-limit
+
+Maximum number of frames to extract from video files for processing. Set to 0 for no limit.
+
+**Options:** `<positive integer>`
+
+**Default:** `500`
+
+## video-resolution
+
+The maximum output resolution of extracted video frames in pixels.
+
+**Options:** `<positive integer>`
+
+**Default:** `4000`
+
+
