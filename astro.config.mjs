@@ -13,7 +13,7 @@ export default defineConfig({
 			},
 			favicon: './src/assets/favicon.svg',
 			editLink: {
-				baseUrl: 'https://github.com/WebODM/Docs/edit/master/docs/',
+				baseUrl: 'https://github.com/WebODM/Docs/edit/main/',
 			},
 			customCss: [
 				'./src/styles/custom.css',
