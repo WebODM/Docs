@@ -264,12 +264,6 @@ Choose what to merge in the merge step in a split dataset. By default all availa
 
 **Default:** `all`
 
-## merge-skip-blending
-
-During the orthophoto merging, skip expensive blending operation: `False`
-
-**Default:** `False`
-
 ## mesh-octree-depth
 
 Octree depth used in the mesh reconstruction, increase to get more vertices, recommended values are 8-12.
@@ -399,12 +393,6 @@ Set point cloud quality. Higher quality generates better, denser point clouds, b
 **Options:** `ultra |  high |  medium |  low |  lowest`
 
 **Default:** `medium`
-
-## pc-rectify
-
-Perform ground rectification on the point cloud. This means that wrongly classified ground points will be re-classified and gaps will be filled. Useful for generating DTMs.
-
-**Default:** `False`
 
 ## pc-sample
 

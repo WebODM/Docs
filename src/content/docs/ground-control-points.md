@@ -31,7 +31,7 @@ The format of the GCP file is simple.
 
 ```
 <projection>
-geo_x geo_y geo_z im_x im_y image_name [gcp_name] [extra1] [extra2]
+geo_x geo_y geo_z im_x im_y filename [label] [extra1] [extra2]
 ...
 ```
 
@@ -44,6 +44,11 @@ Example:
 544033.4 5320876.0 5 1606 2763 IMG_0690.jpg
 ```
 
+:::note
+ * The filename is case-sensitive. IMG_0001.jpg is not the same as IMG_0001.JPG.
+ * The filename cannot contain spaces. Spaces can be encoded by using the %20 escape sequence. E.g. My Image.JPG should be referenced as My%20Image.JPG.
+:::
+
 If you supply a GCP file called `gcp_list.txt` then WebODM will automatically detect it. If you have a gcp file and want to do georeferencing with exif instead, then you can specify `--use-exif`. If you have high precision GPS measurements in your images (RTK) and want to use that information along with a gcp file, you can specify `--force-gps`.
 
 It's important that you find high-contrast objects that are found in **at least** 3 photos, and that you find a minimum of 5 objects.
@@ -53,6 +58,18 @@ Sharp corners are good picks for GCPs. You should also place/find the GCPs evenl
 The `gcp_list.txt` file must be created in the base of your project folder.
 
 For good results your file should have a minimum of 15 lines after the header (5 points with 3 images to each point).
+
+### Marking Checkpoints
+
+Checkpoints are used for checking the accuracy of the reconstruction. They are left out from the reconstruction process and are instead used to measure the accuracy of the results at the end.
+
+You can mark a checkpoint by labeling it with the prefix `CHK-`. For example:
+
+```
++proj=utm +zone=10 +ellps=WGS84 +datum=WGS84 +units=m +no_defs
+544256.7 5320919.9 5 3044 2622 IMG_0525.jpg CHK-A
+```
+
 
 ### User Interfaces
 
@@ -173,7 +190,7 @@ The format of the image geolocation file is simple.
 
 ```
 <projection>
-image_name geo_x geo_y [geo_z] [yaw (degrees)] [pitch (degrees)] [roll (degrees)] [horz accuracy (meters)] [vert accuracy (meters)] [extras...]
+filename geo_x geo_y [geo_z] [yaw (degrees)] [pitch (degrees)] [roll (degrees)] [horz accuracy (meters)] [vert accuracy (meters)] [extras...]
 ...
 ```
 
