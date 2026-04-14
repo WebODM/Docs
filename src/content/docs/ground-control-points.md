@@ -97,9 +97,15 @@ Then one can load this GCP list into the interface, load the images, and place e
 
 #### GCP Editor Pro
 
-This [app](https://gcp.uav4geo.com) needs to be purchased, but provides a smoother workflow.
+:::tip[Did You Know?]
 
-Create a CSV file that includes the gcp name, northing, easting and elevation.
+[GCP Editor Pro](https://gcp.uav4geo.com) is built by the developers of WebODM. Purchasing it directly supports the development of WebODM. ❤
+
+:::
+
+[GCP Editor Pro](https://gcp.uav4geo.com) needs to be purchased, but provides a smoother workflow compared to POSM GCPi.
+
+To use it, create a CSV file that includes the GCP names, northing, easting and elevation.
 
 ```
 GCP Label,Northing,Easting,Elevation
@@ -108,7 +114,7 @@ gcp02,530203.125367657,9250140.80991621,15.781
 ...
 ```
 
-Then import the CSV from the main screen and type `+proj=utm +zone=37 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs` in the `EPSG/PROJ` box.
+Then import the CSV from the main screen and type `+proj=utm +zone=37 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs` in the `EPSG/PROJ` box. You can find a database of EPSG codes at https://epsg.io
 
 The following screen will display a map from where to select the GCPs to tag and import the respective images.
 
