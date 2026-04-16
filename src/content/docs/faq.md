@@ -3,6 +3,10 @@ title: Frequently Asked Questions
 template: doc
 ---
 
+## What is the relationship between OpenDroneMap and WebODM?
+
+WebODM used to be part of the OpenDroneMap project. As of 2026, WebODM is no longer affiliated or connected to OpenDroneMap. They are two separate projects.
+
 ## The software is not using all of my CPU cores / memory / GPU all of the times. Is it normal?
 
 Yes. The software tries to use all available resources, when possible, but not always. It’s normal to see 10-15% CPU utilization at several moments during processing and 0% GPU utilization for lots of times.
