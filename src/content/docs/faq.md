@@ -3,7 +3,7 @@ title: Frequently Asked Questions
 template: doc
 ---
 
-## What is the relationship between OpenDroneMap and WebODM?
+## What is the relationship between WebODM and OpenDroneMap?
 
 WebODM used to be part of the OpenDroneMap project. As of 2026, WebODM is no longer affiliated or connected to OpenDroneMap. They are two separate projects.
 
