@@ -13,7 +13,7 @@ template: doc
     "port": 80,
     "api_version": "1.0.1",
     "engine_version": "0.6.0",
-    "engine": "odm",
+    "engine": "odx",
     "last_refreshed": "2017-03-01T21:14:49.918276Z",
     "queue_count": 0,
     "max_images": null,
@@ -30,7 +30,7 @@ template: doc
 ```
 
 Processing nodes are associated with zero or more tasks and
-take care of processing input images. Processing nodes are computers or virtual machines running [NodeODM](https://github.com/WebODM/NodeODM) or any other API compatible with it.
+take care of processing input images. Processing nodes are computers or virtual machines running [NodeODX](https://github.com/WebODM/NodeODX) or any other API compatible with it.
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -38,7 +38,7 @@ id | int | Unique Identifier
 online | bool | Whether the processing node could be reached in the last 5 minutes
 hostname | string | Hostname/IP address
 port | int | Port
-api_version | string | Version of NodeODM currently running
+api_version | string | Version of NodeODX currently running
 engine_version | string | Version of processing engine currently being used
 engine | string | Lowercase identifier of processing engine
 last_refreshed | string | Date and time this node was last seen online. This value is typically refreshed every 15-30 seconds and is used to decide whether a node is offline or not
@@ -56,7 +56,7 @@ help | Description of the option
 name | Name that identifies the option. This is the value you pass in the `name` key/value pair when creating a set of options for a new [Task](/reference/task/)
 type | Possible values are `int`, `float`, `string`, `bool`
 value | Default value if the option is not specified
-domain | Restriction of the range of values that this option allows. Examples are `float`, `negative integer`, `percent`, `float: 0 <= x <= 10`, etc. for all possible values, check [NodeODM's odmOptions.js code](https://github.com/WebODM/NodeODM/blob/master/libs/odmOptions.js#L135)
+domain | Restriction of the range of values that this option allows. Examples are `float`, `negative integer`, `percent`, `float: 0 <= x <= 10`, etc. for all possible values, check [NodeODX's odxOptions.js code](https://github.com/WebODM/NodeODX/blob/master/libs/odxOptions.js#L135)
 
 
 ### Add a processing node
@@ -142,5 +142,5 @@ Display the common options available among all online processing nodes. This is 
 
 Use this list of options to check whether a particular option is supported by all online processing nodes. If you use the automatic processing node assignment feature for processing tasks, this is the list you want to display to the user for choosing the options to use during processing.
 
-<aside class="notice">While WebODM is capable of handling processing nodes running different versions of NodeODM, we don't recommend doing so. When all processing nodes use the same NodeODM version, the output of this API call will be identical to the <b>available_options</b> field of any node.</aside>
+<aside class="notice">While WebODM is capable of handling processing nodes running different versions of NodeODX, we don't recommend doing so. When all processing nodes use the same NodeODX version, the output of this API call will be identical to the <b>available_options</b> field of any node.</aside>
 

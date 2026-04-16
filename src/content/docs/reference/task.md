@@ -94,7 +94,7 @@ Parameters are the same as above.
 
 `POST /api/projects/{project_id}/tasks/import`
 
-Import task that have been processed by another WebODM instance (or via [webodm.net](https://webodm.net) or NodeODM)
+Import task that have been processed by another WebODM instance (or via [webodm.net](https://webodm.net) or NodeODX)
 
 Parameter | Required | Default          | Description
 --------- | -------- | -------          | ----------

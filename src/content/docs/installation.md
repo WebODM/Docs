@@ -100,17 +100,17 @@ To install WebODM on a Qnap NAS:
 
 ### Manage Processing Nodes
 
-WebODM can be linked to one or more processing nodes that speak the [NodeODM API](https://github.com/WebODM/NodeODM/blob/master/docs/index.adoc), such as [NodeODM](https://github.com/WebODM/NodeODM), [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/), [ClusterODM](https://github.com/WebODM/ClusterODM) and [Lightning](https://webodm.net). The default configuration includes a "node-odm-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
+WebODM can be linked to one or more processing nodes that speak the [NodeODX API](https://github.com/WebODM/NodeODX/blob/master/docs/index.adoc), such as [NodeODX](https://github.com/WebODM/NodeODX), [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/), [ClusterODM](https://github.com/WebODM/ClusterODM) and [Lightning](https://webodm.net). The default configuration includes a "node-odx-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
 
 Adding more processing nodes will allow you to run multiple jobs in parallel.
 
 You can also setup a [ClusterODM](https://github.com/WebODM/ClusterODM) node to run a single task across multiple machines with [distributed split-merge](https://docs.opendronemap.org/large/?highlight=distributed#getting-started-with-distributed-split-merge) and process dozen of thousands of images more quickly, with less memory.
 
-If you don't need the default "node-odm-1" node, simply pass `--default-nodes 0` flag when starting WebODM:
+If you don't need the default "node-odx-1" node, simply pass `--default-nodes 0` flag when starting WebODM:
 
 `./webodm.sh restart --default-nodes 0`.
 
-Then from the web interface simply manually remove the "node-odm-1" node.
+Then from the web interface simply manually remove the "node-odx-1" node.
 
 
 
@@ -159,7 +159,7 @@ To add IPv6, simply run:
 `./webodm.sh restart --ipv6`
 
 Note: When using `--ssl` mode, you cannot pass an IP address to the hostname parameter; you must set up a DNS AAAA record. Without `--ssl` mode enabled, access the site at (e.g., http://[2001:0db8:3c4d:0015::1]:8000). The brackets around the IPv6 address are essential!
-You can add a new NodeODM node in WebODM by specifying an IPv6 address. Don't forget to include brackets around the address! e.g., [2001:0db8:fd8a:ae80::1]
+You can add a new NodeODX node in WebODM by specifying an IPv6 address. Don't forget to include brackets around the address! e.g., [2001:0db8:fd8a:ae80::1]
 
 ## Common Troubleshooting
 
@@ -230,7 +230,7 @@ If a particular hook / signal for your plugin does not yet exist, [request it](h
 
 ## Hardware Requirements
 
-To run a standalone installation of WebODM (the user interface), including the processing component ([NodeODM](https://github.com/WebODM/NodeODM)), we recommend at a minimum:
+To run a standalone installation of WebODM (the user interface), including the processing component ([NodeODX](https://github.com/WebODM/NodeODX)), we recommend at a minimum:
 
 * 100 GB free disk space
 * 16 GB RAM
@@ -257,4 +257,4 @@ A CPU with more cores will speed up processing, but can increase memory usage. G
 
 WebODM runs best on Linux, but works well on Windows and Mac too.
 
-WebODM by itself is just a user interface and does not require many resources. WebODM can be loaded on a machine with just 1 or 2 GB of RAM and work fine without [NodeODM](https://github.com/WebODM/NodeODM). You can use a processing service such as [webodm.net](https://webodm.net) or run NodeODM on a separate, more powerful machine.
+WebODM by itself is just a user interface and does not require many resources. WebODM can be loaded on a machine with just 1 or 2 GB of RAM and work fine without [NodeODX](https://github.com/WebODM/NodeODX). You can use a processing service such as [webodm.net](https://webodm.net) or run NodeODX on a separate, more powerful machine.

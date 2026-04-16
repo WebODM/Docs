@@ -11,8 +11,8 @@ We can start by listing available docker machines on the current machine we are 
 ```
 > docker ps
 CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                    NAMES
-2518817537ce        webodm/odm       "bash"                   36 hours ago        Up 36 hours                                  zen_wright
-1cdc7fadf688        webodm/nodeodm   "/usr/bin/nodejs /va…"   37 hours ago        Up 37 hours         0.0.0.0:3000->3000/tcp   flamboyant_dhawan
+2518817537ce        webodm/odx       "bash"                   36 hours ago        Up 36 hours                                  zen_wright
+1cdc7fadf688        webodm/nodeodx   "/usr/bin/nodejs /va…"   37 hours ago        Up 37 hours         0.0.0.0:3000->3000/tcp   flamboyant_dhawan
 ```
 
 If we want to see machines that may not be running but still exist, we can add the `-a` flag:
@@ -20,11 +20,11 @@ If we want to see machines that may not be running but still exist, we can add t
 ```
 > docker ps -a
 CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS                    PORTS                    NAMES
-2518817537ce        webodm/odm       "bash"                   36 hours ago        Up 36 hours                                        zen_wright
-1cdc7fadf688        webodm/nodeodm   "/usr/bin/nodejs /va…"   37 hours ago        Up 37 hours               0.0.0.0:3000->3000/tcp   flamboyant_dhawan
-cd7b9585b8f6        webodm/odm       "bash"                   3 days ago          Exited (1) 37 hours ago                            nostalgic_lederberg
-e31010c00b9a        webodm/odm       "python /code/run.py…"   3 days ago          Exited (2) 3 days ago                              suspicious_kepler
-c44e0d0b8448        webodm/nodeodm   "/usr/bin/nodejs /va…"   3 days ago          Exited (0) 37 hours ago                            wonderful_burnell
+2518817537ce        webodm/odx       "bash"                   36 hours ago        Up 36 hours                                        zen_wright
+1cdc7fadf688        webodm/nodeodx   "/usr/bin/nodejs /va…"   37 hours ago        Up 37 hours               0.0.0.0:3000->3000/tcp   flamboyant_dhawan
+cd7b9585b8f6        webodm/odx       "bash"                   3 days ago          Exited (1) 37 hours ago                            nostalgic_lederberg
+e31010c00b9a        webodm/odx       "python /code/run.py…"   3 days ago          Exited (2) 3 days ago                              suspicious_kepler
+c44e0d0b8448        webodm/nodeodx   "/usr/bin/nodejs /va…"   3 days ago          Exited (0) 37 hours ago                            wonderful_burnell
 ```
 
 ### Accessing Logs on the Instance
@@ -40,7 +40,7 @@ This is likely to be unwieldy large, but we can use a pipe `|` character and oth
 ```
 > docker logs 2518817537ce | more
 [INFO]    DTM is turned on, automatically turning on point cloud classification
-[INFO]    Initializing ODM app - Mon Sep 23 01:30:33  2019
+[INFO]    Initializing ODX app - Mon Sep 23 01:30:33  2019
 [INFO]    ==============
 [INFO]    build_overviews: False
 [INFO]    camera_lens: auto

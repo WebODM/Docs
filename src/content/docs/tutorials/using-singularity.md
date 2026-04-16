@@ -8,25 +8,25 @@ title: Using Singularity
 
 Singularity can use Docker image to build SIF image.
 
-For latest ODM Docker image (Recommended):
+For latest ODX Docker image (Recommended):
 
 ```bash
-singularity build --disable-cache -f odm_latest.sif docker://webodm/odm:latest
+singularity build --disable-cache -f odx_latest.sif docker://webodm/odx:latest
 ```
 
 ### Using Singularity SIF Image
 
-Once you have used one of the above commands to download and create the `odm_latest.sif` image, it can be ran using singularity. Place your images in a directory named "images" (for example `/my/project/images`), then simply run:
+Once you have used one of the above commands to download and create the `odx_latest.sif` image, it can be ran using singularity. Place your images in a directory named "images" (for example `/my/project/images`), then simply run:
 
 ```bash
-singularity run --bind /my/project:/datasets/code odm_latest.sif --project-path /datasets
+singularity run --bind /my/project:/datasets/code odx_latest.sif --project-path /datasets
 ```
 
 Like with docker, additional options and flags can be added to the command:
 
 ```bash
 singularity run --bind /my/project:/datasets/code \
-  --writable-tmpfs odm_latest.sif \
+  --writable-tmpfs odx_latest.sif \
   --orthophoto-png --mesh-octree-depth 12 --dtm \
   --smrf-threshold 0.4 --smrf-window 24 --dsm --pc-csv --pc-las --orthophoto-kmz \
   --matcher-type flann --feature-quality ultra --max-concurrency 16 \
@@ -34,15 +34,15 @@ singularity run --bind /my/project:/datasets/code \
   --project-path /datasets
 ```
 
-### ClusterODM, NodeODM, SLURM, with Singularity on HPC
+### ClusterODM, NodeODX, SLURM, with Singularity on HPC
 
-You can write a SLURM script to schedule and set up available nodes with NodeODM for ClusterODM to be wired to if you are on the HPC. Using SLURM will decrease the amount of time and processes needed to set up nodes for ClusterODM each time.
+You can write a SLURM script to schedule and set up available nodes with NodeODX for ClusterODM to be wired to if you are on the HPC. Using SLURM will decrease the amount of time and processes needed to set up nodes for ClusterODM each time.
 
 To setup HPC with SLURM, you must make sure SLURM is installed.
 
-SLURM script will be different from cluster to cluster, depending on which nodes in the cluster that you have. However, the main idea is to run NodeODM on each node once, and by default, each NodeODM will be running on port 3000. After that, run ClusterODM on the head node and connect the running NodeODMs to the ClusterODM.
+SLURM script will be different from cluster to cluster, depending on which nodes in the cluster that you have. However, the main idea is to run NodeODX on each node once, and by default, each NodeODX will be running on port 3000. After that, run ClusterODM on the head node and connect the running NodeODXs to the ClusterODM.
 
-Here is an example of a SLURM script assigning nodes 48, 50, 51 to run NodeODM:
+Here is an example of a SLURM script assigning nodes 48, 50, 51 to run NodeODX:
 
 ```bash
 #!/usr/bin/bash
@@ -51,7 +51,7 @@ Here is an example of a SLURM script assigning nodes 48, 50, 51 to run NodeODM:
 #SBATCH --time 20:00:00
 
 cd $HOME
-cd ODM/NodeODM/
+cd ODX/NodeODX/
 
 # Launch on Node 48
 srun --nodes-1 apptainer run --writable node/ &
@@ -66,7 +66,7 @@ wait
 
 You can check for available nodes using `sinfo`, run the script with `sbatch sample.slurm`, and check running jobs with `squeue -u $USER`.
 
-SLURM does not handle assigning jobs to the head node, so run ClusterODM locally. Then connect to the CLI and wire the NodeODMs to ClusterODM:
+SLURM does not handle assigning jobs to the head node, so run ClusterODM locally. Then connect to the CLI and wire the NodeODXs to ClusterODM:
 
 ```bash
 telnet localhost 8080
@@ -86,7 +86,7 @@ It is also possible to pre-populate nodes using JSON. If starting ClusterODM fro
 ]
 ```
 
-After hosting ClusterODM on the head node and wiring it to NodeODM, you can tunnel to see if ClusterODM works as expected:
+After hosting ClusterODM on the head node and wiring it to NodeODX, you can tunnel to see if ClusterODM works as expected:
 
 ```bash
 ssh -L localhost:10000:localhost:10000 user@hostname

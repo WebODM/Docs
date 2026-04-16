@@ -14,7 +14,7 @@ Split-merge works in WebODM out of the box as long as the processing nodes suppo
 Splitting a dataset into more manageable submodels and sequentially processing all submodels on the same machine is easy! Just use `--split` and `--split-overlap` to decide the average number of images per submodel and the overlap (in meters) between submodels respectively:
 
 ```bash
-docker run -ti --rm -v /my/project:/datasets/code webodm/odm --project-path /datasets --split 400 --split-overlap 100
+docker run -ti --rm -v /my/project:/datasets/code webodm/odx --project-path /datasets --split 400 --split-overlap 100
 ```
 
 If you already know how you want to split the dataset, you can provide that information and it will be used instead of the clustering algorithm.
@@ -33,7 +33,7 @@ will create 3 submodels. Make sure to pass `--split-overlap 0` if you manually p
 
 ## Distributed Split-Merge
 
-WebODM can also automatically distribute the processing of each submodel to multiple machines via [NodeODM](https://github.com/WebODM/NodeODM) nodes, orchestrated via [ClusterODM](https://github.com/WebODM/ClusterODM).
+WebODM can also automatically distribute the processing of each submodel to multiple machines via [NodeODX](https://github.com/WebODM/NodeODX) nodes, orchestrated via [ClusterODM](https://github.com/WebODM/ClusterODM).
 
 ![ClusterODM](/images/clusterodm.webp)
 
@@ -45,25 +45,25 @@ The first step is start ClusterODM:
 docker run -ti -p 3001:3000 -p 8080:8080 webodm/clusterodm
 ```
 
-Then on each machine you want to use for processing, launch a NodeODM instance via:
+Then on each machine you want to use for processing, launch a NodeODX instance via:
 
 ```bash
-docker run -ti -p 3000:3000 webodm/nodeodm
+docker run -ti -p 3000:3000 webodm/nodeodx
 ```
 
-Connect via telnet to ClusterODM and add the IP addresses/port of the machines running NodeODM:
+Connect via telnet to ClusterODM and add the IP addresses/port of the machines running NodeODX:
 
 ```bash
 $ telnet <cluster-odm-ip> 8080
 Connected to <cluster-odm-ip>.
 Escape character is '^]'.
 [...]
-# node add <node-odm-ip-1> 3000
-# node add <node-odm-ip-2> 3000
+# node add <node-odx-ip-1> 3000
+# node add <node-odx-ip-2> 3000
 [...]
 # node list
-1) <node-odm-ip-1>:3000 [online] [0/2] <version 1.5.1>
-2) <node-odm-ip-2>:3000 [online] [0/2] <version 1.5.1>
+1) <node-odx-ip-1>:3000 [online] [0/2] <version 1.5.1>
+2) <node-odx-ip-2>:3000 [online] [0/2] <version 1.5.1>
 ```
 
 At this point, simply use the `--sm-cluster` option to enable distributed split-merge.
@@ -93,7 +93,7 @@ ASR VIEWCMD <number of images> - View command used to create a machine
 !! - Repeat last command
 ```
 
-If the NodeODM instance wasn't active when ClusterODM started, you can perform a `NODE UPDATE`:
+If the NodeODX instance wasn't active when ClusterODM started, you can perform a `NODE UPDATE`:
 
 ```
 # NODE UPDATE
@@ -143,7 +143,7 @@ info: Can write to S3
 info: Found docker-machine executable
 ```
 
-You should always have at least one static NodeODM node attached to ClusterODM, even if you plan to use the autoscaler for all processing. If you setup auto scaling, you can't have zero nodes and rely 100% on the autoscaler. You need to attach a NodeODM node to act as the "reference node" otherwise ClusterODM will not know how to handle certain requests. For this purpose, you should add a "dummy" NodeODM node and lock it:
+You should always have at least one static NodeODX node attached to ClusterODM, even if you plan to use the autoscaler for all processing. If you setup auto scaling, you can't have zero nodes and rely 100% on the autoscaler. You need to attach a NodeODX node to act as the "reference node" otherwise ClusterODM will not know how to handle certain requests. For this purpose, you should add a "dummy" NodeODX node and lock it:
 
 ```bash
 telnet localhost 8080

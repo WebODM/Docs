@@ -4,12 +4,12 @@ import argparse, os, urllib.request, ast, sys
 from string import Template
 
 SCRIPT_DIR = os.path.dirname(__file__)
-DEFAULT_URL = "https://raw.githubusercontent.com/WebODM/ODM/master/opendm/config.py"
+DEFAULT_URL = "https://raw.githubusercontent.com/WebODM/ODX/master/opendm/config.py"
 
-parser = argparse.ArgumentParser(description='Extract ODM arguments and generate a Markdown reference page.')
+parser = argparse.ArgumentParser(description='Extract ODX arguments and generate a Markdown reference page.')
 parser.add_argument('input', type=str, nargs='?',
                     default=DEFAULT_URL,
-                    help='URL to ODM\'s config.py')
+                    help='URL to ODX\'s config.py')
 args = parser.parse_args()
 
 url = args.input
@@ -116,7 +116,7 @@ def get_opt_choices(opt):
 
 # --- build markdown ---
 
-print("Found %s ODM options" % len(options))
+print("Found %s ODX options" % len(options))
 
 if len(options) == 0:
     print("No options found")

@@ -52,7 +52,7 @@ Directories of interest are listed as follow:
 Directory | Description
 --------- | -----------
 `/app`	  | Main application, includes the UI components, API, tests and backend logic.
-`/nodeodm`| Application that bridges the communication between WebODM and [NodeODM](https://github.com/WebODM/NodeODM). Includes its own unit tests and models.
+`/nodeodx`| Application that bridges the communication between WebODM and [NodeODX](https://github.com/WebODM/NodeODX). Includes its own unit tests and models.
 `/webodm` | Django's main project directory. Setting files are here.
 
 ### Frontend

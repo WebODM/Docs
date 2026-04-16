@@ -3,7 +3,7 @@ title: Options & Flags
 template: doc
 ---
 
-This is the complete list of options available in [ODM](https://github.com/WebODM/ODM). 
+This is the complete list of options available in [ODX](https://github.com/WebODM/ODX). 
 
 
 :::note

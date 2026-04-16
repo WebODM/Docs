@@ -3,7 +3,7 @@ title: Options & Flags
 template: doc
 ---
 
-This is the complete list of options available in [ODM](https://github.com/WebODM/ODM). 
+This is the complete list of options available in [ODX](https://github.com/WebODM/ODX). 
 
 
 :::note
@@ -484,7 +484,7 @@ Skip generation of a full 3D model. This can save time if you only need 2D resul
 
 ## skip-band-alignment
 
-When processing multispectral datasets, ODM will automatically align the images for each band. If the images have been postprocessed and are already aligned, use this option.
+When processing multispectral datasets, automatically align the images for each band. If the images have been postprocessed and are already aligned, use this option.
 
 **Default:** `False`
 
