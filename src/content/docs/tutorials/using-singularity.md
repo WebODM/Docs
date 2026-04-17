@@ -34,13 +34,13 @@ singularity run --bind /my/project:/datasets/code \
   --project-path /datasets
 ```
 
-### ClusterODM, NodeODX, SLURM, with Singularity on HPC
+### ClusterODX, NodeODX, SLURM, with Singularity on HPC
 
-You can write a SLURM script to schedule and set up available nodes with NodeODX for ClusterODM to be wired to if you are on the HPC. Using SLURM will decrease the amount of time and processes needed to set up nodes for ClusterODM each time.
+You can write a SLURM script to schedule and set up available nodes with NodeODX for ClusterODX to be wired to if you are on the HPC. Using SLURM will decrease the amount of time and processes needed to set up nodes for ClusterODX each time.
 
 To setup HPC with SLURM, you must make sure SLURM is installed.
 
-SLURM script will be different from cluster to cluster, depending on which nodes in the cluster that you have. However, the main idea is to run NodeODX on each node once, and by default, each NodeODX will be running on port 3000. After that, run ClusterODM on the head node and connect the running NodeODXs to the ClusterODM.
+SLURM script will be different from cluster to cluster, depending on which nodes in the cluster that you have. However, the main idea is to run NodeODX on each node once, and by default, each NodeODX will be running on port 3000. After that, run ClusterODX on the head node and connect the running NodeODXs to the ClusterODX.
 
 Here is an example of a SLURM script assigning nodes 48, 50, 51 to run NodeODX:
 
@@ -66,7 +66,7 @@ wait
 
 You can check for available nodes using `sinfo`, run the script with `sbatch sample.slurm`, and check running jobs with `squeue -u $USER`.
 
-SLURM does not handle assigning jobs to the head node, so run ClusterODM locally. Then connect to the CLI and wire the NodeODXs to ClusterODM:
+SLURM does not handle assigning jobs to the head node, so run ClusterODX locally. Then connect to the CLI and wire the NodeODXs to ClusterODX:
 
 ```bash
 telnet localhost 8080
@@ -76,7 +76,7 @@ telnet localhost 8080
 > NODE LIST
 ```
 
-It is also possible to pre-populate nodes using JSON. If starting ClusterODM from apptainer or docker, the relevant JSON is available at `docker/data/nodes.json`:
+It is also possible to pre-populate nodes using JSON. If starting ClusterODX from apptainer or docker, the relevant JSON is available at `docker/data/nodes.json`:
 
 ```json
 [
@@ -86,13 +86,13 @@ It is also possible to pre-populate nodes using JSON. If starting ClusterODM fro
 ]
 ```
 
-After hosting ClusterODM on the head node and wiring it to NodeODX, you can tunnel to see if ClusterODM works as expected:
+After hosting ClusterODX on the head node and wiring it to NodeODX, you can tunnel to see if ClusterODX works as expected:
 
 ```bash
 ssh -L localhost:10000:localhost:10000 user@hostname
 ```
 
-Open a browser and connect to `http://localhost:10000` (port 10000 is where ClusterODM's administrative web interface is hosted).
+Open a browser and connect to `http://localhost:10000` (port 10000 is where ClusterODX's administrative web interface is hosted).
 
 Then tunnel port 3000 for task assignment:
 

@@ -508,7 +508,7 @@ Automatically compute image masks using AI to remove the sky. Experimental.
 
 ## sm-cluster
 
-URL to a ClusterODM instance for distributing a split-merge workflow on multiple nodes in parallel.
+URL to a ClusterODX instance for distributing a split-merge workflow on multiple nodes in parallel.
 
 **Options:** `<string>`
 

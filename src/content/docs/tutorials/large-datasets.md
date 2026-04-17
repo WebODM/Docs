@@ -33,16 +33,16 @@ will create 3 submodels. Make sure to pass `--split-overlap 0` if you manually p
 
 ## Distributed Split-Merge
 
-WebODM can also automatically distribute the processing of each submodel to multiple machines via [NodeODX](https://github.com/WebODM/NodeODX) nodes, orchestrated via [ClusterODM](https://github.com/WebODM/ClusterODM).
+WebODM can also automatically distribute the processing of each submodel to multiple machines via [NodeODX](https://github.com/WebODM/NodeODX) nodes, orchestrated via [ClusterODX](https://github.com/WebODM/ClusterODX).
 
-![ClusterODM](/images/clusterodm.webp)
+![ClusterODX](/images/ClusterODX.webp)
 
 ### Getting Started with Distributed Split-Merge
 
-The first step is start ClusterODM:
+The first step is start ClusterODX:
 
 ```bash
-docker run -ti -p 3001:3000 -p 8080:8080 webodm/clusterodm
+docker run -ti -p 3001:3000 -p 8080:8080 webodm/clusterodx
 ```
 
 Then on each machine you want to use for processing, launch a NodeODX instance via:
@@ -51,7 +51,7 @@ Then on each machine you want to use for processing, launch a NodeODX instance v
 docker run -ti -p 3000:3000 webodm/nodeodx
 ```
 
-Connect via telnet to ClusterODM and add the IP addresses/port of the machines running NodeODX:
+Connect via telnet to ClusterODX and add the IP addresses/port of the machines running NodeODX:
 
 ```bash
 $ telnet <cluster-odm-ip> 8080
@@ -93,7 +93,7 @@ ASR VIEWCMD <number of images> - View command used to create a machine
 !! - Repeat last command
 ```
 
-If the NodeODX instance wasn't active when ClusterODM started, you can perform a `NODE UPDATE`:
+If the NodeODX instance wasn't active when ClusterODX started, you can perform a `NODE UPDATE`:
 
 ```
 # NODE UPDATE
@@ -111,25 +111,25 @@ While a process is running, it is also possible to list the tasks and view the t
 # TASK OUTPUT <taskId> [lines]
 ```
 
-### Autoscaling ClusterODM
+### Autoscaling ClusterODX
 
-ClusterODM also includes the option to autoscale on multiple platforms, including Amazon and Digital Ocean. This allows users to reduce costs associated with always-on instances as well as being able to scale processing based on demand.
+ClusterODX also includes the option to autoscale on multiple platforms, including Amazon and Digital Ocean. This allows users to reduce costs associated with always-on instances as well as being able to scale processing based on demand.
 
 To setup autoscaling you must:
 
-- Have a functioning version of NodeJS installed and then install ClusterODM:
+- Have a functioning version of NodeJS installed and then install ClusterODX:
 
 ```bash
-git clone https://github.com/WebODM/ClusterODM
-cd ClusterODM
+git clone https://github.com/WebODM/ClusterODX
+cd ClusterODX
 npm install
 ```
 
 - Make sure docker-machine is installed.
 - Setup a S3-compatible bucket for storing results.
-- Create a configuration file for [DigitalOcean](https://github.com/WebODM/ClusterODM/blob/master/docs/digitalocean.md) or [Amazon Web Services](https://github.com/WebODM/ClusterODM/blob/master/docs/aws.md).
+- Create a configuration file for [DigitalOcean](https://github.com/WebODM/ClusterODX/blob/master/docs/digitalocean.md) or [Amazon Web Services](https://github.com/WebODM/ClusterODX/blob/master/docs/aws.md).
 
-You can then launch ClusterODM with:
+You can then launch ClusterODX with:
 
 ```bash
 node index.js --asr configuration.json
@@ -143,7 +143,7 @@ info: Can write to S3
 info: Found docker-machine executable
 ```
 
-You should always have at least one static NodeODX node attached to ClusterODM, even if you plan to use the autoscaler for all processing. If you setup auto scaling, you can't have zero nodes and rely 100% on the autoscaler. You need to attach a NodeODX node to act as the "reference node" otherwise ClusterODM will not know how to handle certain requests. For this purpose, you should add a "dummy" NodeODX node and lock it:
+You should always have at least one static NodeODX node attached to ClusterODX, even if you plan to use the autoscaler for all processing. If you setup auto scaling, you can't have zero nodes and rely 100% on the autoscaler. You need to attach a NodeODX node to act as the "reference node" otherwise ClusterODX will not know how to handle certain requests. For this purpose, you should add a "dummy" NodeODX node and lock it:
 
 ```bash
 telnet localhost 8080
