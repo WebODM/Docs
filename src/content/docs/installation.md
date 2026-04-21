@@ -46,7 +46,7 @@ exit
 ./webodm.sh start
 ```
 
-🎉 Congratulations! You should be up and running. Open a browser to http://localhost:8000
+🎉 **Congratulations!** You should be up and running. Open a browser to http://localhost:8000
 
 To stop WebODM press CTRL+C or run:
 
@@ -60,6 +60,25 @@ To update WebODM to the latest version use:
 ./webodm.sh update
 ```
 
+:::note[Disk Storage]
+
+By default data is stored in docker named volumes. See [Where Are My Files Stored?](/faq/#where-are-my-files-stored)
+
+To change that, see below.
+
+:::
+
+
+If you are planning to process large amounts of data or you're running out of disk space, configure `--media-dir` and/or `--node-dir`:
+
+```
+./webodm.sh restart --media-dir /storage/media --node-dir /storage/node
+```
+
+| Argument      | Description                                                                                                                                              |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--media-dir` | Where all files related to a project and task are permanently stored. Try not change this folder after the first startup, unless as part of a [migration](#backup-and-restore). |
+| `--node-dir`  | Path where temporary files will be stored during processing when using the default node (safe the change)                                                                 |
 
 ## Installation on other machines
 
@@ -111,7 +130,6 @@ If you don't need the default "node-odx-1" node, simply pass `--default-nodes 0`
 `./webodm.sh restart --default-nodes 0`.
 
 Then from the web interface simply manually remove the "node-odx-1" node.
-
 
 
 ### Enable SSL
