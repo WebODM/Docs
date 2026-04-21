@@ -150,19 +150,44 @@ If you want to specify your own key/certificate pair, simply pass the `--ssl-key
 
 Note! You cannot pass an IP address to the hostname parameter! You need a DNS record setup.
 
-### Enable MicMac
+### Enable OIDC Authentication
 
-WebODM can use [MicMac](https://github.com/OpenDroneMap/micmac) as a processing engine via [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/). To add MicMac, simply run:
+WebODM supports [OIDC](https://openid.net/) (OpenID Connect) authentication, which means you can provide a Single Sign On (SSO) experience using an auth provider like Google. To enable one or more providers, create a `local_settings.py` file with the following:
 
-`./webodm.sh restart --with-micmac`
+```python
+OIDC_AUTH_PROVIDERS = [
+    {
+        'name': 'Google',
+        'icon': 'fab fa-google', # valid Font-Awesome icon, or leave blank 
+        'client_id': '<OAUTH2_CLIENT_ID>',
+        'client_secret': '<OAUTH2_CLIENT_SECRET>',
+        'auth_endpoint': 'https://accounts.google.com/o/oauth2/v2/auth',
+        'token_endpoint': 'https://oauth2.googleapis.com/token',
+        'userinfo_endpoint': 'https://openidconnect.googleapis.com/v1/userinfo'
+    },
+    # Add more providers below
+]
+```
 
-This will create a "node-micmac-1" processing node on the same machine running WebODM. Please note that NodeMICMAC is in active development and is currently experimental. If you find issues, please [report them](https://github.com/OpenDroneMap/NodeMICMAC/issues) on the NodeMICMAC repository.
+The `client_id` and `client_secret` values are given by the auth provider. You'll need to register an application. With Google, you can do that from the [Google Cloud Console](https://console.cloud.google.com).
 
+When registering the application, set the **Authorized redirect URIs** with:
+
+ * `https://webodm.myorg.com/oidc/callback/`
+
+The endpoint URLs are often published at a `.well-known/openid-configuration` URL. For example, Google publishes theirs at https://accounts.google.com/.well-known/openid-configuration.
+
+Then restart WebODM with:
+
+```
+./webodm.sh restart --settings /path/to/local_settings.py
+```
 
 ### Enable IPv6
 
 Your installation must first have a public IPv6 address.
 To enable IPv6 on your installation, you need to activate IPv6 in Docker by adding the following to a file located at /etc/docker/daemon.json:
+
 ```bash
 {
   "ipv6": true,
@@ -178,6 +203,14 @@ To add IPv6, simply run:
 
 Note: When using `--ssl` mode, you cannot pass an IP address to the hostname parameter; you must set up a DNS AAAA record. Without `--ssl` mode enabled, access the site at (e.g., http://[2001:0db8:3c4d:0015::1]:8000). The brackets around the IPv6 address are essential!
 You can add a new NodeODX node in WebODM by specifying an IPv6 address. Don't forget to include brackets around the address! e.g., [2001:0db8:fd8a:ae80::1]
+
+### Enable MicMac
+
+WebODM can use [MicMac](https://github.com/OpenDroneMap/micmac) as a processing engine via [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/). To add MicMac, simply run:
+
+`./webodm.sh restart --with-micmac`
+
+This will create a "node-micmac-1" processing node on the same machine running WebODM. Please note that NodeMICMAC is in active development and is currently experimental. If you find issues, please [report them](https://github.com/OpenDroneMap/NodeMICMAC/issues) on the NodeMICMAC repository.
 
 ## Common Troubleshooting
 
