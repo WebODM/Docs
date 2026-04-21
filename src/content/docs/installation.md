@@ -167,6 +167,10 @@ OIDC_AUTH_PROVIDERS = [
     },
     # Add more providers below
 ]
+
+# Optional, set restrictions on who can login
+# if not set, anyone with a Google email can login
+OIDC_AUTH_EMAILS = ["@myorg.com", "user@gmail.com"]
 ```
 
 The `client_id` and `client_secret` values are given by the auth provider. You'll need to register an application. With Google, you can do that from the [Google Cloud Console](https://console.cloud.google.com).
