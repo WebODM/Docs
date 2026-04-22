@@ -42,12 +42,11 @@ While we aim to support as many cameras as possible, thermal support has been de
 These drones are also supported, but require pre-processing with 
 [Thermal Tools](https://webodm.net/thermaltools):
 
- * Zenmuse H20N
- * Zenmuse H20 Series
- * Matrice 30 Series
- * Zenmuse XT S
- * Zenmuse H30 Series
- * Mavic 2 Enterprise Advanced
+ * DJI Zenmuse H20N
+ * DJI Matrice 30 Series
+ * DJI Zenmuse XT S
+ * DJI Zenmuse H30 Series
+ * DJI Mavic 2 Enterprise Advanced
  * DJI Mavic 3 Enterprise
  * DJI Matrice 4 Series
  
