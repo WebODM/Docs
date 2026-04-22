@@ -7,7 +7,7 @@ Ground control points are useful for correcting distortions in the data and refe
 
 A Ground Control Point (GCP) is a position measurement made on the ground, typically using a high precision GPS.
 
-Ground control points can be set existing structures like pavement corners, lines on a parking lot or contrasting color floor tiles, otherwise can be set using targets placed on the ground.
+Ground control points can be set on existing structures like pavement corners, lines on a parking lot or contrasting color floor tiles, otherwise can be set using targets placed on the ground.
 
 Targets can be purchased or built with an ample variety of materials ranging from bucket lids to floor tiles.
 
@@ -17,7 +17,7 @@ Keep ground control points visible for all camera locations. Consider the expect
 
 Procure an evenly horizontal distribution of the GCPs within the project, covering high and low elevations. A minimum of 5 GCP works for most of the jobs, and for larger projects 8–10 are sufficient. Locate some points near the corners and others in the center, considering that GCP spacing should be larger than the image footprint so that you can't see more than one GCP in a single image.
 
-In order to ensure each GCP are found in at least 5 images, separate the points 10 to 30 meters from the perimeter of the project. This distance is dependent of the overlapping, so increasing overlapping should reduce the required distance from the perimeter.
+In order to ensure GCPs are found in at least 5 images, separate the points 10 to 30 meters from the perimeter of the project. This distance is dependent on the overlap, so increasing overlap should reduce the required distance from the perimeter.
 
 ### GCP File Format
 
@@ -146,7 +146,7 @@ Each project has specific accuracy needs to be met. For instance assessing the p
 
 ### What to Expect
 
-In general terms, one can expect the relative accuracy to be in the order of 1 to 3 times the average GSD for the dataset. And as for the absolute accuracy, one must consider that it is dependent of the GPS unit mounted in the UAV but the horizontal accuracy of a standard GPS is usually in the range of 2 to 6 meters and the vertical accuracy between 3 to 4 times the horizontal accuracy.
+In general terms, one can expect the relative accuracy to be in the order of 1 to 3 times the average GSD for the dataset. And as for the absolute accuracy, one must consider that it is dependent on the GPS unit mounted in the UAV but the horizontal accuracy of a standard GPS is usually in the range of 2 to 6 meters and the vertical accuracy between 3 to 4 times the horizontal accuracy.
 
 When using GCP, absolute accuracy can be improved to 2.5 times GSD for the horizontal accuracy and 4 times the GSD for the vertical accuracy (Madawalagama 2016).
 

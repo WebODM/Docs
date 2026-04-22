@@ -15,7 +15,7 @@ In this tutorial we'll explore how to process an orthophoto from a set of aerial
 
 <aside class="notice">Most of the examples in this document use <a href="http://docs.python-requests.org/en/latest/index.html" target="_blank">requests</a>. Make sure it's installed before running any code:<br/><br/>
 
-<pre class="higlight shell">
+<pre class="highlight shell">
 $ pip install requests
 </pre>
 </aside>

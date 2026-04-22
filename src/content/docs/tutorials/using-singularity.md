@@ -16,7 +16,7 @@ singularity build --disable-cache -f odx_latest.sif docker://webodm/odx:latest
 
 ### Using Singularity SIF Image
 
-Once you have used one of the above commands to download and create the `odx_latest.sif` image, it can be ran using singularity. Place your images in a directory named "images" (for example `/my/project/images`), then simply run:
+Once you have used one of the above commands to download and create the `odx_latest.sif` image, it can be run using singularity. Place your images in a directory named "images" (for example `/my/project/images`), then simply run:
 
 ```bash
 singularity run --bind /my/project:/datasets/code odx_latest.sif --project-path /datasets

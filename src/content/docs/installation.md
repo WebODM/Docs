@@ -77,8 +77,8 @@ If you are planning to process large amounts of data or you're running out of di
 
 | Argument      | Description                                                                                                                                              |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--node-dir`  | Path where temporary files will be stored during processing when using the default node. Safe the change.                                                                 |
-| `--media-dir` | Where all files related to a project and task are permanently stored. Try not change this folder after the first startup, unless as part of a [migration](#backup-and-restore). |
+| `--node-dir`  | Path where temporary files will be stored during processing when using the default node. Safe to change.                                                                 |
+| `--media-dir` | Where all files related to a project and task are permanently stored. Try not to change this folder after the first startup, unless as part of a [migration](#backup-and-restore). |
 
 ## Installation on other machines
 

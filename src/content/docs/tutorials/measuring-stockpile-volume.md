@@ -12,7 +12,7 @@ Also ensure that your naked eye horizontal visibility distance is congruent with
 
 ### Flight Pattern
 
-Most stockpile measurement jobs does not require a crosshatch pattern or angled gimbal as the resting angle of stockpile materials allows the camera to capture the entire stockpile sides. Only some special cases where erosion or machinery operations causes steep angles on the faces of the stockpile would benefit of the crosshatch flight pattern and angled camera gimbal but consider that these additional recognized features come at a cost, (in field labor and processing time) and the resulting improvements are sometimes negligible.
+Most stockpile measurement jobs do not require a crosshatch pattern or angled gimbal as the resting angle of stockpile materials allows the camera to capture the entire stockpile sides. Only some special cases where erosion or machinery operations causes steep angles on the faces of the stockpile would benefit from the crosshatch flight pattern and angled camera gimbal but consider that these additional recognized features come at a cost, (in field labor and processing time) and the resulting improvements are sometimes negligible.
 
 In most of the cases a lawn mower flight pattern is capable of producing highly accurate stockpile models.
 
@@ -68,7 +68,7 @@ Click on "Finish measurement" to finish the process.
 
 ![Finish measurement](/images/measurement4.webp)
 
-Dialog box will show the message "Computing ..." for a few seconds, and after the computing is finished the volume measurement value will be displayed.
+The dialog box will show the message "Computing ..." for a few seconds, and after the computing is finished the volume measurement value will be displayed.
 
 ![Volume measurement result](/images/measurement7.webp)
 

@@ -39,7 +39,7 @@ WebODM can also automatically distribute the processing of each submodel to mult
 
 ### Getting Started with Distributed Split-Merge
 
-The first step is start ClusterODX:
+The first step is to start ClusterODX:
 
 ```bash
 docker run -ti -p 3001:3000 -p 8080:8080 webodm/clusterodx
@@ -176,7 +176,7 @@ The 45-degree cross-grid flight provides the basis for a fully tied together mod
 
 ### Data Collection Effort, 2D and 2.5D Products
 
-For best in class results 2D and 2.5D products and 5cm resolution, it is feasible to collect 2–4 km² per person, per day. This requires the following set of flights:
+For best in class results for 2D and 2.5D products and 5cm resolution, it is feasible to collect 2–4 km² per person, per day. This requires the following set of flights:
 
 - 70-80% overlap slightly off-nadir (5-10 degree off nadir)
 

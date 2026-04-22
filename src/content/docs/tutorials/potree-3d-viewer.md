@@ -90,7 +90,7 @@ Measurements are performed by left clicking on the desired points and for some t
 
 **Volume (sphere)** — This tool measures the volume formed by a sphere. To start a measurement, click on the volume (sphere) icon and click on the model to place the sphere. It is possible relocate, redimension and rotate the sphere using the displayed handlers. Right click to finish measurement. Further information can also be obtained from selecting this element under the scene section.
 
-**Height profile** — This tool creates a height profile formed by a line on the model. To start a measurement, click on the Height profile icon and then form a line on the model by clicking on the desired points (two or more). Right click to finish measurement. Further information and options, such as "Show 2d Profile", can also been obtained from selecting this element under the scene section.
+**Height profile** — This tool creates a height profile formed by a line on the model. To start a measurement, click on the Height profile icon and then form a line on the model by clicking on the desired points (two or more). Right click to finish measurement. Further information and options, such as "Show 2d Profile", can also be obtained from selecting this element under the scene section.
 
 ![Height profile](/images/height_profile.webp)
 

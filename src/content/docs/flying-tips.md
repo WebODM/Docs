@@ -14,7 +14,7 @@ The 45-degree cross-grid flight provides the basis for a fully tied together mod
 
 ## Data Collection Effort, 2D and 2.5D Products
 
-For best in class results 2D and 2.5D products, we recommend the following:
+For best in class results for 2D and 2.5D products, we recommend the following:
 
 - 70-80% overlap slightly off-nadir (5-10 degree off nadir)
 

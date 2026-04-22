@@ -164,7 +164,7 @@ Choose the algorithm for extracting keypoints and computing descriptors.
 
 ## force-gps
 
-Use images' GPS exif data for reconstruction, even if there are GCPs present.This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing.
+Use images' GPS exif data for reconstruction, even if there are GCPs present. This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing.
 
 **Default:** `False`
 

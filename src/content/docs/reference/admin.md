@@ -99,7 +99,7 @@ email |  | "" | User email
 
 `GET /api/admin/users/?email=user@example.com`
 
-Retrieves projects that have a email of "user@example.com".
+Retrieves users that have an email of "user@example.com".
 
 
 ## Admin/Groups
@@ -165,7 +165,7 @@ Parameters are the same as above.
 `GET /api/admin/groups/{id}/`
 
 
-### Get list of group
+### Get list of groups
 
 `GET /api/admin/groups/`
 
@@ -173,8 +173,8 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 name |  | "" | Group name
 
-#### Example: Filtering by email
+#### Example: Filtering by name
 
 `GET /api/admin/groups/?name=Xyz`
 
-Retrieves projects that have a name of "Xyz".
+Retrieves groups that have a name of "Xyz".

@@ -94,13 +94,13 @@ Parameters are the same as above.
 
 `POST /api/projects/{project_id}/tasks/import`
 
-Import task that have been processed by another WebODM instance (or via [webodm.net](https://webodm.net) or NodeODX)
+Import tasks that have been processed by another WebODM instance (or via [webodm.net](https://webodm.net) or NodeODX)
 
 Parameter | Required | Default          | Description
 --------- | -------- | -------          | ----------
 name      |          | Imported Task    | User defined name for the task.
 filename  | */       | ""               | File with assets. Must be a zip.
-url       | /*       | ""               | URL to zipped zipped assets.
+url       | /*       | ""               | URL to zipped assets.
 
 You have to provide either `filename` or `url` parameter (but not both) in order to import created assets.
  
@@ -246,5 +246,5 @@ Status | Code | Description
 QUEUED | 10 | [Task](/reference/task/)'s files have been uploaded to a [Processing Node](/reference/processingnode/) and are waiting to be processed.
 RUNNING | 20 | [Task](/reference/task/) is currently being processed.
 FAILED | 30 | [Task](/reference/task/) has failed for some reason (not enough images, out of memory, Piero forgot to close a parenthesis, etc.)
-COMPLETED | 40 | [Task](/reference/task/) has completed. Assets are be ready to be downloaded.
+COMPLETED | 40 | [Task](/reference/task/) has completed. Assets are ready to be downloaded.
 CANCELED | 50 | [Task](/reference/task/) was manually canceled by the user.

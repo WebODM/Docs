@@ -43,7 +43,7 @@ WebODM is free and open source software, released under the [AGPLv3](https://git
 
 Nope, sorry!
 
-## Your computer is running out of memory, what can you do?
+## Your computer is running out of memory. What can you do?
 
 1. First you can buy more RAM, this is the ultimate and final solution.
 2. Alternatively you can resize the images when uploading and/or tweak your quality settings.

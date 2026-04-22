@@ -17,7 +17,7 @@ We don't have many rules. Follow the guidelines indicated in the [Contributing](
 
 ## Setup a Development Environment
 
-Follow the [WebODM docker installation instructions](https://github.com/WebODM/WebODM##manual-installation-docker), then run:
+Follow the [WebODM docker installation instructions](https://github.com/WebODM/WebODM/#manual-installation-docker), then run:
 
 `./webodm.sh start --dev`
 
