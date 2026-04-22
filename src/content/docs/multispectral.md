@@ -50,7 +50,7 @@ These drones are also supported, but require pre-processing with
  * DJI Mavic 3 Enterprise
  * DJI Matrice 4 Series
  
-Other cameras might also work. You can help us expand this list by [sharing](https://webodm.org/community) datasets captured with other cameras.
+Other cameras might also work. You can help us expand this list by [sharing](https://webodm.org/datasets) datasets captured with other cameras.
 
 ### Usage
 
