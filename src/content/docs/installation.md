@@ -11,9 +11,15 @@ You can skip the installation and run WebODM from [webodm.net](https://webodm.ne
 
 ## Installation on your machine
 
-If you're on Windows or macOS, the easiest way is to [download](https://webodm.org/download) the installer for your platform.
+If you're on Windows or macOS, the easiest way is to [download](https://webodm.org/download) the installer for your platform from [webodm.org](https://webodm.org).
 
 If you're on Linux, you need to use docker (see below).
+
+:::note
+
+OpenDroneMap, which we are [no longer affiliated with](https://webodm.org/blog/announcement/), sells installers for a fork of WebODM. Please know that official WebODM installers are free to download and use and that purchasing from OpenDroneMap does not support WebODM.
+
+:::
 
 ### Docker
 
