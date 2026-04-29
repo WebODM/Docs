@@ -11,7 +11,7 @@ WebODM used to be part of the OpenDroneMap project. As of 2026, WebODM is no lon
 
 Yes. The software tries to use all available resources, when possible, but not always. It’s normal to see 10-15% CPU utilization at several moments during processing and 0% GPU utilization for lots of times.
 
-## How can I get the highest resolution map outputs?
+## How can I get the highest resolution maps?
 
 Set [orthophoto-resolution](/options-flags/#orthophoto-resolution) and [dem-resolution](/options-flags/#dem-resolution) to a low value like `0.01`.
 
