@@ -1,10 +1,19 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
+
+
+
+// When using with Starlight or other markdown-processing integrations, place mermaid first
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
+		mermaid({
+     	theme: 'forest',
+      	autoTheme: true
+   		}),
 		starlight({
 			title: 'WebODM',
 			logo: {
@@ -87,6 +96,10 @@ export default defineConfig({
 				{
 					label: 'Options & Flags',
 					slug: 'options-flags'
+				},
+				{
+					label: 'Flowchart of options and flags',
+					slug: 'flowchart-options-flags'
 				},
 				{
 					label: 'Frequently Asked Questions',
