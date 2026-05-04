@@ -122,13 +122,12 @@ subgraph OpenSFMGroup[" "]
 end
 
 subgraph OpenmvsGroup[" "]
-    direction LR
+    direction RL
     Openmvs["Openmvs"]
     openmvs_pc_filter["pc-filter"]
     openmvs_pc_skip_geometric["pc-skip-geometric"]
-    invisible_block[" "]
 
-    Openmvs ~~~ invisible_block
+    Openmvs
     openmvs_pc_filter ~~~ openmvs_pc_skip_geometric
 
     click Openmvs "../options-flags/#openmvs"
@@ -137,16 +136,15 @@ subgraph OpenmvsGroup[" "]
 end
 
 subgraph OdmFilterpointsGroup[" "]
-    direction LR
+    direction RL
     OdmFilterpoints["OdmFilterpoints"]
-    invisible_block_2[" "]
     filter_auto_boundary["auto-boundary"]
     filter_auto_boundary_distance["auto-boundary-distance"]
     filter_boundary["boundary"]
     filter_fast_orthophoto["fast-orthophoto"]
     filter_pc_sample["pc-sample"]
-    OdmFilterpoints ~~~ invisible_block_2
 
+    OdmFilterpoints
     filter_auto_boundary ~~~ filter_auto_boundary_distance
     filter_boundary ~~~ filter_fast_orthophoto
     filter_pc_sample
@@ -347,14 +345,12 @@ classDef redNode fill:#F08080,stroke:#8b3a3a,stroke-width:1px,color:#000;
 classDef tealNode fill:#20B2AA,stroke:#0d5d5d,stroke-width:1px,color:#000;
 classDef animatedEdge stroke-dasharray: 9,5,stroke-dashoffset: 900,animation: dash 25s linear infinite;
 
-classDef invisible_class fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
-class invisible_block,invisible_block_2 invisible_class;
 class e01,e02,e03,e04,e05,e06,e07,e08,e09,e10 animatedEdge;
 
 
 class DatasetStage,Split,OpenSFM,Openmvs,OdmFilterpoints,OdmMeshing,MvsTexturing,OdmGeoreferencing,OdmDem,OdmOrthophoto,OdmReport,OdmPostprocess subgraphTitle;
 class ds_bg,ds_camera_lens,ds_cameras,ds_gcp,ds_geo,ds_gps_accuracy,ds_primary_band,ds_sky_removal,ds_use_exif,ds_video_limit,ds_video_resolution greenNode;
-class split_sm_cluster,split_sm_no_align,split_split,split_image_groups,split_overlap blueNode;
+class Images,split_sm_cluster,split_sm_no_align,split_split,split_image_groups,split_overlap blueNode;
 class sfm_feature_quality,sfm_feature_type,sfm_force_gps,sfm_ignore_gsd,sfm_matcher_neighbors,sfm_matcher_order,sfm_matcher_type,sfm_min_num_features,sfm_pc_quality,sfm_radiometric_calibration,sfm_rolling_shutter,sfm_rolling_shutter_readout,sfm_algorithm,sfm_no_partial,sfm_skip_band_alignment,sfm_use_fixed_camera_params,sfm_use_hybrid_bundle_adjustment pinkNode;
 class openmvs_pc_filter,openmvs_pc_skip_geometric purpleNode;
 class filter_auto_boundary,filter_auto_boundary_distance,filter_boundary,filter_fast_orthophoto,filter_pc_sample yellowNode;

@@ -11,9 +11,9 @@ import mermaid from 'astro-mermaid';
 export default defineConfig({
 	integrations: [
 		mermaid({
-     	theme: 'forest',
-      	autoTheme: true
-   		}),
+		theme: 'forest',
+		autoTheme: true
+		}),
 		starlight({
 			title: 'WebODM',
 			logo: {
