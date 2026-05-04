@@ -170,18 +170,16 @@ subgraph MvsTexturingGroup[" "]
     direction RL
 
     MvsTexturing["MvsTexturing"]
-    texturing_gltf["gltf"]
     texturing_keep_unseen_faces["texturing-keep-unseen-faces"]
     texturing_single_material["texturing-single-material"]
     texturing_skip_global_seam_leveling["texturing-skip-global-seam-leveling"]
     texturing_use_3dmesh["use-3dmesh"]
     MvsTexturing
 
-    texturing_gltf ~~~ texturing_keep_unseen_faces
+    texturing_keep_unseen_faces
     texturing_single_material ~~~ texturing_skip_global_seam_leveling
     texturing_use_3dmesh
 
-    click texturing_gltf "../options-flags/#gltf"
     click texturing_keep_unseen_faces "../options-flags/#texturing-keep-unseen-faces"
     click texturing_single_material "../options-flags/#texturing-single-material"
     click texturing_skip_global_seam_leveling "../options-flags/#texturing-skip-global-seam-leveling"
@@ -293,11 +291,13 @@ subgraph PostprocessGroup[" "]
     Postprocess["Postprocess"]
     post_3d_tiles["3d-tiles"]
     post_copy_to["copy-to"]
+    post_gltf["gltf"]
     Postprocess
-    post_3d_tiles ~~~ post_copy_to
+    post_3d_tiles ~~~ post_copy_to ~~~ post_gltf
 
     click post_3d_tiles "../options-flags/#3d-tiles"
     click post_copy_to "../options-flags/#copy-to"
+    click post_gltf "../options-flags/#gltf"
 end
 
 Images e01@==> DatasetGroup
@@ -343,11 +343,11 @@ class sfm_feature_quality,sfm_feature_type,sfm_force_gps,sfm_ignore_gsd,sfm_matc
 class openmvs_pc_filter,openmvs_pc_skip_geometric purpleNode;
 class filter_auto_boundary,filter_auto_boundary_distance,filter_boundary,filter_fast_orthophoto,filter_pc_sample yellowNode;
 class mesh_octree_depth,mesh_size,mesh_skip_3dmodel orangeNode;
-class texturing_gltf,texturing_keep_unseen_faces,texturing_single_material,texturing_skip_global_seam_leveling,texturing_use_3dmesh mintNode;
+class texturing_keep_unseen_faces,texturing_single_material,texturing_skip_global_seam_leveling,texturing_use_3dmesh mintNode;
 class georef_align,georef_crop,georef_pc_classify,georef_pc_copc,georef_pc_csv,georef_pc_ept,georef_pc_las goldNode;
 class dem_cog,dem_decimation,dem_euclidean_map,dem_gapfill_steps,dem_resolution,dem_dsm,dem_dtm,dem_smrf_scalar,dem_smrf_slope,dem_smrf_threshold,dem_smrf_window,dem_tiles skyNode;
 class Spliting,ortho_build_overviews,ortho_compression,ortho_cutline,ortho_kmz,ortho_no_tiled,ortho_png,ortho_resolution,ortho_skip sandNode;
 class report_skip redNode;
-class post_3d_tiles,post_copy_to tealNode;
+class post_3d_tiles,post_copy_to,post_gltf tealNode;
 
 ```
