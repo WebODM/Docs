@@ -11,8 +11,8 @@ import mermaid from 'astro-mermaid';
 export default defineConfig({
 	integrations: [
 		mermaid({
-		theme: 'forest',
-		autoTheme: true
+			theme: 'default',
+			autoTheme: true
 		}),
 		starlight({
 			title: 'WebODM',
@@ -96,10 +96,6 @@ export default defineConfig({
 				{
 					label: 'Options & Flags',
 					slug: 'options-flags'
-				},
-				{
-					label: 'Flowchart of options and flags',
-					slug: 'flowchart-options-flags'
 				},
 				{
 					label: 'Frequently Asked Questions',

@@ -1,5 +1,5 @@
 ---
-title: Flowchart of options and flags
+title: Flowchart of Options and Flags
 template: doc
 ---
 ```mermaid
@@ -8,9 +8,9 @@ flowchart TB
 
 Images@{ shape: docs, label: "Images"}
 
-subgraph DatasetStageGroup[" "]
+subgraph DatasetGroup[" "]
     direction RL
-    DatasetStage["DatasetStage"]
+    Dataset["Dataset"]
     ds_bg["bg-removal"]
     ds_camera_lens["camera-lens"]
     ds_cameras["cameras"]
@@ -30,7 +30,6 @@ subgraph DatasetStageGroup[" "]
     ds_use_exif ~~~ ds_video_limit
     ds_video_resolution
 
-    click DatasetStage "../options-flags/#dataset-stage"
     click ds_bg "../options-flags/#bg-removal"
     click ds_camera_lens "../options-flags/#camera-lens"
     click ds_cameras "../options-flags/#cameras"
@@ -58,7 +57,6 @@ subgraph SplitGroup[" "]
     split_split ~~~ split_image_groups
     split_overlap
 
-    click Split "../options-flags/#split"
     click split_sm_cluster "../options-flags/#sm-cluster"
     click split_sm_no_align "../options-flags/#sm-no-align"
     click split_split "../options-flags/#split"
@@ -101,7 +99,6 @@ subgraph OpenSFMGroup[" "]
     sfm_skip_band_alignment ~~~ sfm_use_fixed_camera_params
     sfm_use_hybrid_bundle_adjustment
 
-    click OpenSFM "../options-flags/#opensfm"
     click sfm_feature_quality "../options-flags/#feature-quality"
     click sfm_feature_type "../options-flags/#feature-type"
     click sfm_force_gps "../options-flags/#force-gps"
@@ -121,35 +118,33 @@ subgraph OpenSFMGroup[" "]
     click sfm_use_hybrid_bundle_adjustment "../options-flags/#use-hybrid-bundle-adjustment"
 end
 
-subgraph OpenmvsGroup[" "]
+subgraph OpenMVSGroup[" "]
     direction RL
-    Openmvs["Openmvs"]
+    OpenMVS["OpenMVS"]
     openmvs_pc_filter["pc-filter"]
     openmvs_pc_skip_geometric["pc-skip-geometric"]
 
-    Openmvs
+    OpenMVS
     openmvs_pc_filter ~~~ openmvs_pc_skip_geometric
 
-    click Openmvs "../options-flags/#openmvs"
     click openmvs_pc_filter "../options-flags/#pc-filter"
     click openmvs_pc_skip_geometric "../options-flags/#pc-skip-geometric"
 end
 
-subgraph OdmFilterpointsGroup[" "]
+subgraph FilterpointsGroup[" "]
     direction RL
-    OdmFilterpoints["OdmFilterpoints"]
+    Filterpoints["Filterpoints"]
     filter_auto_boundary["auto-boundary"]
     filter_auto_boundary_distance["auto-boundary-distance"]
     filter_boundary["boundary"]
     filter_fast_orthophoto["fast-orthophoto"]
     filter_pc_sample["pc-sample"]
 
-    OdmFilterpoints
+    Filterpoints
     filter_auto_boundary ~~~ filter_auto_boundary_distance
     filter_boundary ~~~ filter_fast_orthophoto
     filter_pc_sample
 
-    click OdmFilterpoints "../options-flags/#odm-filterpoints"
     click filter_auto_boundary "../options-flags/#auto-boundary"
     click filter_auto_boundary_distance "../options-flags/#auto-boundary-distance"
     click filter_boundary "../options-flags/#boundary"
@@ -157,16 +152,15 @@ subgraph OdmFilterpointsGroup[" "]
     click filter_pc_sample "../options-flags/#pc-sample"
 end
 
-subgraph OdmMeshingGroup[" "]
+subgraph MeshingGroup[" "]
     direction RL
-    OdmMeshing["OdmMeshing"]
+    Meshing["Meshing"]
     mesh_octree_depth["mesh-octree-depth"]
     mesh_size["mesh-size"]
     mesh_skip_3dmodel["skip-3dmodel"]
-    OdmMeshing
+    Meshing
     mesh_octree_depth ~~~ mesh_size ~~~ mesh_skip_3dmodel
 
-    click OdmMeshing "../options-flags/#odm-meshing"
     click mesh_octree_depth "../options-flags/#mesh-octree-depth"
     click mesh_size "../options-flags/#mesh-size"
     click mesh_skip_3dmodel "../options-flags/#skip-3dmodel"
@@ -187,7 +181,6 @@ subgraph MvsTexturingGroup[" "]
     texturing_single_material ~~~ texturing_skip_global_seam_leveling
     texturing_use_3dmesh
 
-    click MvsTexturing "../options-flags/#mvs-texturing"
     click texturing_gltf "../options-flags/#gltf"
     click texturing_keep_unseen_faces "../options-flags/#texturing-keep-unseen-faces"
     click texturing_single_material "../options-flags/#texturing-single-material"
@@ -195,9 +188,9 @@ subgraph MvsTexturingGroup[" "]
     click texturing_use_3dmesh "../options-flags/#use-3dmesh"
 end
 
-subgraph OdmGeoreferencingGroup[" "]
+subgraph GeoreferencingGroup[" "]
     direction RL
-    OdmGeoreferencing["OdmGeoreferencing"]
+    Georeferencing["Georeferencing"]
     georef_align["align"]
     georef_crop["crop"]
     georef_pc_classify["pc-classify"]
@@ -205,13 +198,12 @@ subgraph OdmGeoreferencingGroup[" "]
     georef_pc_csv["pc-csv"]
     georef_pc_ept["pc-ept"]
     georef_pc_las["pc-las"]
-    OdmGeoreferencing
+    Georeferencing
     georef_align ~~~ georef_crop
     georef_pc_classify ~~~ georef_pc_copc
     georef_pc_csv ~~~ georef_pc_ept
      georef_pc_las
 
-    click OdmGeoreferencing "../options-flags/#odm-georeferencing"
     click georef_align "../options-flags/#align"
     click georef_crop "../options-flags/#crop"
     click georef_pc_classify "../options-flags/#pc-classify"
@@ -221,9 +213,9 @@ subgraph OdmGeoreferencingGroup[" "]
     click georef_pc_las "../options-flags/#pc-las"
 end
 
-subgraph OdmDemGroup[" "]
+subgraph DEMGroup[" "]
     direction RL
-    OdmDem["OdmDem"]
+    DEM["DEM"]
     dem_cog["cog"]
     dem_decimation["dem-decimation"]
     dem_euclidean_map["dem-euclidean-map"]
@@ -236,7 +228,7 @@ subgraph OdmDemGroup[" "]
     dem_smrf_threshold["smrf-threshold"]
     dem_smrf_window["smrf-window"]
     dem_tiles["tiles"]
-    OdmDem
+    DEM
 
     dem_cog ~~~ dem_decimation
     dem_euclidean_map ~~~ dem_gapfill_steps
@@ -245,7 +237,6 @@ subgraph OdmDemGroup[" "]
     dem_smrf_slope ~~~ dem_smrf_threshold
     dem_smrf_window ~~~ dem_tiles
 
-    click OdmDem "../options-flags/#odm-dem"
     click dem_cog "../options-flags/#cog"
     click dem_decimation "../options-flags/#dem-decimation"
     click dem_euclidean_map "../options-flags/#dem-euclidean-map"
@@ -260,9 +251,9 @@ subgraph OdmDemGroup[" "]
     click dem_tiles "../options-flags/#tiles"
 end
 
-subgraph OdmOrthophotoGroup[" "]
+subgraph OrthophotoGroup[" "]
     direction RL
-    OdmOrthophoto["OdmOrthophoto"]
+    Orthophoto["Orthophoto"]
     ortho_build_overviews["build-overviews"]
     ortho_compression["orthophoto-compression"]
     ortho_cutline["orthophoto-cutline"]
@@ -271,13 +262,12 @@ subgraph OdmOrthophotoGroup[" "]
     ortho_png["orthophoto-png"]
     ortho_resolution["orthophoto-resolution"]
     ortho_skip["skip-orthophoto"]
-    OdmOrthophoto
+    Orthophoto
     ortho_build_overviews ~~~ ortho_compression
     ortho_cutline ~~~ ortho_kmz
     ortho_no_tiled ~~~ ortho_png
     ortho_resolution ~~~ ortho_skip
 
-    click OdmOrthophoto "../options-flags/#odm-orthophoto"
     click ortho_build_overviews "../options-flags/#build-overviews"
     click ortho_compression "../options-flags/#orthophoto-compression"
     click ortho_cutline "../options-flags/#orthophoto-cutline"
@@ -288,45 +278,43 @@ subgraph OdmOrthophotoGroup[" "]
     click ortho_skip "../options-flags/#skip-orthophoto"
 end
 
-subgraph OdmReportGroup[" "]
+subgraph ReportGroup[" "]
     direction TB
-    OdmReport["OdmReport"]
+    Report["Report"]
     report_skip["skip-report"]
-    OdmReport ~~~ report_skip
+    Report ~~~ report_skip
     report_skip
 
-    click OdmReport "../options-flags/#odm-report"
     click report_skip "../options-flags/#skip-report"
 end
 
-subgraph OdmPostprocessGroup[" "]
+subgraph PostprocessGroup[" "]
     direction RL
-    OdmPostprocess["OdmPostprocess"]
+    Postprocess["Postprocess"]
     post_3d_tiles["3d-tiles"]
     post_copy_to["copy-to"]
-    OdmPostprocess
+    Postprocess
     post_3d_tiles ~~~ post_copy_to
 
-    click OdmPostprocess "../options-flags/#odm-postprocess"
     click post_3d_tiles "../options-flags/#3d-tiles"
     click post_copy_to "../options-flags/#copy-to"
 end
 
-Images e01@==> DatasetStageGroup
-DatasetStageGroup e02@--> SplitGroup
+Images e01@==> DatasetGroup
+DatasetGroup e02@--> SplitGroup
 
 SplitGroup == Yes ==> Spliting ==> OpenSFMGroup
 SplitGroup == No ==> OpenSFMGroup
 
-OpenSFMGroup e02@--> OpenmvsGroup
-OpenmvsGroup e03@--> OdmFilterpointsGroup
-OdmFilterpointsGroup e04@--> OdmMeshingGroup
-OdmMeshingGroup e05@--> MvsTexturingGroup
-MvsTexturingGroup e06@--> OdmGeoreferencingGroup
-OdmGeoreferencingGroup e07@--> OdmDemGroup
-OdmDemGroup e08@--> OdmOrthophotoGroup
-OdmOrthophotoGroup e09@--> OdmReportGroup
-OdmReportGroup e10@--> OdmPostprocessGroup
+OpenSFMGroup e02@--> OpenMVSGroup
+OpenMVSGroup e03@--> FilterpointsGroup
+FilterpointsGroup e04@--> MeshingGroup
+MeshingGroup e05@--> MvsTexturingGroup
+MvsTexturingGroup e06@--> GeoreferencingGroup
+GeoreferencingGroup e07@--> DEMGroup
+DEMGroup e08@--> OrthophotoGroup
+OrthophotoGroup e09@--> ReportGroup
+ReportGroup e10@--> PostprocessGroup
 
 
 
@@ -348,7 +336,7 @@ classDef animatedEdge stroke-dasharray: 9,5,stroke-dashoffset: 900,animation: da
 class e01,e02,e03,e04,e05,e06,e07,e08,e09,e10 animatedEdge;
 
 
-class DatasetStage,Split,OpenSFM,Openmvs,OdmFilterpoints,OdmMeshing,MvsTexturing,OdmGeoreferencing,OdmDem,OdmOrthophoto,OdmReport,OdmPostprocess subgraphTitle;
+class Dataset,Split,OpenSFM,OpenMVS,Filterpoints,Meshing,MvsTexturing,Georeferencing,DEM,Orthophoto,Report,Postprocess subgraphTitle;
 class ds_bg,ds_camera_lens,ds_cameras,ds_gcp,ds_geo,ds_gps_accuracy,ds_primary_band,ds_sky_removal,ds_use_exif,ds_video_limit,ds_video_resolution greenNode;
 class Images,split_sm_cluster,split_sm_no_align,split_split,split_image_groups,split_overlap blueNode;
 class sfm_feature_quality,sfm_feature_type,sfm_force_gps,sfm_ignore_gsd,sfm_matcher_neighbors,sfm_matcher_order,sfm_matcher_type,sfm_min_num_features,sfm_pc_quality,sfm_radiometric_calibration,sfm_rolling_shutter,sfm_rolling_shutter_readout,sfm_algorithm,sfm_no_partial,sfm_skip_band_alignment,sfm_use_fixed_camera_params,sfm_use_hybrid_bundle_adjustment pinkNode;
