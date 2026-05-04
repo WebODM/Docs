@@ -1,5 +1,10 @@
 # WebODM Docs
 
+## Requirements
+
+- Node.js 22+
+- npm 10+
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
