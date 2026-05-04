@@ -3,16 +3,10 @@ title: Flowchart of options and flags
 template: doc
 ---
 ```mermaid
----
-config:
-layout: elk
----
+
 flowchart TB
 
-
-
 Images@{ shape: docs, label: "Images"}
-
 
 subgraph DatasetStageGroup[" "]
     direction RL
@@ -72,7 +66,7 @@ subgraph SplitGroup[" "]
     click split_overlap "../options-flags/#split-overlap"
 end
 
-    Spliting["`**Spliting**`"]
+    Spliting["`**Splitting**`"]
 
 
 subgraph OpenSFMGroup[" "]
@@ -334,7 +328,7 @@ MvsTexturingGroup e09@--> OdmGeoreferencingGroup
 OdmGeoreferencingGroup e10@--> OdmDemGroup
 OdmDemGroup e11@--> OdmOrthophotoGroup
 OdmOrthophotoGroup e12@--> OdmReportGroup
-OdmReportGroup e12@--> OdmPostprocessGroup
+OdmReportGroup e13@--> OdmPostprocessGroup
 
 
 
@@ -355,7 +349,7 @@ classDef animatedEdge stroke-dasharray: 9,5,stroke-dashoffset: 900,animation: da
 
 classDef invisible_class fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
 class invisible_block,invisible_block_2 invisible_class;
-class e01,e02,e03,e04,e05,e06,e07,e08,e09,e10,e11,e12 animatedEdge;
+class e01,e02,e03,e04,e05,e06,e07,e08,e09,e10,e11,e12,e13 animatedEdge;
 
 
 class DatasetStage,Split,OpenSFM,Openmvs,OdmFilterpoints,OdmMeshing,MvsTexturing,OdmGeoreferencing,OdmDem,OdmOrthophoto,OdmReport,OdmPostprocess subgraphTitle;
