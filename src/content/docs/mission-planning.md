@@ -9,8 +9,6 @@ WebODM does not have an official mission planner (yet), but you can find a list 
 
 ## Software List
 
-The table below lists popular mission planning applications.
-
 | Name           | Cost   | Platform   | Link                                                      | Notes                                                            |
 | -------------- | ------ | ---------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
 | QGroundControl | Free   | Mavlink    | [qgroundcontrol.com](https://qgroundcontrol.com)          | Open Source Software                                             |
