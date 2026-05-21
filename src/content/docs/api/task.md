@@ -42,24 +42,24 @@ template: doc
 }
 ```
 
-A [Task](/reference/task/) is the basic processing unit of WebODM. To compute an orthophoto, point cloud and textured model from a set of images, you need to create a [Task](/reference/task/).
+A [Task](/api/task/) is the basic processing unit of WebODM. To compute an orthophoto, point cloud and textured model from a set of images, you need to create a [Task](/api/task/).
 
 Field | Type | Description
 ----- | ---- | -----------
 id | int | Unique identifier
-project | int | [Project](/reference/project/) ID the task belongs to
-processing_node | int | The ID of the [Processing Node](/reference/processingnode/) this task has been assigned to, or `null` if no [Processing Node](/reference/processingnode/) has been assigned.
-processing_node_name | string | The name of the processing node below, or `null` if no [Processing Node](/reference/processingnode/) has been assigned.
+project | int | [Project](/api/reference/operations/projects_create/) ID the task belongs to
+processing_node | int | The ID of the [Processing Node](/api/reference/operations/processingnodes_list/) this task has been assigned to, or `null` if no [Processing Node](/api/reference/operations/processingnodes_list/) has been assigned.
+processing_node_name | string | The name of the processing node below, or `null` if no [Processing Node](/api/reference/operations/processingnodes_list/) has been assigned.
 images_count | int | Number of images
 can_rerun_from | string[] | List of possible "rerun-from" options that this task could restart from, given its currently assigned processing node. If this is an empty list, the task can only be restarted from the start of the pipeline.
-available_assets | string[] | List of [assets](/reference/task/#download-assets) available for download 
-uuid | string | Unique identifier assigned by a [Processing Node](/reference/processingnode/) once processing has started.
+available_assets | string[] | List of [assets](/api/task/#download-assets) available for download 
+uuid | string | Unique identifier assigned by a [Processing Node](/api/reference/operations/processingnodes_list/) once processing has started.
 name | string | User defined name for the task
 processing_time | int | Milliseconds that have elapsed since the start of processing, or `-1` if no information is available. Useful for displaying a time status report to the user.
-auto_processing_node | boolean | Whether WebODM should automatically assign the next available [Processing Node](/reference/processingnode/) to process this [Task](/reference/task/). A user can set this to `false` to manually choose a [Processing Node](/reference/processingnode/).
+auto_processing_node | boolean | Whether WebODM should automatically assign the next available [Processing Node](/api/reference/operations/processingnodes_list/) to process this [Task](/api/task/). A user can set this to `false` to manually choose a [Processing Node](/api/reference/operations/processingnodes_list/).
 status | int | One of [Status Codes](#status-codes), or `null` if no status is available.
-last_error | string | The last error message reported by a [Processing Node](/reference/processingnode/) in case of processing failure.
-options | JSON[] | JSON-encoded list of name/value pairs, where each pair represents a command line option to be passed to a [Processing Node](/reference/processingnode/).
+last_error | string | The last error message reported by a [Processing Node](/api/reference/operations/processingnodes_list/) in case of processing failure.
+options | JSON[] | JSON-encoded list of name/value pairs, where each pair represents a command line option to be passed to a [Processing Node](/api/reference/operations/processingnodes_list/).
 created_at | string | Creation date and time.
 pending_action | int | One of [Pending Actions](#pending-actions), or `null` if no pending action is set.
 upload_progress | float | Value between 0 and 1 indicating the upload progress of this task's files to the processing node.
@@ -67,7 +67,7 @@ resize_progress | float | Value between 0 and 1 indicating the resize progress o
 running_progress | float | Value between 0 and 1 indicating the running progress (estimated) of this task.
 
 
-<aside class="notice">Tasks inherit the permission settings from the <a href="#project">Project</a> they belong to.</aside>
+<aside class="notice">Tasks inherit the permission settings from the <a href="/api/reference/operations/projects_read/">Project</a> they belong to.</aside>
 
 ### Create a task
 
@@ -76,12 +76,12 @@ running_progress | float | Value between 0 and 1 indicating the running progress
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 images[] | * | "" | List of multipart-encoded images (2 minimum)
-processing_node | | null | The ID of the [Processing Node](/reference/processingnode/) this [Task](/reference/task/) should be assigned to. If not specified, and auto_processing_node is `true`, a [Processing Node](/reference/processingnode/) will be automatically assigned. 
+processing_node | | null | The ID of the [Processing Node](/api/reference/operations/processingnodes_list/) this [Task](/api/task/) should be assigned to. If not specified, and auto_processing_node is `true`, a [Processing Node](/api/reference/operations/processingnodes_list/) will be automatically assigned. 
 name | | "" | User defined name for the task
-auto_processing_node | | true | Whether WebODM should automatically assign the next available [Processing Node](/reference/processingnode/) to process this [Task](/reference/task/).
-options | | "[]" | JSON-encoded list of name/value pairs, where each pair represents a command line option to be passed to a [Processing Node](/reference/processingnode/).
+auto_processing_node | | true | Whether WebODM should automatically assign the next available [Processing Node](/api/reference/operations/processingnodes_list/) to process this [Task](/api/task/).
+options | | "[]" | JSON-encoded list of name/value pairs, where each pair represents a command line option to be passed to a [Processing Node](/api/reference/operations/processingnodes_list/).
 
-You assign a [Task](/reference/task/) to a [Project](/reference/project/) by passing the proper `project_id` path in the URL.
+You assign a [Task](/api/task/) to a [Project](/api/reference/operations/projects_create/) by passing the proper `project_id` path in the URL.
 
 
 ### Update a task
@@ -141,13 +141,13 @@ url       | application/x-www-form-urlencoded
 
 `GET /api/projects/{project_id}/tasks/`
 
-Retrieves all [Task](/reference/task/) items associated with `project_id`.
+Retrieves all [Task](/api/task/) items associated with `project_id`.
 
 ### Download assets
 
 `GET /api/projects/{project_id}/tasks/{task_id}/download/{asset}`
 
-After a task has been successfully processed, the user can download several assets from this URL. Not all assets are always available. For example if GPS information is missing from the input images, the `orthophoto.tif` asset will be missing. You can check the `available_assets` property of a [Task](/reference/task/) to see which assets are available for download.
+After a task has been successfully processed, the user can download several assets from this URL. Not all assets are always available. For example if GPS information is missing from the input images, the `orthophoto.tif` asset will be missing. You can check the `available_assets` property of a [Task](/api/task/) to see which assets are available for download.
 
 Asset | Description
 ----- | -----------
@@ -183,7 +183,7 @@ curl -H "Authorization: JWT <your_token>" http://localhost:8000/api/projects/2/t
 
 `GET /api/projects/{project_id}/tasks/{task_id}/output/`
 
-As a [Task](/reference/task/) is being processed, processing nodes will return an output string that can be used for debugging and informative purposes. Output is only available after processing has started.
+As a [Task](/api/task/) is being processed, processing nodes will return an output string that can be used for debugging and informative purposes. Output is only available after processing has started.
 
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
@@ -193,19 +193,19 @@ line | | 0 | Only display the output starting from a certain line number. This c
 
 `POST /api/projects/{project_id}/tasks/{task_id}/cancel/`
 
-Stop processing a [Task](/reference/task/). Canceled tasks can be restarted.
+Stop processing a [Task](/api/task/). Canceled tasks can be restarted.
 
 ### Remove task
 
 `POST /api/projects/{project_id}/tasks/{task_id}/remove/`
 
-All assets associated with it will be destroyed also. If the [Task](/reference/task/) is currently being processed, processing will stop.
+All assets associated with it will be destroyed also. If the [Task](/api/task/) is currently being processed, processing will stop.
 
 ### Restart task
 
 `POST /api/projects/{project_id}/tasks/{task_id}/restart/`
 
-If a [Task](/reference/task/) has been canceled or has failed processing, or has completed but the user decided to change processing options, it can be restarted. If the [Processing Node](/reference/processingnode/) assigned to the [Task](/reference/task/) has not changed, processing will happen more quickly compared to creating a new [Task](/reference/task/), since the [Processing Node](/reference/processingnode/) remembers the `uuid` of the [Task](/reference/task/) and will attempt to reuse previous results from the computation pipeline.
+If a [Task](/api/task/) has been canceled or has failed processing, or has completed but the user decided to change processing options, it can be restarted. If the [Processing Node](/api/reference/operations/processingnodes_list/) assigned to the [Task](/api/task/) has not changed, processing will happen more quickly compared to creating a new [Task](/api/task/), since the [Processing Node](/api/reference/operations/processingnodes_list/) remembers the `uuid` of the [Task](/api/task/) and will attempt to reuse previous results from the computation pipeline.
 
 ### Orthophoto TMS layer
 
@@ -231,20 +231,20 @@ After a task has been successfully processed, a TMS layer is made available for 
 
 ### Pending Actions
 
-In some circumstances, a [Task](/reference/task/) can have a pending action that requires some amount of time to be performed.
+In some circumstances, a [Task](/api/task/) can have a pending action that requires some amount of time to be performed.
 
 Pending Action | Code | Description
 ----- | ---- | -----------
-CANCEL | 1 | [Task](/reference/task/) is being canceled
-REMOVE | 2 | [Task](/reference/task/) is being removed
-RESTART | 3 | [Task](/reference/task/) is being restarted
+CANCEL | 1 | [Task](/api/task/) is being canceled
+REMOVE | 2 | [Task](/api/task/) is being removed
+RESTART | 3 | [Task](/api/task/) is being restarted
 
 ### Status Codes
 
 Status | Code | Description
 ----- | ---- | -----------
-QUEUED | 10 | [Task](/reference/task/)'s files have been uploaded to a [Processing Node](/reference/processingnode/) and are waiting to be processed.
-RUNNING | 20 | [Task](/reference/task/) is currently being processed.
-FAILED | 30 | [Task](/reference/task/) has failed for some reason (not enough images, out of memory, Piero forgot to close a parenthesis, etc.)
-COMPLETED | 40 | [Task](/reference/task/) has completed. Assets are ready to be downloaded.
-CANCELED | 50 | [Task](/reference/task/) was manually canceled by the user.
+QUEUED | 10 | [Task](/api/task/)'s files have been uploaded to a [Processing Node](/api/reference/operations/processingnodes_list/) and are waiting to be processed.
+RUNNING | 20 | [Task](/api/task/) is currently being processed.
+FAILED | 30 | [Task](/api/task/) has failed for some reason (not enough images, out of memory, Piero forgot to close a parenthesis, etc.)
+COMPLETED | 40 | [Task](/api/task/) has completed. Assets are ready to be downloaded.
+CANCELED | 50 | [Task](/api/task/) was manually canceled by the user.

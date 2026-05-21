@@ -8,9 +8,9 @@ template: doc
 In this tutorial we'll explore how to process an orthophoto from a set of aerial images using Python. To do that we'll need to:
 
  - Authenticate
- - Create a [Project](/reference/project/). Projects are a way to group together related [Task](/reference/task/) items
- - Upload some images to create a [Task](/reference/task/)
- - Check for [Task](/reference/task/) progress. Photogrammetry can take a long time, so results could take a few minutes to a few hours to be processed.
+ - Create a [Project](/api/reference/operations/projects_create/). Projects are a way to group together related [Task](/api/task/) items
+ - Upload some images to create a [Task](/api/task/)
+ - Check for [Task](/api/task/) progress. Photogrammetry can take a long time, so results could take a few minutes to a few hours to be processed.
  - Download the resulting orthophoto.
 
 <aside class="notice">Most of the examples in this document use <a href="http://docs.python-requests.org/en/latest/index.html" target="_blank">requests</a>. Make sure it's installed before running any code:<br/><br/>
@@ -32,7 +32,7 @@ res = requests.post('http://localhost:8000/api/token-auth/',
 token = res['token']
 ```
 
-First, we <a href="/reference/authentication/">authenticate</a> with WebODM. A `token` is returned when authentication is successful.
+First, we <a href="/api/authentication/">authenticate</a> with WebODM. A `token` is returned when authentication is successful.
 <div class="clear"></div>
 
 ```python
@@ -42,7 +42,7 @@ res = requests.post('http://localhost:8000/api/projects/',
 project_id = res['id']
 ```
 
-Then we need to create a [Project](/reference/project/). We pass our `token` via the `Authorization` header. If we forget to pass this header, the system will not authenticate us and will refuse to process the request. We also assign a `name` to our project.
+Then we need to create a [Project](/api/reference/operations/projects_create/). We pass our `token` via the `Authorization` header. If we forget to pass this header, the system will not authenticate us and will refuse to process the request. We also assign a `name` to our project.
 <div class="clear"></div>
 
 ```python
@@ -65,8 +65,8 @@ res = requests.post('http://localhost:8000/api/projects/{}/tasks/'.format(projec
 task_id = res['id']
 ```
 
-We can then create a [Task](/reference/task/). The only required parameter is a list of multiple, multipart-encoded `images`. Processing will start automatically
-as soon as a [Processing Node](/reference/processingnode/) is available. It is possible to specify additional options by passing an `options` value, which is a JSON-encoded list of name/value pairs. Several other options are available. See the [Processing Node - Processing Options](/reference/processingnode/#processing-options) reference for more information.
+We can then create a [Task](/api/task/). The only required parameter is a list of multiple, multipart-encoded `images`. Processing will start automatically
+as soon as a [Processing Node](/api/reference/operations/processingnodes_list/) is available. It is possible to specify additional options by passing an `options` value, which is a JSON-encoded list of name/value pairs. Several other options are available. See the [Options & Flags](/options-flags/) reference for more information.
 <div class="clear"></div>
 
 ```python
@@ -85,7 +85,7 @@ while True:
 		time.sleep(3)
 ```
 
-We periodically check for the [Task](/reference/task/) status using a loop.
+We periodically check for the [Task](/api/task/) status using a loop.
 <div class="clear"></div>
 
 ```python
@@ -99,7 +99,7 @@ with open("orthophoto.tif", 'wb') as f:
 print("Saved ./orthophoto.tif")
 ```
 
-Our orthophoto is ready to be downloaded. A variety of other assets, including a dense 3D point cloud and a textured model [are also available](/reference/task/#download-assets).
+Our orthophoto is ready to be downloaded. A variety of other assets, including a dense 3D point cloud and a textured model [are also available](/api/task/#download-assets).
 
 Congratulations! You just processed some images.
 
