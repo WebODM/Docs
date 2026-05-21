@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
-
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
 
 // When using with Starlight or other markdown-processing integrations, place mermaid first
@@ -24,6 +24,25 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/WebODM/Docs/edit/main/',
 			},
+			plugins: [
+				// Generate the OpenAPI documentation pages.
+				starlightOpenAPI([
+					{
+						base: 'api/reference',
+						schema: './swagger.json',
+						// schema: 'http://localhost:8000/swagger?format=openapi',
+						label: "Reference",
+						collapsed: true,
+						sidebar: {
+							operations: {
+								badges: true,
+								labels: "summary"
+							}
+						}
+					},
+				]),
+			],
+
 			customCss: [
 				'./src/styles/custom.css',
 			],
@@ -128,14 +147,32 @@ export default defineConfig({
 							label: 'Plugin Development Guide',
 							slug: 'plugin-development-guide'
 						},
+					]
+				},
+				{
+					label: 'API',
+					items: [
 						{
-							label: 'API Quickstart',
-							slug: 'quickstart'
+							label: 'Quickstart',
+							slug: 'api/quickstart'
 						},
 						{
-							label: 'API Reference',
-							autogenerate: { directory: 'reference' },
+							label: 'Authentication',
+							slug: 'api/authentication'
 						},
+						{
+							label: 'Task',
+							slug: 'api/task'
+						},
+						{
+							label: 'Permissions',
+							slug: 'api/permissions'
+						},
+						{
+							label: 'Handling Errors',
+							slug: 'api/handlingerrors'
+						},
+						...openAPISidebarGroups
 					]
 				},
 			],

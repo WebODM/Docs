@@ -1,0 +1,3189 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebODM API",
+    "description": "WebODM API",
+    "version": "v1.0.0"
+  },
+  "host": "localhost:8000",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "Basic": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "Basic": []
+    }
+  ],
+  "paths": {
+    "/admin/groups/": {
+      "get": {
+        "operationId": "admin_groups_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Group"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "List Admin Groups"
+      },
+      "post": {
+        "operationId": "admin_groups_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Create Admin Group"
+      },
+      "parameters": []
+    },
+    "/admin/groups/{id}/": {
+      "get": {
+        "operationId": "admin_groups_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Read Admin Group"
+      },
+      "put": {
+        "operationId": "admin_groups_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin Group"
+      },
+      "patch": {
+        "operationId": "admin_groups_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin Groups"
+      },
+      "delete": {
+        "operationId": "admin_groups_delete",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Delete Admin Group"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/admin/profiles/": {
+      "get": {
+        "operationId": "admin_profiles_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Profile"
+              }
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "List Admin Profiles"
+      },
+      "post": {
+        "operationId": "admin_profiles_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Create Admin Profile"
+      },
+      "parameters": []
+    },
+    "/admin/profiles/{user}/": {
+      "get": {
+        "operationId": "admin_profiles_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Read Admin Profile"
+      },
+      "put": {
+        "operationId": "admin_profiles_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin Profile"
+      },
+      "patch": {
+        "operationId": "admin_profiles_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin Profiles"
+      },
+      "delete": {
+        "operationId": "admin_profiles_delete",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Delete Admin Profile"
+      },
+      "parameters": [
+        {
+          "name": "user",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/admin/profiles/{user}/update_quota_deadline/": {
+      "post": {
+        "operationId": "admin_profiles_update_quota_deadline",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Quota Deadline"
+      },
+      "parameters": [
+        {
+          "name": "user",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/admin/profiles/{user}/used_quota/": {
+      "get": {
+        "operationId": "admin_profiles_used_quota",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Used Quota"
+      },
+      "parameters": [
+        {
+          "name": "user",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/admin/users/": {
+      "get": {
+        "operationId": "admin_users_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "List Admin Users"
+      },
+      "post": {
+        "operationId": "admin_users_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Create Admin User"
+      },
+      "parameters": []
+    },
+    "/admin/users/{id}/": {
+      "get": {
+        "operationId": "admin_users_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Read Admin User"
+      },
+      "put": {
+        "operationId": "admin_users_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin User"
+      },
+      "patch": {
+        "operationId": "admin_users_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Update Admin Users"
+      },
+      "delete": {
+        "operationId": "admin_users_delete",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "admin"
+        ],
+        "summary": "Delete Admin User"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/groups": {
+      "get": {
+        "operationId": "groups_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "groups"
+        ],
+        "summary": "List Groups"
+      },
+      "parameters": []
+    },
+    "/presets/": {
+      "get": {
+        "operationId": "presets_list",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Preset"
+              }
+            }
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "List Presets"
+      },
+      "post": {
+        "operationId": "presets_create",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "Create Preset"
+      },
+      "parameters": []
+    },
+    "/presets/{id}/": {
+      "get": {
+        "operationId": "presets_read",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "Read Preset"
+      },
+      "put": {
+        "operationId": "presets_update",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "Update Preset"
+      },
+      "patch": {
+        "operationId": "presets_partial_update",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Preset"
+            }
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "Update Presets"
+      },
+      "delete": {
+        "operationId": "presets_delete",
+        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "presets"
+        ],
+        "summary": "Delete Preset"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/processingnodes/": {
+      "get": {
+        "operationId": "processingnodes_list",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [
+          {
+            "name": "has_available_options",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "hostname",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "port",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "api_version",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "queue_count",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "max_images",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "engine",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "engine_version",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProcessingNode"
+              }
+            }
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "List Processing Nodes"
+      },
+      "post": {
+        "operationId": "processingnodes_create",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "Create Processing Node"
+      },
+      "parameters": []
+    },
+    "/processingnodes/options/": {
+      "get": {
+        "operationId": "processingnodes_options_list",
+        "description": "Display the common options available among all online processing nodes. This is calculated by intersecting the available_options field of all online processing nodes visible to the current user.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "List Processing Nodes Options"
+      },
+      "parameters": []
+    },
+    "/processingnodes/{id}/": {
+      "get": {
+        "operationId": "processingnodes_read",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "Read Processing Node"
+      },
+      "put": {
+        "operationId": "processingnodes_update",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "Update Processing Node"
+      },
+      "patch": {
+        "operationId": "processingnodes_partial_update",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProcessingNode"
+            }
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "Update Processing Nodes"
+      },
+      "delete": {
+        "operationId": "processingnodes_delete",
+        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "processingnodes"
+        ],
+        "summary": "Delete Processing Node"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this Processing Node.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/projects/": {
+      "get": {
+        "operationId": "projects_list",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "created_at",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ordering",
+            "in": "query",
+            "description": "Which field to use when ordering the results.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Project"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Projects"
+      },
+      "post": {
+        "operationId": "projects_create",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Project"
+      },
+      "parameters": []
+    },
+    "/projects/{id}/": {
+      "get": {
+        "operationId": "projects_read",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Project"
+      },
+      "put": {
+        "operationId": "projects_update",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update Project"
+      },
+      "patch": {
+        "operationId": "projects_partial_update",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update Projects"
+      },
+      "delete": {
+        "operationId": "projects_delete",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Delete Project"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this Project.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/projects/{id}/duplicate/": {
+      "post": {
+        "operationId": "projects_duplicate",
+        "description": "Duplicate a task",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Duplicate Project"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this Project.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/projects/{id}/edit/": {
+      "post": {
+        "operationId": "projects_edit",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Edit Project"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this Project.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/projects/{id}/permissions/": {
+      "get": {
+        "operationId": "projects_permissions",
+        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Permissions Project"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this Project.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/": {
+      "get": {
+        "operationId": "projects_tasks_list",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks"
+      },
+      "post": {
+        "operationId": "projects_tasks_create",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Task"
+      },
+      "parameters": [
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/import": {
+      "post": {
+        "operationId": "projects_tasks_import_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Import"
+      },
+      "parameters": [
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/import/external/commit": {
+      "post": {
+        "operationId": "projects_tasks_import_external_commit_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Import External Commit"
+      },
+      "parameters": [
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/import/external/init": {
+      "post": {
+        "operationId": "projects_tasks_import_external_init_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Import External Init"
+      },
+      "parameters": [
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/import/external/upload": {
+      "post": {
+        "operationId": "projects_tasks_import_external_upload_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Import External Upload"
+      },
+      "parameters": [
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/": {
+      "get": {
+        "operationId": "projects_tasks_read",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Task"
+      },
+      "put": {
+        "operationId": "projects_tasks_update",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update Task"
+      },
+      "patch": {
+        "operationId": "projects_tasks_partial_update",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update Tasks"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/3d/cameraview": {
+      "post": {
+        "operationId": "projects_tasks_3d_cameraview_create",
+        "description": "Store camera view information",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks 3d Cameraview"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/3d/scene": {
+      "get": {
+        "operationId": "projects_tasks_3d_scene_list",
+        "description": "Retrieve Potree scene information",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks 3d Scene"
+      },
+      "post": {
+        "operationId": "projects_tasks_3d_scene_create",
+        "description": "Store potree scene information (except camera view)",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks 3d Scene"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/assets/{unsafe_asset_path}": {
+      "get": {
+        "operationId": "projects_tasks_assets_read",
+        "description": "Downloads a task asset (if available)",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Asset"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "unsafe_asset_path",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/backup": {
+      "get": {
+        "operationId": "projects_tasks_backup_list",
+        "description": "Downloads a task's backup",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Backup"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/cancel/": {
+      "post": {
+        "operationId": "projects_tasks_cancel",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Cancel Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/commit/": {
+      "post": {
+        "operationId": "projects_tasks_commit",
+        "description": "Commit a task after all images have been uploaded",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Commit Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/compact/": {
+      "post": {
+        "operationId": "projects_tasks_compact",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Compact Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/download/{asset}": {
+      "get": {
+        "operationId": "projects_tasks_download_read",
+        "description": "Downloads a task asset (if available)",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Download"
+      },
+      "parameters": [
+        {
+          "name": "asset",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/duplicate/": {
+      "post": {
+        "operationId": "projects_tasks_duplicate",
+        "description": "Duplicate a task",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Duplicate Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/images/download/{image_filename}": {
+      "get": {
+        "operationId": "projects_tasks_images_download_read",
+        "description": "Download a task's image",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Images Download"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "image_filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/images/thumbnail/{image_filename}": {
+      "get": {
+        "operationId": "projects_tasks_images_thumbnail_read",
+        "description": "Generate a thumbnail on the fly for a particular task's image",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Images Thumbnail"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "image_filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media.geojson": {
+      "get": {
+        "operationId": "projects_tasks_media.geojson_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Media.geojson"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/": {
+      "get": {
+        "operationId": "projects_tasks_media_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Media"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/download/{filename}": {
+      "get": {
+        "operationId": "projects_tasks_media_download_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Media Download"
+      },
+      "parameters": [
+        {
+          "name": "filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/manage/{filename}": {
+      "get": {
+        "operationId": "projects_tasks_media_manage_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Media"
+      },
+      "patch": {
+        "operationId": "projects_tasks_media_manage_partial_update",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update Tasks Media"
+      },
+      "delete": {
+        "operationId": "projects_tasks_media_manage_delete",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Delete Tasks Media"
+      },
+      "parameters": [
+        {
+          "name": "filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/panorama/{filename}/tiles/{level}/{face}/{row}/{col}.jpg": {
+      "get": {
+        "operationId": "projects_tasks_media_panorama_tiles_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Media Panorama Tile"
+      },
+      "parameters": [
+        {
+          "name": "col",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "face",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "level",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "row",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/thumbnail/{filename}": {
+      "get": {
+        "operationId": "projects_tasks_media_thumbnail_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Media Thumbnail"
+      },
+      "parameters": [
+        {
+          "name": "filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/upload": {
+      "post": {
+        "operationId": "projects_tasks_media_upload_create",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "consumes": [
+          "multipart/form-data",
+          "application/x-www-form-urlencoded"
+        ],
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Media Upload"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/media/video/{filename}/flightpath.geojson": {
+      "get": {
+        "operationId": "projects_tasks_media_video_flightpath.geojson_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Media Video Flightpath.geojson"
+      },
+      "parameters": [
+        {
+          "name": "filename",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/output/": {
+      "get": {
+        "operationId": "projects_tasks_output",
+        "summary": "Output Task",
+        "description": "An optional \"line\" query param can be passed to retrieve\nonly the output starting from a certain line number.\n\nAn optional \"limit\" query param can be passed to limit\nthe number of lines to be returned\n\nAn optional \"f\" query param can be either: \"text\" (default), \"json\" or \"raw\"",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/remove/": {
+      "post": {
+        "operationId": "projects_tasks_remove",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Remove Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/restart/": {
+      "post": {
+        "operationId": "projects_tasks_restart",
+        "description": "Task get/add/delete/update\nA task represents a set of images and other input to be sent to a processing node.\nOnce a processing node completes processing, results are stored in the task.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Restart Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/textured_model/": {
+      "get": {
+        "operationId": "projects_tasks_textured_model_list",
+        "description": "Downloads a task's safe textured model (if available)",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Textured Model"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/thumbnail": {
+      "get": {
+        "operationId": "projects_tasks_thumbnail_list",
+        "description": "Generate a thumbnail on the fly for a particular task",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Thumbnail"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/upload/": {
+      "post": {
+        "operationId": "projects_tasks_upload",
+        "description": "Add images to a task",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Upload Task"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{asset_type}/export": {
+      "post": {
+        "operationId": "projects_tasks_export_create",
+        "description": "Export assets (orthophoto, DEMs, etc.) after applying scaling\nformulas, shading, reprojections",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Create Tasks Export"
+      },
+      "parameters": [
+        {
+          "name": "asset_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{tile_type}/bounds": {
+      "get": {
+        "operationId": "projects_tasks_bounds_list",
+        "description": "Get the bounds for this tasks's asset type",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Bounds"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tile_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{tile_type}/metadata": {
+      "get": {
+        "operationId": "projects_tasks_metadata_list",
+        "description": "Get the metadata for this tasks's asset type",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Metadata"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tile_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{tile_type}/tiles.json": {
+      "get": {
+        "operationId": "projects_tasks_tiles.json_list",
+        "description": "Get tile.json for this tasks's asset type",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "List Tasks Tiles.json"
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tile_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{tile_type}/tiles/{z}/{x}/{y}.{ext}": {
+      "get": {
+        "operationId": "projects_tasks_tiles_read",
+        "description": "Get a tile image",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Tile"
+      },
+      "parameters": [
+        {
+          "name": "ext",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tile_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "y",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "z",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/projects/{project_pk}/tasks/{id}/{tile_type}/tiles/{z}/{x}/{y}@{scale}x.{ext}": {
+      "get": {
+        "operationId": "projects_tasks_tiles_read",
+        "description": "Get a tile image",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "projects"
+        ],
+        "summary": "Read Tasks Tile"
+      },
+      "parameters": [
+        {
+          "name": "ext",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A UUID string identifying this Task.",
+          "required": true,
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "name": "project_pk",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "scale",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tile_type",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "y",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "z",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/token-auth/": {
+      "post": {
+        "operationId": "token-auth_create",
+        "summary": "Create Auth Token",
+        "description": "Returns a JSON Web Token that can be used for authenticated requests.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JSONWebToken"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JSONWebToken"
+            }
+          }
+        },
+        "tags": [
+          "token-auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/users": {
+      "get": {
+        "operationId": "users_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "summary": "List Users"
+      },
+      "parameters": []
+    },
+    "/workers/check/(P{celery_task_id}.+)": {
+      "get": {
+        "operationId": "workers_check_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "workers"
+        ],
+        "summary": "Workers Check"
+      },
+      "parameters": [
+        {
+          "name": "celery_task_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/workers/get/(P{celery_task_id}.+)": {
+      "get": {
+        "operationId": "workers_get_read",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "workers"
+        ],
+        "summary": "Workers Get"
+      },
+      "parameters": [
+        {
+          "name": "celery_task_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Group": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "Profile": {
+      "type": "object",
+      "properties": {
+        "quota": {
+          "title": "Quota",
+          "description": "Maximum disk quota in megabytes",
+          "type": "number"
+        },
+        "cluster_id": {
+          "title": "Cluster Id",
+          "description": "Cluster Id this user is assigned to",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "x-nullable": true
+        },
+        "oidc_sub": {
+          "title": "OIDC Subject",
+          "description": "OIDC Subject used for SSO",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "user": {
+          "title": "User",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "password",
+        "username"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "last_login": {
+          "title": "Last login",
+          "type": "string",
+          "format": "date-time",
+          "x-nullable": true
+        },
+        "is_superuser": {
+          "title": "Superuser status",
+          "description": "Designates that this user has all permissions without explicitly assigning them.",
+          "type": "boolean"
+        },
+        "username": {
+          "title": "Username",
+          "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+          "type": "string",
+          "pattern": "^[\\w.@+-]+$",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "first_name": {
+          "title": "First name",
+          "type": "string",
+          "maxLength": 30
+        },
+        "last_name": {
+          "title": "Last name",
+          "type": "string",
+          "maxLength": 150
+        },
+        "email": {
+          "title": "Email address",
+          "type": "string",
+          "format": "email",
+          "maxLength": 254
+        },
+        "is_staff": {
+          "title": "Staff status",
+          "description": "Designates whether the user can log into this admin site.",
+          "type": "boolean"
+        },
+        "is_active": {
+          "title": "Active",
+          "description": "Designates whether this user should be treated as active. Unselect this instead of deleting accounts.",
+          "type": "boolean"
+        },
+        "date_joined": {
+          "title": "Date joined",
+          "type": "string",
+          "format": "date-time"
+        },
+        "groups": {
+          "description": "The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+          "type": "array",
+          "items": {
+            "description": "The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+            "type": "integer"
+          },
+          "uniqueItems": true
+        },
+        "user_permissions": {
+          "description": "Specific permissions for this user.",
+          "type": "array",
+          "items": {
+            "description": "Specific permissions for this user.",
+            "type": "integer"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "Preset": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "description": "A label used to describe the preset",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "options": {
+          "title": "Options",
+          "description": "Options that define this preset (same format as in a Task's options).",
+          "type": "object"
+        },
+        "created_at": {
+          "title": "Created at",
+          "description": "Creation date",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "system": {
+          "title": "System",
+          "description": "Whether this preset is available to every user in the system or just to its owner.",
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
+    "ProcessingNode": {
+      "required": [
+        "hostname",
+        "port"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "online": {
+          "title": "Online",
+          "type": "string",
+          "readOnly": true
+        },
+        "label": {
+          "title": "Label",
+          "type": "string",
+          "readOnly": true
+        },
+        "hostname": {
+          "title": "Hostname",
+          "description": "Hostname or IP address where the node is located (can be an internal hostname as well). If you are using Docker, this is never 127.0.0.1 or localhost. Find the IP address of your host machine by running ifconfig on Linux or by checking your network settings.",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "port": {
+          "title": "Port",
+          "description": "Port that connects to the node's API",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "api_version": {
+          "title": "API Version",
+          "description": "API version used by the node",
+          "type": "string",
+          "maxLength": 32,
+          "minLength": 1,
+          "x-nullable": true
+        },
+        "last_refreshed": {
+          "title": "Last Refreshed",
+          "description": "When was the information about this node last retrieved?",
+          "type": "string",
+          "format": "date-time",
+          "x-nullable": true
+        },
+        "queue_count": {
+          "title": "Queue Count",
+          "description": "Number of tasks currently being processed by this node (as reported by the node itself)",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "available_options": {
+          "title": "Available Options",
+          "description": "Description of the options that can be used for processing",
+          "type": "object"
+        },
+        "token": {
+          "title": "Token",
+          "description": "Token to use for authentication. If the node doesn't have authentication, you can leave this field blank.",
+          "type": "string",
+          "maxLength": 1024
+        },
+        "max_images": {
+          "title": "Max Images",
+          "description": "Maximum number of images accepted by this node.",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0,
+          "x-nullable": true
+        },
+        "engine_version": {
+          "title": "Engine Version",
+          "description": "Engine version used by the node.",
+          "type": "string",
+          "maxLength": 32,
+          "minLength": 1,
+          "x-nullable": true
+        },
+        "engine": {
+          "title": "Engine",
+          "description": "Engine used by the node.",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1,
+          "x-nullable": true
+        }
+      }
+    },
+    "Project": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        },
+        "owned": {
+          "title": "Owned",
+          "type": "string",
+          "readOnly": true
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "permissions": {
+          "title": "Permissions",
+          "type": "string",
+          "readOnly": true
+        },
+        "tags": {
+          "title": "Tags",
+          "type": "object"
+        },
+        "name": {
+          "title": "Name",
+          "description": "A label used to describe the project",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "description": "More in-depth description of the project",
+          "type": "string"
+        },
+        "public": {
+          "title": "Public",
+          "description": "A flag indicating whether this project is available to the public",
+          "type": "boolean"
+        },
+        "public_edit": {
+          "title": "Public Edit",
+          "description": "A flag indicating whether this public project can be edited",
+          "type": "boolean"
+        },
+        "public_id": {
+          "title": "Public Id",
+          "description": "Public identifier of the project",
+          "type": "string",
+          "format": "uuid",
+          "x-nullable": true
+        }
+      }
+    },
+    "JSONWebToken": {
+      "required": [
+        "username",
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "minLength": 1
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        },
+        "impersonate": {
+          "title": "Impersonate",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
