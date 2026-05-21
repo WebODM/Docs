@@ -57,6 +57,7 @@ def convert_operation_id_to_title(operation_id):
     result = result.replace("Projects Task", "Task")
     result = result.replace("Media Manage", "Media")
     result = result.replace("Read Workers", "Workers")
+    result = result.replace("Permissions Project", "Permissions")
     
     return result.strip()
 
