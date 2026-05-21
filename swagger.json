@@ -618,7 +618,7 @@
     "/presets/": {
       "get": {
         "operationId": "presets_list",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [
           {
             "name": "ordering",
@@ -646,7 +646,7 @@
       },
       "post": {
         "operationId": "presets_create",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -675,7 +675,7 @@
     "/presets/{id}/": {
       "get": {
         "operationId": "presets_read",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -692,7 +692,7 @@
       },
       "put": {
         "operationId": "presets_update",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -718,7 +718,7 @@
       },
       "patch": {
         "operationId": "presets_partial_update",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -744,7 +744,7 @@
       },
       "delete": {
         "operationId": "presets_delete",
-        "description": "Preset get/add/delete/update\nPresets represent a set of options that a user\ncan save/customize for use in processing a task.",
+        "description": "",
         "parameters": [],
         "responses": {
           "204": {
@@ -768,7 +768,7 @@
     "/processingnodes/": {
       "get": {
         "operationId": "processingnodes_list",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [
           {
             "name": "has_available_options",
@@ -866,7 +866,7 @@
       },
       "post": {
         "operationId": "processingnodes_create",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -912,7 +912,7 @@
     "/processingnodes/{id}/": {
       "get": {
         "operationId": "processingnodes_read",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -929,7 +929,7 @@
       },
       "put": {
         "operationId": "processingnodes_update",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -955,7 +955,7 @@
       },
       "patch": {
         "operationId": "processingnodes_partial_update",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -981,7 +981,7 @@
       },
       "delete": {
         "operationId": "processingnodes_delete",
-        "description": "Processing node get/add/delete/update\nProcessing nodes are associated with zero or more tasks and\ntake care of processing input images.",
+        "description": "",
         "parameters": [],
         "responses": {
           "204": {
@@ -1006,7 +1006,7 @@
     "/projects/": {
       "get": {
         "operationId": "projects_list",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [
           {
             "name": "search",
@@ -1098,7 +1098,7 @@
       },
       "post": {
         "operationId": "projects_create",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -1127,7 +1127,7 @@
     "/projects/{id}/": {
       "get": {
         "operationId": "projects_read",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
@@ -1144,7 +1144,7 @@
       },
       "put": {
         "operationId": "projects_update",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -1170,7 +1170,7 @@
       },
       "patch": {
         "operationId": "projects_partial_update",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -1196,7 +1196,7 @@
       },
       "delete": {
         "operationId": "projects_delete",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [],
         "responses": {
           "204": {
@@ -1258,7 +1258,7 @@
     "/projects/{id}/edit/": {
       "post": {
         "operationId": "projects_edit",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [
           {
             "name": "data",
@@ -1295,7 +1295,7 @@
     "/projects/{id}/permissions/": {
       "get": {
         "operationId": "projects_permissions",
-        "description": "Project get/add/delete/update\nProjects are the building blocks\nof processing. Each project can have zero or more tasks associated with it.\nUsers can fine tune the permissions on projects, including whether users/groups have \naccess to view, add, change or delete them.",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {
