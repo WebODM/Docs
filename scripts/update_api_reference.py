@@ -11,7 +11,8 @@ import re
 overrides = {
     "admin_profiles_update_quota_deadline": "Update Quota Deadline",
     "admin_profiles_used_quota": "Used Quota",
-    "token-auth_create": "Create Auth Token"
+    "token-auth_create": "Create Auth Token",
+    "projects_tasks_backup_list": "Get Tasks Backup"
 }
 
 def convert_operation_id_to_title(operation_id):
@@ -57,6 +58,7 @@ def convert_operation_id_to_title(operation_id):
     result = result.replace("Projects Task", "Task")
     result = result.replace("Media Manage", "Media")
     result = result.replace("Read Workers", "Workers")
+    result = result.replace("Permissions Project", "Permissions")
     result = result.replace("Permissions Project", "Permissions")
     
     return result.strip()
