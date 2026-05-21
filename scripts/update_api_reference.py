@@ -60,6 +60,7 @@ def convert_operation_id_to_title(operation_id):
     result = result.replace("Read Workers", "Workers")
     result = result.replace("Permissions Project", "Permissions")
     result = result.replace("Permissions Project", "Permissions")
+    result = result.replace(" Admin ", " ")
     
     return result.strip()
 

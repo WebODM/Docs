@@ -83,7 +83,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "List Admin Groups"
+        "summary": "List Groups"
       },
       "post": {
         "operationId": "admin_groups_create",
@@ -109,7 +109,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Create Admin Group"
+        "summary": "Create Group"
       },
       "parameters": []
     },
@@ -129,7 +129,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Read Admin Group"
+        "summary": "Read Group"
       },
       "put": {
         "operationId": "admin_groups_update",
@@ -155,7 +155,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin Group"
+        "summary": "Update Group"
       },
       "patch": {
         "operationId": "admin_groups_partial_update",
@@ -181,7 +181,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin Groups"
+        "summary": "Update Groups"
       },
       "delete": {
         "operationId": "admin_groups_delete",
@@ -195,7 +195,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Delete Admin Group"
+        "summary": "Delete Group"
       },
       "parameters": [
         {
@@ -233,7 +233,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "List Admin Profiles"
+        "summary": "List Profiles"
       },
       "post": {
         "operationId": "admin_profiles_create",
@@ -259,7 +259,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Create Admin Profile"
+        "summary": "Create Profile"
       },
       "parameters": []
     },
@@ -279,7 +279,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Read Admin Profile"
+        "summary": "Read Profile"
       },
       "put": {
         "operationId": "admin_profiles_update",
@@ -305,7 +305,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin Profile"
+        "summary": "Update Profile"
       },
       "patch": {
         "operationId": "admin_profiles_partial_update",
@@ -331,7 +331,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin Profiles"
+        "summary": "Update Profiles"
       },
       "delete": {
         "operationId": "admin_profiles_delete",
@@ -345,7 +345,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Delete Admin Profile"
+        "summary": "Delete Profile"
       },
       "parameters": [
         {
@@ -475,7 +475,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "List Admin Users"
+        "summary": "List Users"
       },
       "post": {
         "operationId": "admin_users_create",
@@ -501,7 +501,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Create Admin User"
+        "summary": "Create User"
       },
       "parameters": []
     },
@@ -521,7 +521,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Read Admin User"
+        "summary": "Read User"
       },
       "put": {
         "operationId": "admin_users_update",
@@ -547,7 +547,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin User"
+        "summary": "Update User"
       },
       "patch": {
         "operationId": "admin_users_partial_update",
@@ -573,7 +573,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Update Admin Users"
+        "summary": "Update Users"
       },
       "delete": {
         "operationId": "admin_users_delete",
@@ -587,7 +587,7 @@
         "tags": [
           "admin"
         ],
-        "summary": "Delete Admin User"
+        "summary": "Delete User"
       },
       "parameters": [
         {
