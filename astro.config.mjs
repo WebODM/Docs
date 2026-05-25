@@ -24,6 +24,9 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/WebODM/Docs/edit/main/',
 			},
+			components: {
+				EditLink: './src/components/EditLink.astro',
+			},
 			plugins: [
 				// Generate the OpenAPI documentation pages.
 				starlightOpenAPI([

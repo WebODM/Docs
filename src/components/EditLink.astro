@@ -1,0 +1,25 @@
+---
+const { editUrl } = Astro.locals.starlightRoute;
+---
+
+{
+	editUrl && (
+		<div class="sl-edit-notice">
+			👋 Did you know? Anyone can <a href={editUrl} target="_blank" rel="noopener noreferrer">edit this page</a> and it's pretty easy
+		</div>
+	)
+}
+
+<style>
+	@layer starlight.components {
+		.sl-edit-notice {
+			width: 100%;
+			text-align: center;
+			padding: 6px 10px 6px 10px;
+			background: var(--sl-color-bg);
+			border: 1px solid var(--sl-color-gray-4);
+			border-radius: 6px;
+			color: var(--sl-color-white);
+		}
+	}
+</style>
