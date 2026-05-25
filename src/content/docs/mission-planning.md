@@ -13,7 +13,7 @@ WebODM does not have an official mission planner (yet), but you can find a list 
 | -------------- | ------ | ---------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
 | QGroundControl | Free   | Mavlink    | [qgroundcontrol.com](https://qgroundcontrol.com)          | Open Source Software                                             |
 | YMapper        | Free   | DJI, Litchi| [ymapper.yarosfpv.com](https://ymapper.yarosfpv.com/)     | Open Source Software                                             |
-| MavenPilot     | Hybrid | DJI        | [mavenpilot.com](https://mavenpilot.com/planner/)     | Pilot is paid, but Planner is free                              |
-| DroneLink      | Paid   | DJI, Autel | [dronelink.com](https://dronelink.com)                | Discount available via [Lightning](https://webodm.net/dronelink) |
-| Litchi         | Paid   | DJI        | [flylitchi.com](https://flylitchi.com/)                   |                                                                  |
+| MavenPilot     | Hybrid | DJI        | [mavenpilot.com](https://mavenpilot.com/planner/)         | Pilot is paid, but Planner is free                               |
+| DroneLink      | Paid   | DJI, Autel | [dronelink.com](https://dronelink.com)                    | Discount available via [Lightning](https://webodm.net/dronelink) |
+| Litchi         | Paid   | DJI        | [flylitchi.com](https://flylitchi.com/)                   | [Litchi Pilot beta](https://forum.flylitchi.com/t/open-beta-litchi-pilot/10621) is free |
 
