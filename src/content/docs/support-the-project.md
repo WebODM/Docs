@@ -11,8 +11,9 @@ There are many ways to contribute back to the project:
  - Join a [community](https://webodm.org/community)
  - ⭐️ us on GitHub.
  - Help us [translate](#translations) WebODM in your language.
+ - Help us improve and expand the [documentation](#documentation)
  - Spread the word about WebODM on social media.
- - Become a contributor 🤘
+ - Become a code contributor 🤘
 
 ## Translations
 
@@ -34,7 +35,21 @@ Then edit the [LOCALES](https://github.com/WebODM/WebODM/blob/master/LOCALES) fi
 
 The latest translation files from weblate.org will be downloaded and applied to the installation of WebODM.
 
-## Become a Contributor
+## Documentation
+
+Help us improve the documentation! Simply navigate to any documentation page and click the "edit this page" link at the bottom.
+
+ - Navigate to any page
+ - Scroll to the bottom and click "Edit this page"
+ - This will take you to the source file on GitHub. You'll need to create an account if you don't have one
+ - Click "Fork this repository"
+ - Make your changes using [markdown](https://www.markdownguide.org/basic-syntax/)
+ - Commit your changes and click "Create pull request"
+ - Add any additional context in the pull request description and submit
+
+Your contribution will be reviewed and once approved, will appear on this site.
+
+## Become a Code Contributor
 
 The easiest way to get started is to take a look at our list of [outstanding issues](https://github.com/WebODM/WebODM/issues) and pick one. You can also fix/improve something entirely new based on your experience with WebODM. All ideas are considered and people of all skill levels are welcome to contribute.
 
