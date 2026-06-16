@@ -19,7 +19,7 @@ Open a thread to describe what the problem is, what a possible improvement could
 WebODM is free and open source. **Demanding** that something gets fixed or improved is not going to convince people to do so. **Suggesting** that something be improved is a much better way to begin a feedback discussion.
 
 :::tip
-Does a problem affect many people? It's much more compelling to act on a problem it affects many people, rather than a single person or entity.
+Does a problem affect many people? It's much more compelling to act on a problem if it affects many people, rather than a single person or entity.
 :::
 
 ## How To Make Feature Requests
