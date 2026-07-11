@@ -108,7 +108,11 @@ export default defineConfig({
 						{
 							label: 'Using Singularity',
 							slug: 'tutorials/using-singularity'
-						}
+						},
+						{
+							label: 'Options Selection Guide',
+							slug: 'tutorials/options-selection-guide'
+						},
 					]
 				},
 				{
