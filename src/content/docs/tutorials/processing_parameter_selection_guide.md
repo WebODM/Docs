@@ -2,6 +2,7 @@
 
 This guide helps you choose the most appropriate WebODM processing parameters based on your drone, survey characteristics, and expected outputs.
 Please note: this guide is not perfect; finding the right parameters is not always a deterministic process—more often than not, it is an art that transcends algorithms.
+
 ---
 # Step 1 - Hardware Analysis
 
