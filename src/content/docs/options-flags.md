@@ -3,7 +3,8 @@ title: Options & Flags
 template: doc
 ---
 
-This is the complete list of options available in [ODX](https://github.com/WebODM/ODX). You can also view them as a processing [flowchart](/flowchart-options-flags).
+This is the complete list of options available in [ODX](https://github.com/WebODM/ODX). 
+
 
 :::note
 Some of these will not be visible in [WebODM](https://github.com/WebODM/WebODM) because they either don't apply or are integrated in the user experience workflow (e.g. GCPs are automatically selected, so there's no need to specify a `--gcp` option).
@@ -141,7 +142,7 @@ End processing at this stage.
 
 ## fast-orthophoto
 
-Skips dense reconstruction and 3D model generation. It generates an orthophoto directly from the sparse reconstruction. If you just need an orthophoto and do not need a full 3D model, turn on this option.
+Skips dense reconstruction and 3D model generation. It generates an orthophoto directly from the sparse reconstruction. On flat terrain with no objects/structures, turn this on to save time.
 
 **Default:** `False`
 
@@ -163,7 +164,7 @@ Choose the algorithm for extracting keypoints and computing descriptors.
 
 ## force-gps
 
-Use images' GPS exif data for reconstruction, even if there are GCPs present. This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing.
+Use images' GPS exif data for reconstruction, even if there are GCPs present.This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing.
 
 **Default:** `False`
 
@@ -241,11 +242,11 @@ Perform image matching with the nearest N images based on image filename order. 
 
 ## matcher-type
 
-Matcher algorithm, Fast Library for Approximate Nearest Neighbors or Bag of Words. FLANN is slower, but more stable. BOW is faster, but can sometimes miss valid matches. BRUTEFORCE is very slow but robust.
+Matcher algorithm, Fast Library for Approximate Nearest Neighbors or Bag of Words. FLANN is slower, but more stable. BOW is faster, but can sometimes miss valid matches. BRUTEFORCE is very slow but robust. HAMMING is much faster with large datasets but requires a GPU.
 
-**Options:** `bow |  bruteforce |  flann`
+**Options:** `auto |  bow |  bruteforce |  flann |  hamming`
 
-**Default:** `flann`
+**Default:** `auto`
 
 ## max-concurrency
 
@@ -429,6 +430,14 @@ Set the radiometric calibration to perform on images. When processing multispect
 
 **Default:** `none`
 
+## report-units
+
+Set the units of the PDF report. By default the vertical units of the coordinate reference system are used.
+
+**Options:** `m |  ft |  US survey foot`
+
+**Default:** `m`
+
 ## rerun
 
 Rerun this stage only and stop.
@@ -463,7 +472,7 @@ Override the rolling shutter readout time for your camera sensor (in millisecond
 
 ## sfm-algorithm
 
-Choose the structure from motion algorithm. For aerial datasets, if camera GPS positions and angles are available, triangulation can generate better results. For planar scenes captured at fixed altitude with nadir-only images, planar can be much faster.
+Choose the structure from motion algorithm. For aerial datasets, if camera GPS positions and angles are available, triangulation can be faster. Planar is deprecated and will be removed in a future version.
 
 **Options:** `incremental |  triangulation |  planar`
 
@@ -507,7 +516,7 @@ Automatically compute image masks using AI to remove the sky. Experimental.
 
 ## sm-cluster
 
-URL to a ClusterODX instance for distributing a split-merge workflow on multiple nodes in parallel.
+URL to a ClusterODM instance for distributing a split-merge workflow on multiple nodes in parallel.
 
 **Options:** `<string>`
 
