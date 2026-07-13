@@ -16,15 +16,32 @@ Please note: this guide is not perfect; finding the right parameters is not alwa
 **Recommended setting**
 - `rolling-shutter: true`
 **Why?**
-Rolling shutter sensors introduce geometric distortion when images are captured while the drone is moving.
+Rolling shutter sensors introduce geometric distortion when images are captured while the drone is moving ('doming' effect: the ground appears unnaturally arched).
 **Best practice**
 For future surveys, if possible:
 - reduce the flight speed;
 - use **Stop-and-Hover** mode when taking photographs.
 
+
+## Rolling-shutter is on but you notice 'doming' effects (where the ground appears unnaturally arched) and want to maximize the precision of the camera positioning?
+
+ Enable use-hybrid-bundle-adjustment. This increases the frequency of global and local optimization cycles during the SFM phase
+
+## Do you have a pre-existing, precise calibration file for your lens, or do you want to force the software to trust the focal data in your photo metadata without further optimization?
+
+Enable use-fixed-camera-params. This prevents the software from attempting to auto-calibrate the optical parameters 
+
 ---
 
 # Step 2 - Survey Characteristics
+
+## Do you want the software to automatically restrict the reconstruction to the specific perimeter where the drone photos were taken, avoiding unnecessary background processing?
+
+### If yes
+Enable auto-boundary. This creates a polygon around camera positions to limit the reconstruction area. You can refine the width of this boundary using auto-boundary-distance
+```text
+auto-boundary: true
+```
 
 ## Do the images include the sky or horizon?
 ### If yes
@@ -40,8 +57,13 @@ sky-removal: true
 ## For close-range object reconstruction
 Use:
 ```text
-bg-removal
+bg-removal:true
 ```
+
+## Are you processing image frames extracted from a video file?
+Set `matcher-order`. This forces the software to only compare images based on their sequential timing in the file, potentially saving hours of unnecessary calculation.
+
+
 ---
 # Step 3 - Surveyed Scene
 ## Does the area contain vegetation or low-texture surfaces?
@@ -74,6 +96,8 @@ pc-quality: high
 - More accurate orthophotos
 - Better reconstruction of vertical walls
 - Sharper building edges
+
+
 
 ---
 
@@ -126,7 +150,20 @@ Adjust these parameters:
 | `smrf-slope` | 0.1 for flat terrain, up to 1.2 for mountainous terrain |
 | `smrf-threshold` | Minimum object height to remove |
 
+### Do you have an extremely dense point cloud and want to speed up DSM/DTM generation by simplifying the source data?
+Use `dem-decimation`. For example, a value of 50 tells the software to use only 2% of the points, significantly reducing file writing times
+
+### Does your orthophoto or DEM have jagged edges or 'dragging' artifacts at the borders that you want to trim away cleanly?
+
+ Set the `crop` parameter (in meters) to shrink the final boundary and remove interpolation artifacts.
+
+### Does your terrain model have 'holes' (areas without data) that you want to fill more accurately using multiple interpolation passes?
+
+Increase the `dem-gapfill-steps` to control the number of iterations the algorithm uses to fill empty cells.
+
 ---
+
+
 
 ## Priority: Fast Processing
 Enable:
@@ -311,9 +348,9 @@ This generates optimized 3D Tiles suitable for web streaming.
 
 ---
 
-# Step 7 - Accuracy Verification
+# Step 7 - Accuracy Verification / Alignment and Multitemporal Surveys
 
-## Are Ground Control Points (GCPs) available?
+##  Are Ground Control Points (GCPs) available?
 
 To obtain an independent accuracy assessment:
 
@@ -328,6 +365,11 @@ Checkpoint observations:
 
 - do not influence the bundle adjustment;
 - are used exclusively to compute independent accuracy statistics in the **Quality Report**.
+
+
+## Are you conducting a follow-up survey of an area processed previously, and do you need the new model (point cloud or DTM) to align perfectly with the old one?
+
+    Action: Use the align parameter. In the WebODM interface, select the reference task from the "Alignment" field. This instructs the software to ignore the original GPS/GCP data of the new survey and anchor it geometrically to the existing reconstruction.
 
 
 
