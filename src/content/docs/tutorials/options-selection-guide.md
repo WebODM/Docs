@@ -77,7 +77,30 @@ bg-removal:true
 ```
 
 ## Are you processing image frames extracted from a video file?
-Set `matcher-order`. This forces the software to only compare images based on their sequential timing in the file, potentially saving hours of unnecessary calculation.
+
+### Video Parameters
+- video-limit: Defines the maximum number of frames to extract from the video. The default value is 500. Increasing this value can improve coverage, but it also proportionally increases processing time and memory (RAM) usage.
+- video-resolution: Sets the resolution (in pixels) of the extracted frames. For example, if a 4K video (3840×2160) is processed with this parameter set to 2000, the extracted frames will have a resolution of 2000×1125 pixels.
+###  Matching Optimization
+matcher-order: Perform image matching with the nearest N images based on image filename order. Can speed up processing of sequential images, such as those extracted from video. It is applied only on non-georeferenced datasets. 
+
+This is a key parameter when processing videos. Since the extracted frames are sequential, forcing the software to match images based only on their temporal order (for example, by setting a  low value of 10 or 20) prevents every frame from being compared with all the others, saving hours of unnecessary computation.
+
+### Geolocation (GPS) 
+**'.srt' File**: If you are using a DJI drone, the video is often accompanied by a subtitle file with the **same name** (for example, video.mp4 and video.srt). If you upload both files, WebODM will use the .srt file to extract GPS data and correctly associate it with the extracted frames.
+
+## Important Notes
+- Resize Images: The standard Resize Images option available in the task settings does not affect video files. To reduce the size of the frames extracted from a video, you must use the video-resolution parameter described above.
+
+- Quality: WebODM automatically filters out frames that are too dark or blurry during extraction to improve the quality of the final reconstruction.
+- Restart: If you change video-limit or video-resolution and want to restart the processing workflow, you will need to start again from the Load Dataset stage.
+
+- If you need to display the video on the map as supporting documentation (without processing it for photogrammetry), you can upload it using the Media button associated with an existing completed task
+
+
+
+
+
 
 
 ---
@@ -151,7 +174,12 @@ If increasing this value, also increase:
 ```text
 mesh-size
 ```
+
 to avoid excessive mesh simplification.
+
+### Do you need a 3D mesh that is geometrically complete even in areas 'unseen' by the cameras (closed faces without color)?
+Enable `texturing-keep-unseen-faces`.
+
 ---
 
 ## Priority: Digital Terrain Model (DTM)
