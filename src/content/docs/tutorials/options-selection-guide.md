@@ -27,7 +27,7 @@ For future surveys, if possible:
 
  Enable use-hybrid-bundle-adjustment. This increases the frequency of global and local optimization cycles during the SFM phase
 
-## Do you have a pre-existing, precise calibration file for your lens, or do you want to force the software to trust the focal data in your photo metadata without further optimization?
+## Do you have a pre-existing, precise calibration file for your lens?
 
 Enable use-fixed-camera-params. This prevents the software from attempting to auto-calibrate the optical parameters 
 
@@ -35,12 +35,7 @@ Enable use-fixed-camera-params. This prevents the software from attempting to au
 ## Are you using a multispectral or thermal sensor (e.g., for precision agriculture or temperature analysis)?
 ### if yes
 
-- File Selection: Ensure you upload all image files for all available bands for each capture simultaneously.
-- Processing Preset: Select the "Multispectral" preset, which already includes specific parameters such as radiometric calibration.
-- Radiometric Calibration (`radiometric-calibration`): Set to "camera" or "camera+sun" (if the drone has a DLS incident light sensor) to convert raw pixel values ​​into reflectance or, for LWIR sensors, into degrees Celsius.
-- Data Preservation (`texturing-skip-global-seam-leveling`): Enable this option (set to "true") to prevent the software from applying global color balancing, which would alter the purity of the radiometric data required for scientific analysis.
-- Band Alignment (`skip-band-alignment`): Leave this option disabled so that WebODM can correct minor geometric misalignments between the multispectral camera's different physical sensors.
-- Primary Band Selection (`primary-band`): By default, the software selects the band with the lowest index, but you can force the use of a specific band (e.g., NIR or Red-Edge) for SfM reconstruction if the automatic choice does not yield satisfactory results.
+Note: read [Multispectral and Thermal section] (multispectral.md)
 
 #### Output Analysis
 
