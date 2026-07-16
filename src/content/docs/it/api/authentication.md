@@ -47,7 +47,7 @@ Authorization: JWT `your_token` |
 
 Il token scade dopo un determinato periodo di tempo. Consulta [Scadenza del Token](#scadenza-del-token) per maggiori informazioni.
 
-Poiché a volte le applicazioni non consentono di modificare gli header, è anche possibile autenticarsi aggiungendo il parametro querystring `jwt` a un URL protetto. Questo metodo è meno sicuro, quindi se possibile passa il token tramite header.
+Poiché a volte le applicazioni non consentono di modificare gli header, è anche possibile autenticarsi aggiungendo il parametro querystring `jwt` a un URL protetto. Questo metodo è meno sicuro, quindi, se possibile, passa il token tramite header.
 
 
 ### Scadenza del Token
