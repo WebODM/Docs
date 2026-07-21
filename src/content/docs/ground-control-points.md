@@ -23,7 +23,7 @@ In order to ensure GCPs are found in at least 5 images, separate the points 10 t
 
 The format of the GCP file is simple.
 
-- The first line should contain the name of the projection used for the geo coordinates. This can be specified either as a PROJ string (e.g. `+proj=utm +zone=10 +ellps=WGS84 +datum=WGS84 +units=m +no_defs`), EPSG code (e.g. `EPSG:4326`) or as a `WGS84 UTM <zone>[N|S]` value (e.g. `WGS84 UTM 16N`)
+- The first line should contain the coordinate systems identifier used for the geo coordinates. This can be specified either as a PROJ string (e.g. `+proj=utm +zone=10 +ellps=WGS84 +datum=WGS84 +units=m +no_defs`), EPSG code (e.g. `EPSG:4326`, `EPSG:6527+6360`) or as a `WGS84 UTM <zone>[N|S]` value (e.g. `WGS84 UTM 16N`)
 - Subsequent lines are the X, Y & Z coordinates, your associated pixels, the image filename and optional extra fields, separated by tabs or spaces
 - Avoid setting elevation values to "NaN" to indicate no value. This can cause processing failures. Instead use 0.0
 - Similarly decreasing the number of digits after the decimal place for `geo_x` and `geo_y` can also reduce processing failures
