@@ -25,8 +25,8 @@ OpenDroneMap, which we are [no longer affiliated with](https://webodm.org/blog/a
 
 To install WebODM on your machine with docker, first install:
 
-  - [Git](https://git-scm.com/downloads)
-  - [Docker](https://www.docker.com/)
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://www.docker.com/)
 
 Windows and macOS users should install Docker Desktop. Then:
 
@@ -35,7 +35,7 @@ Windows and macOS users should install Docker Desktop. Then:
 
 Then:
 
-* Open Git Bash (Windows), or from the command line (Mac / Linux / WSL), type:
+- Open Git Bash (Windows), or from the command line (Mac / Linux / WSL), type:
 
 ```bash
 git clone https://github.com/WebODM/WebODM --config core.autocrlf=input --depth 1
@@ -43,7 +43,7 @@ cd WebODM
 ./webodm.sh start
 ```
 
-* If you face any issues at the last step on Linux, make sure your user is part of the docker group:
+- If you face any issues at the last step on Linux, make sure your user is part of the docker group:
 
 ```bash
 sudo usermod -aG docker $USER
@@ -52,7 +52,7 @@ exit
 ./webodm.sh start
 ```
 
-🎉 **Congratulations!** You should be up and running. Open a browser to http://localhost:8000
+🎉 **Congratulations!** You should be up and running. Open a browser to <http://localhost:8000>
 
 To stop WebODM press CTRL+C or run:
 
@@ -74,17 +74,20 @@ To change that, see below.
 
 :::
 
-
 If you are planning to process large amounts of data or you're running out of disk space, configure `--media-dir` and/or `--node-dir`:
 
 ```
 ./webodm.sh restart --media-dir /storage/media --node-dir /storage/node
 ```
 
-| Argument      | Description                                                                                                                                              |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--node-dir`  | Path where temporary files will be stored during processing when using the default node. Safe to change.                                                                 |
+| Argument      | Description                                                                                                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--node-dir`  | Path where temporary files will be stored during processing when using the default node. Safe to change.                                                                           |
 | `--media-dir` | Where all files related to a project and task are permanently stored. Try not to change this folder after the first startup, unless as part of a [migration](#backup-and-restore). |
+
+### Podman
+
+On Linux, `webodm.sh` also runs on [Podman](https://podman.io) as a rootless alternative to Docker. It auto-detects Podman and falls back to `podman-compose` when no Docker or compose-plugin shim is present, so the same `./webodm.sh start` command works either way. See [Using Podman](/tutorials/using-podman/) for setup, migrating existing Docker data, and the SELinux and GPU details specific to Podman.
 
 ## Installation on other machines
 
@@ -103,10 +106,9 @@ These steps are for Google Cloud, but can also be used for Amazon AWS, and other
 9. `sudo ./webodm.sh start`
 10. You now can access WebODM via the public IP address for your Google instance. Remember the default port of 8000.
 11. Check that your instance's firewall is allowing inbound TCP connections on port 8000! If you forget this step you will not be able to connect to WebODM.
-12. Open http://publicip:8000
+12. Open <http://publicip:8000>
 
 To setup the firewall on Google Cloud, open the instance, on the middle of the instance settings page find NIC0. Open it, and then add the TCP Port 8000 for ingress, and egress on the firewall.
-
 
 ### NAS (Qnap)
 
@@ -119,7 +121,6 @@ To install WebODM on a Qnap NAS:
 4. A new "webodm" application should appear in container station along with four individual containers for the app.
 5. WebODM should be available at port 8000 of the NAS.
 6. Setup a Lightning account online and configure it within "processing nodes". It's also possible to setup a more powerful computer to run processing tasks instead of Lightning.
-
 
 ## Advanced Setups
 
@@ -137,14 +138,13 @@ If you don't need the default "node-odx-1" node, simply pass `--default-nodes 0`
 
 Then from the web interface simply manually remove the "node-odx-1" node.
 
-
 ### Enable SSL
 
 WebODM has the ability to automatically request and install a SSL certificate via [Let’s Encrypt](https://letsencrypt.org/), or you can manually specify your own key/certificate pair.
 
- - Setup your DNS record (webodm.myorg.com --> IP of server).
- - Make sure port 80 and 443 are open.
- - Run the following:
+- Setup your DNS record (webodm.myorg.com --> IP of server).
+- Make sure port 80 and 443 are open.
+- Run the following:
 
 ```bash
 ./webodm.sh restart --ssl --hostname webodm.myorg.com
@@ -183,9 +183,9 @@ The `client_id` and `client_secret` values are given by the auth provider. You'l
 
 When registering the application, set the **Authorized redirect URIs** with:
 
- * `https://webodm.myorg.com/oidc/callback/`
+- `https://webodm.myorg.com/oidc/callback/`
 
-The endpoint URLs are often published at a `.well-known/openid-configuration` URL. For example, Google publishes theirs at https://accounts.google.com/.well-known/openid-configuration.
+The endpoint URLs are often published at a `.well-known/openid-configuration` URL. For example, Google publishes theirs at <https://accounts.google.com/.well-known/openid-configuration>.
 
 Then restart WebODM with:
 
@@ -204,6 +204,7 @@ To enable IPv6 on your installation, you need to activate IPv6 in Docker by addi
   "fixed-cidr-v6": "fdb4:4d19:7eb5::/64"
 }
 ```
+
 Restart Docker:
 `systemctl restart docker`
 
@@ -233,8 +234,8 @@ This will create a "node-micmac-1" processing node on the same machine running W
 | Cannot start WebODM via `./webodm.sh start`, error messages are different at each retry                                                                                           | You could be running out of memory. Make sure you have enough RAM available. 2GB should be the recommended minimum, unless you know what you are doing                                                                                                                                                                                                                                                                                                                         |
 | On Windows, the storage space shown on the WebODM diagnostic page is not the same as what is actually set in Docker's settings.                                                   | From Hyper-V Manager, right-click "DockerDesktopVM", go to Edit Disk, then choose to expand the disk and match the maximum size to the settings specified in the docker settings. Upon making the changes, restart docker.                                                                                                                                                                                                                                                     |
 | On Linux or WSL, Warning: `GPU use was requested, but no GPU has been found`                                                                                                      | Run `nvidia-smi` (natively) or `docker run --rm --gpus all nvidia/cuda:11.2.2-devel-ubuntu20.04 nvidia-smi` (docker) to check with [NVIDIA driver](https://www.nvidia.com/drivers/unix/) and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).                                                                                                                                                          |
+| On Podman, the default node starts but the GPU is not actually attached                                                                                                           | This happens when `webodm.sh` falls back to Docker Compose or the `docker compose` plugin talking to Podman, instead of `podman-compose`. Install `podman-compose` so `webodm.sh` picks the CDI-based GPU compose file. See [Using Podman](/tutorials/using-podman/#gpu-passthrough).                                                                                                                                                                                          |
 | Getting a `Connection error: HTTPSConnectionPool(host='spark1.webodm.net', port=443): Max retries exceeded [Errno 11002] Lookup timed out` error when sending images to Lightning | For some reason the DNS system on your machine is misconfigured or is being filtered by AV/VPN/network software installed on the machine. You can try to edit your `hosts` file to manually map the IP address of `spark1.webodm.net`. See [how to edit the hosts file on Windows](https://www.howtogeek.com/784196/how-to-edit-the-hosts-file-on-windows-10-or-11/) and [use this IP address](https://mxtoolbox.com/SuperTool.aspx?action=a%3aspark1.webodm.net&run=toolpage) |
-
 
 ## Common Administration Tasks
 
@@ -290,13 +291,12 @@ To learn more, start from the [plugin development guide](https://docs.webodm.org
 
 If a particular hook / signal for your plugin does not yet exist, [request it](https://github.com/WebODM/WebODM/issues). We are adding hooks and signals as we go.
 
-
 ## Hardware Requirements
 
 To run a standalone installation of WebODM (the user interface), including the processing component ([NodeODX](https://github.com/WebODM/NodeODX)), we recommend at a minimum:
 
-* 100 GB free disk space
-* 16 GB RAM
+- 100 GB free disk space
+- 16 GB RAM
 
 Don't expect to process more than a few hundred images with these specifications. To process larger datasets, add more RAM linearly to the number of images you want to process:
 
@@ -316,7 +316,9 @@ These are conservative estimates. A lot of factors influence memory usage, such 
 
 :::
 
-A CPU with more cores will speed up processing, but can increase memory usage. GPU acceleration is also supported on Linux and WSL. To make use of your CUDA-compatible graphics card, make sure to pass `--gpu` when starting WebODM. You need the nvidia-docker installed in this case, see https://github.com/NVIDIA/nvidia-docker and https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker for information on docker/NVIDIA setup.
+A CPU with more cores will speed up processing, but can increase memory usage. GPU acceleration is also supported on Linux and WSL. To make use of your CUDA-compatible graphics card, make sure to pass `--gpu` when starting WebODM. You need the nvidia-docker installed in this case, see <https://github.com/NVIDIA/nvidia-docker> and <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker> for information on docker/NVIDIA setup.
+
+If you're running under Podman instead of Docker, the `--gpu` flag works the same way, but the underlying mechanism differs. Docker requests the GPU through the nvidia-docker runtime described above. Podman instead resolves it through the Container Device Interface (CDI), using a `nvidia.com/gpu=all` device entry, and only when `podman-compose` is the compose backend `webodm.sh` resolves to. If Docker Compose or the `docker compose` plugin ends up talking to Podman instead, `webodm.sh` starts the default node without a GPU attached and prints a warning telling you to install `podman-compose`. Full setup steps, including generating CDI device specs for your GPU, are covered in [Using Podman](/tutorials/using-podman/#gpu-passthrough).
 
 WebODM runs best on Linux, but works well on Windows and Mac too.
 
