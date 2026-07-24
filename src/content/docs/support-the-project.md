@@ -6,6 +6,7 @@ template: doc
 There are many ways to contribute back to the project:
 
  - You can purchase a [WebODM Lightning plan](https://webodm.net) or [GCP Editor Pro](https://gcp.uav4geo.com), which helps fund development efforts.
+ - Join the [development fund](https://webodm.org/fund/).
  - Help us test new and existing features and [report](https://www.github.com/WebODM/WebODM/issues) bugs and feedback.
  - Share your aerial datasets.
  - Join a [community](https://webodm.org/community)
