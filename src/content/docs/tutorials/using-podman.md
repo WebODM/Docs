@@ -73,6 +73,6 @@ sudo usermod --add-subgids 10000-75535 $(whoami)
 
 In theory, [installing](https://podman-desktop.io/docs/installation/macos-install) and running Podman Desktop from the official website should be all you need to use the `webodm.sh` script. Install and configure it for both [Docker compatibility](https://podman-desktop.io/docs/migrating-from-docker/customizing-docker-compatibility#enable-docker-compatibility) and [Compose functionality](https://podman-desktop.io/docs/compose/setting-up-compose).
 
-## GPU
+### GPU
 
 Running WebODM with `--gpu` with Podman currently requires some manual changes to the docker compose files. See https://github.com/WebODM/WebODM/pull/1989/changes
