@@ -52,7 +52,7 @@ These drones are also supported, but require pre-processing with
  
 Other cameras might also work. You can help us expand this list by [sharing](https://webodm.org/datasets) datasets captured with other cameras.
 
-For running Thermal Tools on macOS, see also [NodeThermalTools](https://github.com/uav4geo/NodeThermalTools).
+For running Thermal Tools over a network, see also [NodeThermalTools](https://github.com/uav4geo/NodeThermalTools).
 
 ### Usage
 
