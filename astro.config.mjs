@@ -128,6 +128,10 @@ export default defineConfig({
 					slug: 'mission-planning'
 				},
 				{
+					label: 'Gaussian Splats',
+					slug: 'gaussian-splats'
+				},
+				{
 					label: 'Frequently Asked Questions',
 					slug: 'faq'
 				},
