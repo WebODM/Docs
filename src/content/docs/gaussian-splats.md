@@ -39,4 +39,4 @@ This is a list of free and open source software that we tested, but others might
 | [OpenSplat](https://github.com/WebODM/OpenSplat)          | CPU, NVIDIA, AMD, Metal                | Windows, macOS, Linux      | Developed by WebODM, CLI only                                                     |
 | [Brush](https://github.com/ArthurBrussee/brush)           | WebGPU, NVIDIA, AMD, Intel             | Web, Windows, macOS, Linux | Also works in the [browser](https://arthurbrussee.github.io/brush-demo/) (Chrome) |
 | [Lichtfeld Studio](https://lichtfeld.io/)                 | NVIDIA                                 | Windows                    | Paid binaries (support the project)                                               |
-| [Spirula](https://github.com/harry7557558/spirula-studio) | NVIDIA, AMD, Intel, and Apple (Vulkan) | Windows, macOS, Linux      |                                                                                   |
+| [Spirula Studio](https://github.com/harry7557558/spirula-studio) | NVIDIA, AMD, Intel, and Apple (Vulkan) | Windows, macOS, Linux      |                                                                                   |
