@@ -152,7 +152,7 @@ WebODM has the ability to automatically request and install a SSL certificate vi
 
 That's it! The certificate will automatically renew when needed.
 
-If you want to specify your own key/certificate pair, simply pass the `--ssl-key` and `--ssl-cert` option to `./webodm.sh`. See `./webodm.sh --help` for more information.
+If you want to specify your own key/certificate pair, simply pass the `--ssl-key` and `--ssl-cert` options, as well as `--port 443` to `./webodm.sh`. See `./webodm.sh --help` for more information.
 
 Note! You cannot pass an IP address to the hostname parameter! You need a DNS record setup.
 
