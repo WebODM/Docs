@@ -34,6 +34,19 @@ If you manually added processing nodes or modified the docker .yml files, just m
 docker run -ti --rm -v /my/project:/datasets/code webodm/odx --project-path /datasets
 ```
 
+#### Reasons To Migrate
+
+ * ODX is substantially faster
+ * ODX is substantially smaller in size to download
+ * ODX will work with all your DJI images, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/2077).
+ * ODX will create crack-free 3D models, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1929)
+ * ODX will create 3D tiles in the correct orientation, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/2073)
+ * ODX merges split-merge orthophotos quickly, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/2034)
+ * ODX supports checkpoints, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1302)
+ * ODX supports GPU feature matching, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1951)
+
+There's [plenty of other improvements](https://github.com/WebODM/ODX/releases) that have been added to ODX that ODM does not have.
+
 #### Developers
 :::note
 
@@ -61,6 +74,11 @@ If you made changes after April 6th 2026, you need to perform the same procedure
 docker run -ti --rm -p 3000:3000 webodm/nodeodx
 ```
 
+#### Reasons to Migrate
+
+ * Guarantee compatibility with future versions of WebODM.
+ * NodeODX does not have deprecation warnings.
+
 ### PyODM
 
 [PyODM](https://github.com/OpenDroneMap/PyODM) is replaced by [PyODX](https://github.com/WebODM/PyODX). To migrate:
@@ -79,6 +97,11 @@ from pyodx.exceptions import GenericError
 
 There are no other changes. See also [PyODX reference](https://pyodx.webodm.org/).
 
+
+#### Reasons to Migrate
+
+ * PyODX keeps receiving updates. PyODM [does not](https://github.com/OpenDroneMap/pyodm/releases)
+
 ### ClusterODM
 
 [ClusterODM](https://github.com/OpenDroneMap/ClusterODM) is replaced by [ClusterODX](https://github.com/WebODM/ClusterODX). Change the docker image from `opendronemap/clusterodm` to `webodm/clusterodx`:
@@ -87,10 +110,20 @@ There are no other changes. See also [PyODX reference](https://pyodx.webodm.org/
 docker run --rm -ti -p 3000:3000 -p 8080:8080 webodm/clusterodx
 ```
 
+#### Reasons to Migrate
+
+ * ClusterODX keeps receiving updates. ClusterODM [does not](https://github.com/OpenDroneMap/ClusterODM/releases)
+ * ClusterODX does not have deprecation warnings.
+
 ### CloudODM
 
 [CloudODM](https://github.com/OpenDroneMap/CloudODM) is replaced by [CloudODX](https://github.com/WebODM/CloudODX). Up to date releases are now published at [https://github.com/WebODM/CloudODX/releases/](https://github.com/WebODM/CloudODX/releases/).
 
+#### Reasons to Migrate
+
+ * CloudODX keeps receiving updates. CloudODM [does not](https://github.com/OpenDroneMap/cloudodm/releases)
+
 ### Migration Help
 
 Have any questions? Join a [community](https://webodm.org/community) and someone will help you.
+
