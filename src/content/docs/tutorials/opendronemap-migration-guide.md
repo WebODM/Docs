@@ -45,7 +45,7 @@ docker run -ti --rm -v /my/project:/datasets/code webodm/odx --project-path /dat
  * ODX supports checkpoints, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1302)
  * ODX supports GPU feature matching, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1951)
 
-There's [plenty of other improvements](https://github.com/WebODM/ODX/releases) that have been added to ODX that ODM does not have.
+There's [plenty of other improvements and fixes](https://github.com/WebODM/ODX/releases) that have been added to ODX that are missing from ODM.
 
 #### Developers
 :::note
