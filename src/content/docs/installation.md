@@ -17,7 +17,7 @@ If you're on Linux, you need to use docker (see below).
 
 :::note
 
-OpenDroneMap, which we are [no longer affiliated with](https://webodm.org/blog/announcement/), sells installers of an older, rebranded version of WebODM. Please know that official up-to-date WebODM installers are free to download and use and that purchasing from OpenDroneMap does not support WebODM.
+OpenDroneMap, which we are [no longer affiliated with](https://webodm.org/blog/announcement/), sells installers of an older, rebranded version of WebODM. Please know that official up-to-date WebODM installers are [free to download](https://webodm.org/download) and use and that purchasing from OpenDroneMap does not support WebODM.
 
 :::
 
