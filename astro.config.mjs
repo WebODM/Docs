@@ -113,6 +113,10 @@ export default defineConfig({
 							label: 'Options Selection Guide',
 							slug: 'tutorials/options-selection-guide'
 						},
+						{
+							label: 'OpenDroneMap Migration Guide',
+							slug: 'tutorials/opendronemap-migration-guide'
+						},
 					]
 				},
 				{
