@@ -2,7 +2,13 @@
 title: OpenDroneMap Migration Guide
 ---
 
-This guide covers the steps needed to migrate from OpenDroneMap's ecosystem to WebODM's ecosystem. In most cases, migrating is just a matter of switching to the new docker images or packages.
+:::note
+
+On April 6th 2026, [WebODM split from OpenDroneMap](https://webodm.org/blog/announcement/). See below how to migrate to make sure you continue to receive the latest software updates from the WebODM team.
+
+:::
+
+This guide covers the steps needed to migrate from OpenDroneMap's ecosystem to WebODM's. In most cases, migrating is just a matter of switching to the new docker images or packages.
 
 ### WebODM
 
@@ -84,3 +90,7 @@ docker run --rm -ti -p 3000:3000 -p 8080:8080 webodm/clusterodx
 ### CloudODM
 
 [CloudODM](https://github.com/OpenDroneMap/CloudODM) is replaced by [CloudODX](https://github.com/WebODM/CloudODX). Up to date releases are now published at [https://github.com/WebODM/CloudODX/releases/](https://github.com/WebODM/CloudODX/releases/).
+
+### Migration Help
+
+Have any questions? Join a [community](https://webodm.org/community) and someone will help you.
