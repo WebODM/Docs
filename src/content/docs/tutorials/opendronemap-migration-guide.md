@@ -24,7 +24,7 @@ If you have an installation under `C:\OpenDroneMap`, rename the folder to `C:\We
 Make a backup copy of the folder before doing the upgrade, just in case.
 :::
 
-If you manually added processing nodes or modified the docker .yml files, just make sure the processing nodes uses `webodm/nodeodx` instead of `opendronemap/nodeodm`. Make sure you are using `webodm/webodm_webapp` and not `opendronemap/webodm_webapp`. See the [this file](https://github.com/WebODM/WebODM/blob/master/docker-compose.nodeodm.yml).
+If you manually added processing nodes or modified the docker .yml files, just make sure the processing nodes uses `webodm/nodeodx` instead of `opendronemap/nodeodm`. Make sure you are using `webodm/webodm_webapp` and not `opendronemap/webodm_webapp`. See [this file](https://github.com/WebODM/WebODM/blob/master/docker-compose.nodeodm.yml).
 
 ### ODM
 
