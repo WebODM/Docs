@@ -3,7 +3,7 @@ title: Commercial Providers
 template: doc
 ---
 
-The following companies provide commercial services for WebODM. They are listed in random order.
+The following companies provide independent, WebODM-related commercial services. They are listed in random order.
 
 <table id="commercial-providers">
 <thead>
