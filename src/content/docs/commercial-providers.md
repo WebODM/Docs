@@ -12,7 +12,7 @@ The following companies provide commercial services for WebODM. They are listed 
 <tbody>
 <tr><td><a href="https://uav4geo.com">UAV4GEO</a></td><td>Operates <a href="https://webodm.net" target="_blank">WebODM Lightning</a> and provides open source development services for WebODM for features and fixes that can be released in the open (no custom or proprietary services are offered).</td><td>USA</td></tr>
 <tr><td><a href="https://aeret.nl">Aeret</a></td><td>Provides hands-on WebODM training, teaching participants how to create high-quality drone mapping products. The course covers the entire workflow, from flight planning and Ground Control Points (GCPs) to data processing with WebODM and analysis of the final results, including orthophotos, point clouds, and elevation models.</td><td>Netherlands</td></tr>
-<tr><td><a href="https://cow.ventures/">cow.ventures</a></td><td> offers research, systems design and WebODM based build-outs and photogrammetry services, with a focus on flood plain mapping, disaster recovery and security work.</td><td>USA</td></tr>
+<tr><td><a href="https://cow.ventures/">cow.ventures</a></td><td> Offers research, systems design and WebODM based build-outs and photogrammetry services, with a focus on flood plain mapping, disaster recovery and security work.</td><td>USA</td></tr>
 </tbody>
 </table>
 
