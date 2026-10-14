@@ -144,6 +144,10 @@ export default defineConfig({
 					slug: 'support-the-project'
 				},
 				{
+					label: 'Commercial Providers',
+					slug: 'commercial-providers'
+				},
+				{
 					label: 'Feedback & Feature Requests',
 					slug: 'feedback-feature-requests'
 				},
