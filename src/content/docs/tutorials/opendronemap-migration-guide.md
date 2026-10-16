@@ -76,6 +76,7 @@ docker run -ti --rm -p 3000:3000 webodm/nodeodx
 
 #### Reasons to Migrate
 
+ * NodeODX correctly handles file streams, NodeODM [does not](https://github.com/OpenDroneMap/NodeODM/issues/262)
  * Guarantee compatibility with future versions of WebODM.
  * NodeODX does not have deprecation warnings.
 
