@@ -3,7 +3,13 @@ title: Plugin Development Guide
 template: doc
 ---
 
-WebODM lets you write plugins, which you can distribute as .zip files or share them with the world by adding them to the `coreplugins` folder of WebODM (and opening a pull request). This is a flexible option for those that don't want to maintain a separate fork, yet want to add new functionalities to WebODM.
+:::tip
+
+Build without coding: if you can dream it, you can build it. See the [building with machines](#building-with-machines) section.
+
+:::
+
+WebODM lets you write plugins, which you can distribute as .zip files or share them with the world by adding them to the [WebODM Plugins Directory](https://github.com/WebODM/WebODM-Plugins). This is a flexible option for those that don't want to maintain a separate fork, yet want to add new functionalities to WebODM.
 
 You can turn on/off plugins from the Dashboard via the **Administration** --> **Plugins** menu.
 
@@ -348,9 +354,27 @@ Data saved in this manner is stored **unencrypted** in the *PluginDatum* table. 
 
 ## Publishing Your Plugin
 
-The easiest way to share your work is to open a pull request in the WebODM repository. At some point in the future we might create some sort of plugin repository where people can browse and download plugins, but we aren't quite there yet.
+There are two distribution methods for plugins. For both methods, you should first create a zip file of the entire plugin folder (e.g. `my-plugin`) with the folder as the top level entry in the zip archive.
 
-You can also create a zip file of the entire plugin folder (e.g. `my-plugin`) with the folder as the top level entry in the zip archive and distribute the zip file manually. Users can then install the plugin by pressing the **Load Plugin (.zip)** button when visiting **Administration** --> **Plugins**.
+### Publish on the WebODM Plugins Directory
+
+You can contribute a plugin to the [WebODM Plugins](https://github.com/WebODM/WebODM-Plugins) repository by first uploading your plugin's zip file somehwere so that it can be downloaded from a public URL. For this purpose you can use GitHub and create a versioned release, you can host it on your own website or anywhere else you'd like. Afterwards, add the URL of your plugin to [directory.json](https://github.com/WebODM/WebODM-Plugins/edit/main/directory.json). Each entry in the directory needs:
+
+ * The URL of the zip file
+ * The [SHA256](https://emn178.github.io/online-tools/sha256_checksum.html) hash of the zip file
+
+ Publishing on the WebODM Plugins directory will make your plugin visible to installations of WebODM worldwide.
+
+:::note
+
+To be listed in the directory, your plugin must be released under an OSI-approved free and open source license. If you want to sell/distribute proprietary plugins, see direct distribution below.
+
+:::
+
+
+### Direct Distribution
+
+You can distribute plugins directly by simply giving users access to the zip file. Users can then install the plugin by pressing the **Load Plugin (.zip)** button when visiting **Administration** --> **Plugins**.
 
 ## Final Tips
 
@@ -358,3 +382,19 @@ You can also create a zip file of the entire plugin folder (e.g. `my-plugin`) wi
  * If you need a new hook, callback or signal, open a pull request and let's add it into the system.
  * With time, this documentation might fall out of date. If something doesn't seem to match what you see in this page or doesn't seem to work, check the code! The plugin system is not complicated and can be read from start to finish in less than a few hours. Read `app/plugins` and `app/static/app/js/classes/plugins`.
  * Have fun :)
+
+ ## Building With Machines
+
+ You can use help from tools like Claude to build WebODM plugins. Simply start a new coding session and copy/paste the following prompt:
+
+ ```
+ We need to build a WebODM plugin: follow the instructions on https://github.com/WebODM/WebODM-Plugins-Guidance for all you need to know to get started.
+
+The plugin should [enter what you want to build here]
+```
+
+A few tips when working with machines:
+ * Always test the results (does the plugin work the way you expect it to?)
+ * [Don't trust the machine](https://thebullshitmachines.com/) with everything it says
+ * Use a frontier model like Opus 5.5 or GPT Astra for best results.
+ * Experiment, have fun! Sky's the limit.
