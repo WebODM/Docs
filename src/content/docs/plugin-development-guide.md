@@ -3,9 +3,9 @@ title: Plugin Development Guide
 template: doc
 ---
 
-:::tip
+:::tip[Build without coding]
 
-Build without coding: if you can dream it, you can build it. See the [building with machines](#building-with-machines) section.
+If you can dream it, you can build it. See the [building with machines](#building-with-machines) section.
 
 :::
 
