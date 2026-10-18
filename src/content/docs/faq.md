@@ -51,7 +51,8 @@ Nope, sorry!
 
 1. First you can buy more RAM, this is the ultimate and final solution.
 2. Alternatively you can resize the images when uploading and/or tweak your quality settings.
-3. Configure a swapfile. In both Windows and Linux you will need preferably a fast SSD or an NVME drive, and the computing process will be still a LOT slower.
+3. If you're using docker and you're on Windows or macOS, make sure you have configured docker to use up to 70-80% of the computer's RAM.
+4. Configure a swapfile. In both Windows and Linux you will need preferably a fast SSD or an NVME drive, and the computing process will be still a LOT slower.
 
    - If you are using Windows with [Docker+WSL2](https://docs.docker.com/desktop/windows/wsl/) you can add two rows in your .wslconfig file so that Docker will use a swapfile. See also the full Microsoft documentation on [Advanced settings configuration in WSL](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
 
