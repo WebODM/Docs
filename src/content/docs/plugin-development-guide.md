@@ -393,6 +393,12 @@ You can distribute plugins directly by simply giving users access to the zip fil
 The plugin should [enter what you want to build here]
 ```
 
+Follow the prompt until the plugin works the way you like. When you are ready to publish, simply say:
+
+```
+Ready to distribute
+```
+
 A few tips when working with machines:
  * Always test the results (does the plugin work the way you expect it to?)
  * [Don't trust the machine](https://thebullshitmachines.com/) with everything it says
