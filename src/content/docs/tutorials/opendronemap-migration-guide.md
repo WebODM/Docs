@@ -44,6 +44,7 @@ docker run -ti --rm -v /my/project:/datasets/code webodm/odx --project-path /dat
  * ODX merges split-merge orthophotos quickly, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/2034)
  * ODX supports checkpoints, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1302)
  * ODX supports GPU feature matching, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/1951)
+ * ODX builds on Windows, ODM [does not](https://github.com/OpenDroneMap/ODM/issues/2083)
 
 There's [plenty of other improvements and fixes](https://github.com/WebODM/ODX/releases) that have been added to ODX that are missing from ODM.
 
