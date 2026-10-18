@@ -402,5 +402,5 @@ Ready to distribute
 A few tips when working with machines:
  * Always test the results (does the plugin work the way you expect it to?)
  * [Don't trust the machine](https://thebullshitmachines.com/) with everything it says
- * Use a frontier model like Opus 5.5 or GPT Astra for best results.
- * Experiment, have fun! Sky's the limit.
+ * Use a frontier model for best results
+ * Experiment, have fun! Sky's the limit
