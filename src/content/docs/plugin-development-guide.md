@@ -385,7 +385,7 @@ You can distribute plugins directly by simply giving users access to the zip fil
 
  ## Building With Machines
 
- You can use help from tools like Claude to build WebODM plugins. Simply start a new coding session and copy/paste the following prompt:
+ You can use tools like Claude to build WebODM plugins. Simply start a new coding session and copy/paste the following prompt:
 
  ```
  We need to build a WebODM plugin: follow the instructions on https://github.com/WebODM/WebODM-Plugins/blob/main/guidance/index.md for all you need to know to get started.
