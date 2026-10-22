@@ -69,4 +69,4 @@ Yes. It can also parse .SRT and .GPX files for georeferencing video frames.
 
 ## Is WebODM really free? What's the catch?
 
-No catch. WebODM is free and open source software. It's also licensed under the AGPLv3, which means it will stay that way.
+No catch. WebODM is free and open source software. It's also licensed under the AGPLv3, which means it will stay that way, forever.
