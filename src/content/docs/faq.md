@@ -63,3 +63,10 @@ Nope, sorry!
 
    - In Linux you can add a swap file or a partition dedicated to swap. For more information, please consult your search engine of choice as there are a lot of different distributions and methods to add swap.
 
+## Does WebODM process video?
+
+Yes. It can also parse .SRT and .GPX files for georeferencing video frames.
+
+## Is WebODM really free? What's the catch?
+
+No catch. WebODM is free and open source software. It's also licensed under the AGPLv3, which means it will stay that way.
