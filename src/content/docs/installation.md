@@ -119,7 +119,7 @@ To install WebODM on a Qnap NAS:
 
 ### Manage Processing Nodes
 
-WebODM can be linked to one or more processing nodes that speak the [NodeODX API](https://github.com/WebODM/NodeODX/blob/master/docs/index.adoc), such as [NodeODX](https://github.com/WebODM/NodeODX), [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/), [ClusterODX](https://github.com/WebODM/ClusterODX) and [Lightning](https://webodm.net). The default configuration includes a "node-odx-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
+WebODM can be linked to one or more processing nodes that speak the [NodeODX API](https://github.com/WebODM/NodeODX/blob/master/docs/index.adoc), such as [NodeODX](https://github.com/WebODM/NodeODX), [ClusterODX](https://github.com/WebODM/ClusterODX) and [Lightning](https://webodm.net). The default configuration includes a "node-odx-1" processing node which runs on the same machine as WebODM, just to help you get started. As you become more familiar with WebODM, you might want to install processing nodes on separate machines.
 
 Adding more processing nodes will allow you to run multiple jobs in parallel.
 
@@ -207,14 +207,6 @@ To add IPv6, simply run:
 
 Note: When using `--ssl` mode, you cannot pass an IP address to the hostname parameter; you must set up a DNS AAAA record. Without `--ssl` mode enabled, access the site at (e.g., http://[2001:0db8:3c4d:0015::1]:8000). The brackets around the IPv6 address are essential!
 You can add a new NodeODX node in WebODM by specifying an IPv6 address. Don't forget to include brackets around the address! e.g., [2001:0db8:fd8a:ae80::1]
-
-### Enable MicMac
-
-WebODM can use [MicMac](https://github.com/OpenDroneMap/micmac) as a processing engine via [NodeMICMAC](https://github.com/OpenDroneMap/NodeMICMAC/). To add MicMac, simply run:
-
-`./webodm.sh restart --with-micmac`
-
-This will create a "node-micmac-1" processing node on the same machine running WebODM. Please note that NodeMICMAC is in active development and is currently experimental. If you find issues, please [report them](https://github.com/OpenDroneMap/NodeMICMAC/issues) on the NodeMICMAC repository.
 
 ## Common Troubleshooting
 
