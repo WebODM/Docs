@@ -352,13 +352,50 @@ ds.get_int("key2")
 
 Data saved in this manner is stored **unencrypted** in the *PluginDatum* table. You can view/edit this data by visiting **Administration** --> **Application** --> **Plugin Datum**.
 
+## Localization
+
+Plugins can be translated by adding a `locale` folder. First, mark your strings for translation:
+
+ * Python: `from django.utils.translation import gettext as _` then `_("My string")`
+ * Django templates: `{% load i18n %}` then `{% trans "My string" %}`
+ * React/Javascript: `import { _ } from 'webodm/classes/gettext';` then `_("My string")`
+
+The `description` field in `manifest.json` is picked up automatically.
+
+### Generate .po Files
+
+```bash
+docker exec -ti webapp python manage.py translate extract --plugin my-plugin
+```
+
+You can pass either the plugin name or a path to the plugin folder. This creates a `.po` file for every language supported by WebODM:
+
+```
+my-plugin/locale/<lang>/LC_MESSAGES/django.po
+my-plugin/locale/<lang>/LC_MESSAGES/djangojs.po
+```
+
+You can manually remove languages you don't want to support.
+
+### Translate
+
+You can edit `.po` files by hand or with any `.po` editor. We recommend using [PoLibre](https://github.com/LibreTranslate/PoLibre).
+
+### Build .mo Files
+
+WebODM automatically compiles `.mo` files from `.po` when installing plugins if `msgfmt` is available, although not all platforms ship with `msgfmt`. To build `.mo` files manually you can run: 
+
+```bash
+docker exec -ti webapp python manage.py translate build --plugin my-plugin
+```
+
 ## Publishing Your Plugin
 
 There are two distribution methods for plugins. For both methods, you should first create a zip file of the entire plugin folder (e.g. `my-plugin`) with the folder as the top level entry in the zip archive.
 
 ### Publish on the WebODM Plugins Directory
 
-You can contribute a plugin to the [WebODM Plugins](https://github.com/WebODM/WebODM-Plugins) repository by first uploading your plugin's zip file somehwere so that it can be downloaded from a public URL. For this purpose you can use GitHub and create a versioned release, you can host it on your own website or anywhere else you'd like. Afterwards, add the URL of your plugin to [directory.json](https://github.com/WebODM/WebODM-Plugins/edit/main/directory.json). Each entry in the directory needs:
+You can contribute a plugin to the [WebODM Plugins](https://github.com/WebODM/WebODM-Plugins) repository by first uploading your plugin's zip file somewhere so that it can be downloaded from a public URL. For this purpose you can use GitHub and create a versioned release, you can host it on your own website or anywhere else you'd like. Afterwards, add the URL of your plugin to [directory.json](https://github.com/WebODM/WebODM-Plugins/edit/main/directory.json). Each entry in the directory needs:
 
  * The URL of the zip file
  * The [SHA256](https://emn178.github.io/online-tools/sha256_checksum.html) hash of the zip file
